@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 import { fireworks } from '@ai-sdk/fireworks';
 import {
   customProvider,
@@ -10,18 +10,15 @@ export const DEFAULT_CHAT_MODEL: string = 'chat-model-small';
 
 export const myProvider = customProvider({
   languageModels: {
-    'chat-model-small': openai('gpt-4o-mini'),
-    'chat-model-large': openai('gpt-4o'),
-    'chat-model-reasoning': wrapLanguageModel({
-      model: fireworks('accounts/fireworks/models/deepseek-r1'),
-      middleware: extractReasoningMiddleware({ tagName: 'think' }),
-    }),
-    'title-model': openai('gpt-4-turbo'),
-    'block-model': openai('gpt-4o-mini'),
-  },
-  imageModels: {
-    'small-model': openai.image('dall-e-2'),
-    'large-model': openai.image('dall-e-3'),
+    'chat-model-small': google('gemini-2.0-flash-lite-preview-02-05'),
+    'chat-model-large': google('gemini-2.0-flash'),
+    // 'chat-model-reasoning': wrapLanguageModel({
+    //   model: fireworks('accounts/fireworks/models/deepseek-r1'),
+    //   middleware: extractReasoningMiddleware({ tagName: 'think' }),
+    // }),
+    'chat-model-reasoning': google('gemini-2.0-flash-thinking-exp-01-21'),
+    'title-model': google('gemini-2.0-flash-lite-preview-02-05'),
+    'block-model': google('gemini-2.0-flash'),
   },
 });
 
