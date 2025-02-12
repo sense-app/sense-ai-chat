@@ -1,5 +1,6 @@
 import {
   type Message,
+  convertToCoreMessages,
   createDataStreamResponse,
   smoothStream,
   streamText,
@@ -25,6 +26,8 @@ import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
 import { getWeather } from '@/lib/ai/tools/get-weather';
+import { Action, allActions, getPrompt, KnowledgeBank } from '@/lib/ai/agents/shopper';
+import { reflect } from '@/lib/ai/agents/reflect';
 
 export const maxDuration = 60;
 
@@ -59,25 +62,26 @@ export async function POST(request: Request) {
     messages: [{ ...userMessage, createdAt: new Date(), chatId: id }],
   });
 
+  const knowledgeBank: KnowledgeBank = {
+    coreMessages: convertToCoreMessages(messages),
+    availableActions: allActions,
+  } 
+
   return createDataStreamResponse({
     execute: (dataStream) => {
       const result = streamText({
-        model: myProvider.languageModel(selectedChatModel),
-        system: systemPrompt({ selectedChatModel }),
-        messages,
-        maxSteps: 5,
-        experimental_activeTools:
-          selectedChatModel === 'chat-model-reasoning'
-            ? []
-            : [
-                'getWeather',
-                'createDocument',
-                'updateDocument',
-                'requestSuggestions',
-              ],
+        model: myProvider.languageModel('chat-model-reasoning'),
+        prompt: getPrompt(knowledgeBank),
+        maxSteps: 20,
+        experimental_activeTools: [
+          'reflect',
+        ],
         experimental_transform: smoothStream({ chunking: 'word' }),
         experimental_generateMessageId: generateUUID,
+        experimental_continueSteps: true,
+        toolCallStreaming: true,
         tools: {
+          reflect: reflect({dataStream, knowledgeBank}),
           getWeather,
           createDocument: createDocument({ session, dataStream }),
           updateDocument: updateDocument({ session, dataStream }),

@@ -1,12 +1,38 @@
-import { CoreMessage } from "ai";
-import { url } from "inspector";
+import { CoreMessage, DataStreamWriter } from "ai";
 
-type Action = "search" | "answer" | "reflect" | "visit";
-const actionMap = {
-    search: "Query external sources using a public search engine. Focus on solving one specific aspect of the question. Only give keywords search query, not full sentences",
-    answer: "Provide accurate answers to the question.",
-    reflect: "Breakdown user's intent and question to smaller questions that you can first the find the answer. This helps to answer the user's question in a more efficient way. ",
-    visit: "Visit any URL from the available URLs to get more information",
+/*
+Query: Phones under $200
+1. Reflect - Breakdown the query into smaller questions (what phones are popular under $200, what stores sell smart phones?)
+2. Search - Search the web for the query
+3. Visit - Visit the URLs to get more information
+4. Learn - get the name of products
+5. Search - search the products in the stores
+6. Visit - Visit the URLs to get more information
+7. Aggregate - Aggregate the products from different stores
+8. Answer - Answer the user's question with structured product data
+*/
+
+export enum Action {
+    Reflect,
+    Search,
+    Visit,
+    Learn,
+    Aggregate,
+    Answer,
+    Invalid
+}
+
+export const allActions = new Set([Action.Reflect, Action.Search, Action.Visit, Action.Learn, Action.Aggregate, Action.Answer, Action.Invalid]);
+
+const actionMap: Record<Action, string> = {
+    [Action.Reflect]: `Breakdown user's intent and questions to smaller shopping related questions that you can first the find the answer. 
+    This helps to answer the user's question in a more efficient way. Choose questions that narrows down the product, stores that sell the product, etc. `,
+    [Action.Search]: "Query external sources using a public search engine. Focus on solving one specific aspect of the question. Only give keywords search query, not full sentences",
+    [Action.Visit]: "Visit any URLs from the available URLs to get more information",
+    [Action.Learn]: `Identify key learnings from the content. Focus on the products that matches user's query, stores that sell the product and key metrics to find the best matching results.`,
+    [Action.Aggregate]: "Aggregate the products from different stores into structured json format. Include as many details as possible. Include product name, price, description, reviews, store name, offers, images, delivery details etc.",
+    [Action.Answer]: "Answer the user's query full and complete with structured product data",
+    [Action.Invalid]: "If user asks any non-shopping related query, politely decline saying sorry and explain why the user's query is not shopping related"
 };
 
 type BaseAction = {
@@ -19,7 +45,7 @@ export type SearchAction = BaseAction & {
     searchQuery: string;
 };
 
-export type AnswerAction = BaseAction & {
+export type LearnAction = BaseAction & {
     action: "answer";
     answer: string;
     references: Array<{
@@ -38,7 +64,7 @@ export type VisitAction = BaseAction & {
     URLTargets: string[];
 };
 
-export type StepAction = SearchAction | AnswerAction | ReflectAction | VisitAction;
+export type StepAction = SearchAction | LearnAction | ReflectAction | VisitAction;
 
 export interface Learning {
     question: string;
@@ -54,12 +80,17 @@ export interface KnowledgeBank {
     coreMessages: CoreMessage[];
     steps?: string[];
     urls?: string[];
-    availableActions: Action[];
+    availableActions: Set<Action>;
     learnings?: Learning[];
     questions?: string[];
 }
 
-const getPrompt = (knowledgeBank: KnowledgeBank) => {
+export interface ChatState {
+    dataStream: DataStreamWriter;
+    knowledgeBank: KnowledgeBank;
+  }
+
+export const getPrompt = (knowledgeBank: KnowledgeBank) => {
     const { coreMessages, steps, urls, availableActions, learnings, questions } = knowledgeBank;
     const sections: string[] = [];
 
@@ -107,8 +138,10 @@ const getPrompt = (knowledgeBank: KnowledgeBank) => {
     if (availableActions) {
         sections.push(`## Available Actions
             You can take the following actions that best suits the current context:
-            ${availableActions.map(action => `${action} - ${actionMap[action]}`).join('\n')}`);
+            ${Array.from(availableActions).map(action => `${action} - ${actionMap[action]}`).join('\n')}`);
     }
 
     return sections.join('\n\n');
 }
+
+
