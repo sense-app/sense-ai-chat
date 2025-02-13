@@ -23,13 +23,26 @@ export const read = ({dataStream, knowledgeBank}: ChatState) =>  tool({
         const userQuery = knowledgeBank.coreMessages[knowledgeBank.coreMessages.length - 1].content.toString();
 
         const result = await learn(userQuery, knowledgeBank.questions ?? [], contents);
-        knowledgeBank.learnings?.push(...result.learnings);
-        knowledgeBank.questions?.push(...result.followUpQuestions);
+        knowledgeBank.learnings.push(...result.learnings);
+        knowledgeBank.questions.push(...result.followUpQuestions);
         knowledgeBank.products.push(...result.products);
         knowledgeBank.availableActions = allActions;
-        if (result.products.length > 0) {
+        if (result.products?.length > 0) {
+            knowledgeBank.products.push(...result.products);
             dataStream.writeData(`Found ${result.products.length} products`);
         }
+        if (result.learnings?.length > 0) {
+            knowledgeBank.learnings.push(...result.learnings);
+        }
+        if (result.followUpQuestions?.length > 0) {
+            knowledgeBank.questions.push(...result.followUpQuestions);
+        }
+
+        // Remove the processed URLs from searchResults
+        const urlSet = new Set(urls);
+        knowledgeBank.searchResults = knowledgeBank.searchResults.filter(
+            result => !urlSet.has(result.url)
+        );
       },
 });
 
