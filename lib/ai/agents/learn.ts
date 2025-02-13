@@ -29,11 +29,13 @@ const getPrompt = (userQuery: string, questions: string[], contents: string[]) =
 }
 
 export const learn = async (userQuery: string, questions: string[], contents: string[]): Promise<Learnings> => {
+    const prompt = getPrompt(userQuery, questions, contents);
+    console.log("learn", prompt);
     const response = await generateObject({
         model: myProvider.languageModel('chat-model-reasoning'),
         schema: LearningsSchema,
         prompt: getPrompt(userQuery, questions, contents)
     });
-
+    console.log(response);
     return response.object as Learnings;
 }

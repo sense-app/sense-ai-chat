@@ -69,7 +69,7 @@ export async function POST(request: Request) {
   };
 
   return createDataStreamResponse({
-    execute: (dataStream) => {
+    execute: async (dataStream) => {
       const result = streamText({
         model: myProvider.languageModel('chat-model-reasoning'),
         system: SHOPPING_SYSTEM_PROMPT,
@@ -118,10 +118,14 @@ export async function POST(request: Request) {
           functionId: 'stream-text',
         },
       });
-
+      // .mergeIntoDataStream(dataStream, {
+      //   sendReasoning: true,
+      // });
       result.mergeIntoDataStream(dataStream, {
         sendReasoning: true,
       });
+
+      console.dir(await result.steps, { depth: null });
     },
     onError: () => {
       return 'Oops, an error occured!';

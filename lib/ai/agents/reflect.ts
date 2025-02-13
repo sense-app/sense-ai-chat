@@ -11,9 +11,11 @@ export const reflect = ({dataStream, knowledgeBank}: ChatState) =>  tool({
     execute: async(params) => {
       const { questions } = params;
       dataStream.writeData(`Reflecting on the user's question: ${questions.join(', ')}`);
+      console.log(`Reflecting on the user's question: ${questions.join(', ')}`)
       const result = await deduplicate(questions, knowledgeBank.questions ?? []);
       knowledgeBank.questions?.push(...result.uniqueQueries);
       knowledgeBank.availableActions = excludeActions([Action.Reflect]);
       dataStream.writeData(`Reasoning the following questions: ${result.uniqueQueries.join(', ')}`);
+      console.dir(knowledgeBank, {depth: null})
     },
 });

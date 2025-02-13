@@ -19,6 +19,7 @@ export const search = ({dataStream, knowledgeBank}: ChatState) =>  tool({
       execute: async(params) => {
         const { queries } = params;
         dataStream.writeData(`Searching web for ${queries.join(', ')}`);
+        console.log(`Searching web for ${queries.join(', ')}`);
         const seachQueries = await rewriteQuery(queries);
 
         const results = (await Promise.all(
@@ -43,6 +44,6 @@ export const search = ({dataStream, knowledgeBank}: ChatState) =>  tool({
         knowledgeBank.availableActions = allActions;
 
         dataStream.writeData(`Found ${searchResults?.length || 'no'} results`);
-      
+        console.dir(knowledgeBank, {depth: null});
       },
   });

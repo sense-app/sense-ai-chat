@@ -83,6 +83,7 @@ function getPrompt(query: string): string {
   }
 
   export const rewriteQuery = async (queries: string[]): Promise<SearchQueries> => {
+    console.log("rewriteQuery", queries);
       const responses = await Promise.all(
           queries.map(query => 
               generateObject({
@@ -92,6 +93,8 @@ function getPrompt(query: string): string {
               })
           )
       );
+
+      console.log(responses);
   
       return {
           thought: responses.map(r => r.object.thought).join('\n\n'),

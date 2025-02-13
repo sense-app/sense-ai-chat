@@ -15,6 +15,7 @@ export const read = ({dataStream, knowledgeBank}: ChatState) =>  tool({
         const { urls } = params;
         const domains = urls.map(url => new URL(url).hostname);
         dataStream.writeData(`Learning from domains: ${domains.join(', ')}`);
+        console.log(`Learning from domains: ${domains.join(', ')}`);
 
         const contents = (await Promise.all(
             urls.map(url => readWebpageContent(url))
@@ -43,6 +44,8 @@ export const read = ({dataStream, knowledgeBank}: ChatState) =>  tool({
         knowledgeBank.searchResults = knowledgeBank.searchResults.filter(
             result => !urlSet.has(result.url)
         );
+
+        console.dir(knowledgeBank, {depth: null})
       },
 });
 
