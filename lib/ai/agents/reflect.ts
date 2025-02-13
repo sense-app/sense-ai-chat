@@ -1,6 +1,6 @@
 import { tool } from 'ai';
 import { z } from 'zod';
-import { ChatState } from './shopper';
+import { Action, allActions, ChatState, excludeActions } from './shopper';
 import { deduplicate } from './deduplicator';
 
 export const reflect = ({dataStream, knowledgeBank}: ChatState) =>  tool({
@@ -12,7 +12,8 @@ export const reflect = ({dataStream, knowledgeBank}: ChatState) =>  tool({
       const { questions } = params;
       dataStream.writeData(`Reflecting on the user's question: ${questions.join(', ')}`);
       const result = await deduplicate(questions, knowledgeBank.questions ?? []);
-      knowledgeBank.questions = result.uniqueQueries;
+      knowledgeBank.questions?.push(...result.uniqueQueries);
+      knowledgeBank.availableActions = excludeActions([Action.Reflect]);
       dataStream.writeData(`Reasoning the following questions: ${result.uniqueQueries.join(', ')}`);
     },
 });

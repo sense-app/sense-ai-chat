@@ -1,4 +1,6 @@
 import { CoreMessage, DataStreamWriter } from "ai";
+import { SearchResult } from "./search";
+import { z } from "zod";
 
 /*
 Query: Phones under $200
@@ -23,6 +25,10 @@ export enum Action {
 }
 
 export const allActions = new Set([Action.Reflect, Action.Search, Action.Visit, Action.Learn, Action.Aggregate, Action.Answer, Action.Invalid]);
+
+export const excludeActions = (excludeList: Action[]): Set<Action> => {
+    return new Set([...allActions].filter(action => !excludeList.includes(action)));
+}
 
 const actionMap: Record<Action, string> = {
     [Action.Reflect]: `Breakdown user's intent and questions to smaller shopping related questions that you can first the find the answer. 
@@ -55,8 +61,8 @@ export type LearnAction = BaseAction & {
 };
 
 export type ReflectAction = BaseAction & {
-        action: "reflect";
-questionsToAnswer: string[];
+    action: "reflect";
+    questionsToAnswer: string[];
 };
 
 export type VisitAction = BaseAction & {
@@ -65,6 +71,31 @@ export type VisitAction = BaseAction & {
 };
 
 export type StepAction = SearchAction | LearnAction | ReflectAction | VisitAction;
+
+
+export const productSchema = z.object({
+    name: z.string(),
+    description: z.string(),
+    price: z.number(),
+    shopUrl: z.string().url(),
+    imageUrl: z.string().url(),
+    category: z.string(),
+    review: z.string(),
+    originalPrice: z.number(),
+    currencyCode: z.string(),
+    deliveryDetails: z.string(),
+    remarks: z.string(),
+    latestOffers: z.string(),
+    store: z.object({
+        name: z.string(),
+        description: z.string(),
+        imageUrl: z.string().url(),
+        shopUrl: z.string().url(),
+    })
+});
+
+export type Product = z.infer<typeof productSchema>;
+
 
 export interface Learning {
     question: string;
@@ -79,10 +110,11 @@ export interface Learning {
 export interface KnowledgeBank {
     coreMessages: CoreMessage[];
     steps?: string[];
-    urls?: string[];
     availableActions: Set<Action>;
-    learnings?: Learning[];
+    learnings?: string[];
     questions?: string[];
+    searchResults?: SearchResult[];
+    products: Product[];
 }
 
 export interface ChatState {
@@ -91,7 +123,7 @@ export interface ChatState {
   }
 
 export const getPrompt = (knowledgeBank: KnowledgeBank) => {
-    const { coreMessages, steps, urls, availableActions, learnings, questions } = knowledgeBank;
+    const { coreMessages, steps, availableActions, learnings, questions } = knowledgeBank;
     const sections: string[] = [];
 
     sections.push(`you are an advanced shopping assistant. 
@@ -111,17 +143,17 @@ export const getPrompt = (knowledgeBank: KnowledgeBank) => {
             ${steps.join('\n')}`);
     }
 
-    if (learnings) {
-        sections.push(`## Learnings
-            You have learned the following:
-            ${learnings.map(learning => `
-                Question: ${learning.question}
-                Answer: ${learning.answer}
-                Is Acceptable: ${learning.isAcceptable}
-                Evaluation: ${learning.evaluation}
-                Improvement: ${learning.improvement}
-                Recap: ${learning.recap}`).join('\n')}`);
-    }
+    // if (learnings) {
+    //     sections.push(`## Learnings
+    //         You have learned the following:
+    //         ${learnings.map(learning => `
+    //             Question: ${learning.question}
+    //             Answer: ${learning.answer}
+    //             Is Acceptable: ${learning.isAcceptable}
+    //             Evaluation: ${learning.evaluation}
+    //             Improvement: ${learning.improvement}
+    //             Recap: ${learning.recap}`).join('\n')}`);
+    // }
 
     if (questions) {
         sections.push(`## Questions
@@ -129,11 +161,11 @@ export const getPrompt = (knowledgeBank: KnowledgeBank) => {
             ${questions.join('\n')}`);
     }
 
-    if (urls) {
-        sections.push(`## URLs
-            You have collected all these URLs. You can decide to visit them or not based on your knowledge to get more information:
-            ${urls.join('\n')}`);
-    }
+    // if (urls) {
+    //     sections.push(`## URLs
+    //         You have collected all these URLs. You can decide to visit them or not based on your knowledge to get more information:
+    //         ${urls.join('\n')}`);
+    // }
 
     if (availableActions) {
         sections.push(`## Available Actions
