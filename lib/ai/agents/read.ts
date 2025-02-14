@@ -1,6 +1,6 @@
 import { tool } from 'ai';
 import { z } from 'zod';
-import { allActions, ChatState } from './shopper';
+import { allActions, ChatState, getPrompt } from './shopper';
 import { learn } from './learn';
 
 const JINA_URL = `https://r.jina.ai/`;
@@ -9,12 +9,15 @@ const JINA_URL = `https://r.jina.ai/`;
 export const read = ({dataStream, knowledgeBank}: ChatState) =>  tool({
     description: 'Visit webpages given their urls, read the content and learn from it.',
     parameters: z.object({
-      urls: z.array(z.string().url())
+      urls: z.array(z.string())
     }),
       execute: async(params) => {
         const { urls } = params;
         const domains = urls.map(url => new URL(url).hostname);
-        dataStream.writeData(`Learning from domains: ${domains.join(', ')}`);
+        dataStream.writeData({
+            type: 'read',
+            content: `Learning from domains: ${domains.join(', ')}`
+        });
         console.log(`Learning from domains: ${domains.join(', ')}`);
 
         const contents = (await Promise.all(
@@ -24,13 +27,13 @@ export const read = ({dataStream, knowledgeBank}: ChatState) =>  tool({
         const userQuery = knowledgeBank.coreMessages[knowledgeBank.coreMessages.length - 1].content.toString();
 
         const result = await learn(userQuery, knowledgeBank.questions ?? [], contents);
-        knowledgeBank.learnings.push(...result.learnings);
-        knowledgeBank.questions.push(...result.followUpQuestions);
-        knowledgeBank.products.push(...result.products);
         knowledgeBank.availableActions = allActions;
         if (result.products?.length > 0) {
             knowledgeBank.products.push(...result.products);
-            dataStream.writeData(`Found ${result.products.length} products`);
+            dataStream.writeData({
+                type: 'products',
+                content: `Found ${result.products.length} products`
+            });
         }
         if (result.learnings?.length > 0) {
             knowledgeBank.learnings.push(...result.learnings);
@@ -45,7 +48,10 @@ export const read = ({dataStream, knowledgeBank}: ChatState) =>  tool({
             result => !urlSet.has(result.url)
         );
 
+        console.log("read knowledgeBank");
         console.dir(knowledgeBank, {depth: null})
+
+        return getPrompt(knowledgeBank);
       },
 });
 

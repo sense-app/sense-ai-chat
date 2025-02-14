@@ -87,7 +87,7 @@ function getPrompt(query: string): string {
       const responses = await Promise.all(
           queries.map(query => 
               generateObject({
-                  model: myProvider.languageModel('chat-model-small'),
+                  model: myProvider.languageModel('chat-model-large'),
                   schema: searchQueriesSchema,
                   prompt: getPrompt(query)
               })

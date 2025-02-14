@@ -38,8 +38,8 @@ export const productSchema = z.object({
     name: z.string(),
     description: z.string(),
     price: z.number(),
-    shopUrl: z.string().url(),
-    imageUrl: z.string().url(),
+    productURL: z.string().describe('The product URL to purchase from the online store. This has to be the url of the e-commerce store. Not any other URL like blog, articles etc.'),
+    imageUrl: z.string().describe('URL of the product image from the e-commerce store where this product can be purchased'),
     category: z.string(),
     review: z.string(),
     originalPrice: z.number(),
@@ -50,8 +50,8 @@ export const productSchema = z.object({
     store: z.object({
         name: z.string(),
         description: z.string(),
-        imageUrl: z.string().url(),
-        shopUrl: z.string().url(),
+        imageUrl: z.string().describe('URL of the store image. The image url should come from the e-commerce store'),
+        shopUrl: z.string().describe('URL of the e-commerce store that sells the product. The product URL and shop URL should come from the same e-commerce store'),
     })
 });
 
@@ -92,10 +92,15 @@ export interface ChatState {
 
 export const SHOPPING_SYSTEM_PROMPT = `
     You are an advanced shopping assistant. 
-    Your role is to understand the user's intent and get the best products that match the results. 
-    You should use your prior training knowledge as well search web in real-time to find products and with your best effort, get name, price, description, reviews, store name, delivery details etc. 
-    Generally, if the product is a branded product, then find the product in the stores that are near to the user's location or able to deliver online. Compare the prices, latest offers and other details for the products across different stores.
-    If the product is common non-branded product, then first find all the stores that sell product nearer to user's location and then find the product.
+    Your role is to understand the user's intent and get the best shopping products that match the user's query.
+    
+    ##Strategies
+    
+    1. If the user is looking for a specific branded products, the find narrow down all the branded products that match user's creteria. Then search for e-commerce stores that sell that exact product. Get all product details from those stores.
+    2. If the user is looking for generic products like apples, fruits, vegetables, oil etc., then find the e-commerce stores that sell those products first. Then search those specific e-commerce stores for those products and get all product details.
+    
+    You can use the above strategies or any other approaches that deem best to answer user's query.
+    You should use your prior training knowledge as well as search web real-time to find products and with your best effort. Get all product details such as name, price, product url from e-commerce store to purchase, description, reviews, e-commerce store name, delivery details, latest offers etc. 
     If the user asks a non-shopping related query, then politely decline saying sorry and explain why the user's query is not shopping related
 `;
 
@@ -107,25 +112,25 @@ export const getPrompt = (knowledgeBank: KnowledgeBank) => {
     sections.push(`## User's query
         ${userQuestion}`);
 
-    if (questions) {
+    if (questions.length > 0) {
         sections.push(`## Questions
             You have collected all these questions that maybe relevant to answer first in order to answer the user's query
             ${questions.join('\n')}`);
     }
 
-    if (searchResults) {
+    if (searchResults.length > 0) {
         sections.push(`## Search Results
             You have searched the web and collected all these search results. You can decide to visit them or not based on your knowledge to get more information:
             ${searchResults.map(result => `URL: ${result.url}\t title: ${result.title}\t description: ${result.description}\t icon: ${result.icon} `).join('\n')}`);
     }
 
-    if (learnings) {
+    if (learnings.length > 0) {
         sections.push(`## Learnings
             You have learned the following from searching the web online:
             ${learnings.join('\n')}`);
     }
 
-    if (products) {
+    if (products.length > 0) {
         sections.push(`## Products
             You have found the following products so far from searching online. You can use them or continue doing more research until you have aggregated enough relevant products to answer the user:
             ${products.map(product => `
@@ -138,7 +143,7 @@ export const getPrompt = (knowledgeBank: KnowledgeBank) => {
                 Delivery: ${product.deliveryDetails}
                 Latest Offers: ${product.latestOffers}
                 Remarks: ${product.remarks}
-                Shop URL: ${product.shopUrl}
+                Shop URL: ${product.productURL}
                 Image URL: ${product.imageUrl}
                 Store:
                     Name: ${product.store.name}
@@ -152,8 +157,10 @@ export const getPrompt = (knowledgeBank: KnowledgeBank) => {
         sections.push(`## Available Actions
             Based on all the above information, you can take one of the following actions.
             If you think you already have aggregated enough products to answer user's query, then simply answer and end.
-            ${Array.from(availableActions).map(action => `${action} - ${actionMap[action]}`).join('\n')}`);
+            ${Array.from(availableActions).map(action => `${Action[action]} - ${actionMap[action]}`).join('\n')}`);
     }
+
+    console.log(sections.join('\n\n'));
 
     return sections.join('\n\n');
 }

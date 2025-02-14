@@ -71,23 +71,20 @@ export async function POST(request: Request) {
   return createDataStreamResponse({
     execute: async (dataStream) => {
       const result = streamText({
-        model: myProvider.languageModel('chat-model-reasoning'),
+        model: myProvider.languageModel('chat-model-large'),
         system: SHOPPING_SYSTEM_PROMPT,
         prompt: getPrompt(knowledgeBank),
         maxSteps: 20,
-        experimental_activeTools: [
-          'reflect',
-          'search',
-          'read'
-        ],
         experimental_transform: smoothStream({ chunking: 'word' }),
         experimental_generateMessageId: generateUUID,
         experimental_continueSteps: true,
-        toolCallStreaming: true,
         tools: {
           reflect: reflect({ dataStream, knowledgeBank }),
           search: search({ dataStream, knowledgeBank }),
           read: read({ dataStream, knowledgeBank }),
+        },
+        onStepFinish(event) {
+          // console.log('onStepFinish', event);
         },
         onFinish: async ({ response, reasoning }) => {
           if (session.user?.id) {
@@ -118,16 +115,17 @@ export async function POST(request: Request) {
           functionId: 'stream-text',
         },
       });
-      // .mergeIntoDataStream(dataStream, {
-      //   sendReasoning: true,
-      // });
+
       result.mergeIntoDataStream(dataStream, {
         sendReasoning: true,
       });
 
-      console.dir(await result.steps, { depth: null });
+      const steps = await result.steps;
+      console.dir(steps, { depth: null });
+      console.log("total steps", steps.length);
     },
-    onError: () => {
+    onError: (error) => {
+      console.log(error);
       return 'Oops, an error occured!';
     },
   });

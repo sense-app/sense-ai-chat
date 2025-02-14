@@ -1,6 +1,6 @@
 import { tool } from 'ai';
 import { z } from 'zod';
-import { Action, allActions, ChatState, excludeActions } from './shopper';
+import { Action, allActions, ChatState, excludeActions, getPrompt } from './shopper';
 import { deduplicate } from './deduplicator';
 
 export const reflect = ({dataStream, knowledgeBank}: ChatState) =>  tool({
@@ -10,12 +10,27 @@ export const reflect = ({dataStream, knowledgeBank}: ChatState) =>  tool({
   }),
     execute: async(params) => {
       const { questions } = params;
-      dataStream.writeData(`Reflecting on the user's question: ${questions.join(', ')}`);
+      dataStream.writeData({ 
+        type: 'reflect', 
+        content:`Reflecting on the user's question: ${questions.join(', ')}`
+      });
+
       console.log(`Reflecting on the user's question: ${questions.join(', ')}`)
-      const result = await deduplicate(questions, knowledgeBank.questions ?? []);
-      knowledgeBank.questions?.push(...result.uniqueQueries);
+
+      let uniqueQueries = questions;
+      if (knowledgeBank.questions.length > 0) {
+        const result = await deduplicate(questions, knowledgeBank.questions);
+        uniqueQueries = result.uniqueQueries;
+      }
+      knowledgeBank.questions = uniqueQueries;
       knowledgeBank.availableActions = excludeActions([Action.Reflect]);
-      dataStream.writeData(`Reasoning the following questions: ${result.uniqueQueries.join(', ')}`);
+
+      dataStream.writeData({
+        type: 'reflect',
+        content: `Reasoning the following questions: ${uniqueQueries.join(', ')}`
+      });
       console.dir(knowledgeBank, {depth: null})
+
+      return getPrompt(knowledgeBank);
     },
 });

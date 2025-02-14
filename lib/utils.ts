@@ -229,3 +229,7 @@ export function getDocumentTimestampByIndex(
 
   return documents[index].createdAt;
 }
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
