@@ -27,7 +27,7 @@ export const excludeActions = (excludeList: Action[]): Set<Action> => {
 }
 
 const actionMap: Record<Action, string> = {
-    [Action.Reflect]: `Breakdown user's intent and questions to smaller shopping related questions that you can first the find the answer. 
+    [Action.Reflect]: `Breakdown user's intent and questions to smaller shopping related questions that you can first find the answer. 
     This helps to answer the user's question in a more efficient way. Choose questions that narrows down the product, stores that sell the product, etc. `,
     [Action.Search]: "Query external sources using a public search engine. Focus on solving one specific aspect of the question. Only give keywords search query, not full sentences",
     [Action.Read]: "Visit any URLs from the available URLs to get more information. Identify key learnings and metrics from the content. Aggregate the products from different stores into structured json format. Include as many details as possible.",
@@ -52,7 +52,7 @@ export const productSchema = z.object({
         description: z.string(),
         imageUrl: z.string().describe('URL of the store image. The image url should come from the e-commerce store'),
         shopUrl: z.string().describe('URL of the e-commerce store that sells the product. The product URL and shop URL should come from the same e-commerce store'),
-    })
+    }).describe('The store that sells the product'),
 });
 
 export type Product = z.infer<typeof productSchema>;
@@ -96,8 +96,8 @@ export const SHOPPING_SYSTEM_PROMPT = `
     
     ##Strategies
     
-    1. If the user is looking for a specific branded products, the find narrow down all the branded products that match user's creteria. Then search for e-commerce stores that sell that exact product. Get all product details from those stores.
-    2. If the user is looking for generic products like apples, fruits, vegetables, oil etc., then find the e-commerce stores that sell those products first. Then search those specific e-commerce stores for those products and get all product details.
+    1. If the user is looking for specific branded products, the first narrow down all the branded products that match user's creteria by searching web online. Then search for e-commerce stores that sell that exact product. Get all product details from those stores.
+    2. If the user is looking for generic products like apples, fruits, vegetables, oil etc., then find the e-commerce stores that sell those products first by searching web online. Then search those specific e-commerce stores for those products and get all product details.
     
     You can use the above strategies or any other approaches that deem best to answer user's query.
     You should use your prior training knowledge as well as search web real-time to find products and with your best effort. Get all product details such as name, price, product url from e-commerce store to purchase, description, reviews, e-commerce store name, delivery details, latest offers etc. 
