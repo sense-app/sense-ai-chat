@@ -8,7 +8,7 @@ interface SearchQuery {
 
 export const serpSearch = async (
   queries: string[],
-  countryCode: string = 'us',
+  countryCode = 'us',
   city?: string,
 ): Promise<any> => {
   const searchQueries: SearchQuery[] = queries.map((q) => ({
@@ -20,6 +20,7 @@ export const serpSearch = async (
   }));
 
   const headers = new Headers({
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     'X-API-KEY': process.env.SERPER_API_KEY!,
     'Content-Type': 'application/json',
   });
