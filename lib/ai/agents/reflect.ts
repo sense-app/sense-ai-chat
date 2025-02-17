@@ -2,8 +2,7 @@ import { tool } from 'ai';
 import { z } from 'zod';
 import {
   Action,
-  allActions,
-  ChatState,
+  type ChatState,
   excludeActions,
   getPrompt,
 } from './shopper1';
