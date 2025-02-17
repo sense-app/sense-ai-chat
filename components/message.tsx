@@ -93,6 +93,13 @@ const PurePreviewMessage = ({
               />
             )}
 
+            {message.annotations && (
+              <MessageReasoning
+                isLoading={isLoading}
+                reasoning={JSON.stringify(message.annotations)}
+              />
+            )}
+
             {(message.content || message.reasoning) && mode === 'view' && (
               <div className="flex flex-row gap-2 items-start">
                 {message.role === 'user' && !isReadonly && (
