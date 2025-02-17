@@ -25,7 +25,14 @@ import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
 import { getWeather } from '@/lib/ai/tools/get-weather';
-import { Action, allActions, defaultKnowledgeBank, getPrompt, KnowledgeBank, SHOPPING_SYSTEM_PROMPT } from '@/lib/ai/agents/shopper';
+import {
+  Action,
+  allActions,
+  defaultKnowledgeBank,
+  getPrompt,
+  KnowledgeBank,
+  SHOPPING_SYSTEM_PROMPT,
+} from '@/lib/ai/agents/shopper';
 import { reflect } from '@/lib/ai/agents/reflect';
 import { search } from '@/lib/ai/agents/search';
 import { read } from '@/lib/ai/agents/read';
@@ -62,7 +69,7 @@ export async function POST(request: Request) {
   await saveMessages({
     messages: [{ ...userMessage, createdAt: new Date(), chatId: id }],
   });
-  
+
   const knowledgeBank: KnowledgeBank = {
     ...defaultKnowledgeBank,
     coreMessages: convertToCoreMessages(messages),
@@ -122,7 +129,7 @@ export async function POST(request: Request) {
 
       const steps = await result.steps;
       console.dir(steps, { depth: null });
-      console.log("total steps", steps.length);
+      console.log('total steps', steps.length);
     },
     onError: (error) => {
       console.log(error);

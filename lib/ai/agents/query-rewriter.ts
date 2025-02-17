@@ -1,21 +1,20 @@
-
 import { generateObject } from 'ai';
 import { z } from 'zod';
 import { myProvider } from '../models';
 
 const searchQueriesSchema = z.object({
-    thought: z.string().describe("Strategic reasoning about query complexity and search approach"),
-    queries: z.array(
-        z.string().describe("Search query with integrated operators")
-    )
-    .describe("Array of search queries with appropriate operators")
+  thought: z
+    .string()
+    .describe('Strategic reasoning about query complexity and search approach'),
+  queries: z
+    .array(z.string().describe('Search query with integrated operators'))
+    .describe('Array of search queries with appropriate operators'),
 });
 
 type SearchQueries = z.infer<typeof searchQueriesSchema>;
 
-
 function getPrompt(query: string): string {
-    return `You are an expert Information Retrieval Assistant. Transform user queries into precise keyword combinations with strategic reasoning and appropriate search operators.
+  return `You are an expert Information Retrieval Assistant. Transform user queries into precise keyword combinations with strategic reasoning and appropriate search operators.
   
   Core Rules:
   1. Generate search queries that directly include appropriate operators
@@ -80,24 +79,26 @@ function getPrompt(query: string): string {
   Now, process this query:
   Input Query: ${query}
   `;
-  }
+}
 
-  export const rewriteQuery = async (queries: string[]): Promise<SearchQueries> => {
-    console.log("rewriteQuery", queries);
-      const responses = await Promise.all(
-          queries.map(query => 
-              generateObject({
-                  model: myProvider.languageModel('chat-model-large'),
-                  schema: searchQueriesSchema,
-                  prompt: getPrompt(query)
-              })
-          )
-      );
+export const rewriteQuery = async (
+  queries: string[],
+): Promise<SearchQueries> => {
+  console.log('rewriteQuery', queries);
+  const responses = await Promise.all(
+    queries.map((query) =>
+      generateObject({
+        model: myProvider.languageModel('chat-model-large'),
+        schema: searchQueriesSchema,
+        prompt: getPrompt(query),
+      }),
+    ),
+  );
 
-      console.log(responses);
-  
-      return {
-          thought: responses.map(r => r.object.thought).join('\n\n'),
-          queries: responses.flatMap(r => r.object.queries)
-      };
+  console.log(responses);
+
+  return {
+    thought: responses.map((r) => r.object.thought).join('\n\n'),
+    queries: responses.flatMap((r) => r.object.queries),
   };
+};

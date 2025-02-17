@@ -11,7 +11,10 @@ interface FormatOptions {
 }
 
 class FormattingError extends Error {
-  constructor(message: string, public originalError?: Error) {
+  constructor(
+    message: string,
+    public originalError?: Error,
+  ) {
     super(message);
     this.name = 'FormattingError';
   }
@@ -19,13 +22,9 @@ class FormattingError extends Error {
 
 export const jsonToLLMFormat = (
   data: JSONValue,
-  options: FormatOptions = {}
+  options: FormatOptions = {},
 ): string => {
-  const {
-    indent = 0,
-    maxDepth = 20,
-    throwOnMaxDepth = false
-  } = options;
+  const { indent = 0, maxDepth = 20, throwOnMaxDepth = false } = options;
 
   try {
     return formatWithDepth(data, indent, 0);
@@ -39,7 +38,7 @@ export const jsonToLLMFormat = (
   function formatWithDepth(
     data: JSONValue,
     indent: number,
-    depth: number
+    depth: number,
   ): string {
     // Check for max depth
     if (depth > maxDepth) {
@@ -63,11 +62,7 @@ export const jsonToLLMFormat = (
     }
   }
 
-  function formatArray(
-    data: JSONArray,
-    indent: number,
-    depth: number
-  ): string {
+  function formatArray(data: JSONArray, indent: number, depth: number): string {
     if (data.length === 0) {
       return `${getIndent(indent)}[]`;
     }
@@ -80,9 +75,14 @@ export const jsonToLLMFormat = (
       Object.keys(data[0]).length === 1
     ) {
       const key = Object.keys(data[0])[0];
-      if (data.every(item => isObject(item) && Object.keys(item).length === 1 && key in item)) {
+      if (
+        data.every(
+          (item) =>
+            isObject(item) && Object.keys(item).length === 1 && key in item,
+        )
+      ) {
         return data
-          .map(item => `${getIndent(indent)}${(item as JSONObject)[key]}`)
+          .map((item) => `${getIndent(indent)}${(item as JSONObject)[key]}`)
           .join('\n');
       }
     }
@@ -92,7 +92,7 @@ export const jsonToLLMFormat = (
         return `${getIndent(indent)}#${index + 1}:\n${formatWithDepth(
           item,
           indent + 1,
-          depth + 1
+          depth + 1,
         )}`;
       })
       .join('\n\n');
@@ -101,7 +101,7 @@ export const jsonToLLMFormat = (
   function formatObject(
     data: JSONObject,
     indent: number,
-    depth: number
+    depth: number,
   ): string {
     return Object.entries(data)
       .map(([key, value]) => {
@@ -109,7 +109,7 @@ export const jsonToLLMFormat = (
         return `${getIndent(indent)}${formattedKey}:\n${formatWithDepth(
           value,
           indent + 1,
-          depth + 1
+          depth + 1,
         )}`;
       })
       .join('\n');
@@ -129,7 +129,7 @@ export const jsonToLLMFormat = (
   function formatKey(key: string): string {
     return key
       .replace(/([A-Z])/g, ' $1')
-      .replace(/^./, str => str.toUpperCase())
+      .replace(/^./, (str) => str.toUpperCase())
       .trim();
   }
 

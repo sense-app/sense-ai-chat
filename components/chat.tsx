@@ -52,7 +52,7 @@ export function Chat({
       mutate('/api/history');
     },
     onError: (error) => {
-      console.dir(error, {depth: null});
+      console.dir(error, { depth: null });
       toast.error('An error occured, please try again!');
     },
   });

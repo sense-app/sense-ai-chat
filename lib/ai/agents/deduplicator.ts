@@ -1,15 +1,15 @@
-import { generateObject } from "ai";
-import { myProvider } from "../models";
-import { z } from "zod";
+import { generateObject } from 'ai';
+import { myProvider } from '../models';
+import { z } from 'zod';
 
 const DeduplicatedResultSchema = z.object({
-    thoughts: z.string().describe('The thought process'),
-    uniqueQueries: z.array(z.string()).describe('List of unique queries'),
+  thoughts: z.string().describe('The thought process'),
+  uniqueQueries: z.array(z.string()).describe('List of unique queries'),
 });
 export type DeduplicatedResult = z.infer<typeof DeduplicatedResultSchema>;
 
 function getPrompt(newQueries: string[], existingQueries: string[]): string {
-    return `You are an expert in semantic similarity analysis. Given a set of new queries (A) and existing queries (B), identify which queries from set A are semantically unique when compared BOTH to other queries within A AND to queries in set B.
+  return `You are an expert in semantic similarity analysis. Given a set of new queries (A) and existing queries (B), identify which queries from set A are semantically unique when compared BOTH to other queries within A AND to queries in set B.
   
   Core Rules:
   1. Consider semantic meaning and query intent, not just lexical similarity
@@ -86,14 +86,17 @@ function getPrompt(newQueries: string[], existingQueries: string[]): string {
   Set B: ${JSON.stringify(existingQueries)}`;
 }
 
-export const deduplicate = async (newQueries: string[], existingQueries: string[]) : Promise<DeduplicatedResult> => {
+export const deduplicate = async (
+  newQueries: string[],
+  existingQueries: string[],
+): Promise<DeduplicatedResult> => {
   const prompt = getPrompt(newQueries, existingQueries);
   const response = await generateObject({
-        model: myProvider.languageModel('chat-model-small'),
-        schema: DeduplicatedResultSchema,
-        prompt: prompt
-    });
-    console.log("deduplicate");
-    console.dir(response, {depth: null});
-    return response.object as DeduplicatedResult;
-}
+    model: myProvider.languageModel('chat-model-small'),
+    schema: DeduplicatedResultSchema,
+    prompt: prompt,
+  });
+  console.log('deduplicate');
+  console.dir(response, { depth: null });
+  return response.object as DeduplicatedResult;
+};

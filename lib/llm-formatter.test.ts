@@ -31,23 +31,20 @@ describe('jsonToLLMFormat', () => {
       user: {
         personal: {
           name: 'John',
-          age: 30
+          age: 30,
         },
         settings: {
-          theme: 'dark'
-        }
-      }
+          theme: 'dark',
+        },
+      },
     };
-    const expected = 'User:\n  Personal:\n    Name:\n      John\n    Age:\n      30\n  Settings:\n    Theme:\n      dark';
+    const expected =
+      'User:\n  Personal:\n    Name:\n      John\n    Age:\n      30\n  Settings:\n    Theme:\n      dark';
     expect(jsonToLLMFormat(input)).toBe(expected);
   });
 
   test('formats array of single-key objects as flattened list', () => {
-    const input = [
-      { item: 'apple' },
-      { item: 'banana' },
-      { item: 'orange' }
-    ];
+    const input = [{ item: 'apple' }, { item: 'banana' }, { item: 'orange' }];
     const expected = 'apple\nbanana\norange';
     expect(jsonToLLMFormat(input)).toBe(expected);
   });
@@ -57,12 +54,13 @@ describe('jsonToLLMFormat', () => {
       level1: {
         level2: {
           level3: {
-            value: 'deep'
-          }
-        }
-      }
+            value: 'deep',
+          },
+        },
+      },
     };
-    const expected = 'Level1:\n  Level2:\n    Level3:\n      [Max depth exceeded]';
+    const expected =
+      'Level1:\n  Level2:\n    Level3:\n      [Max depth exceeded]';
     expect(jsonToLLMFormat(deepObject, { maxDepth: 2 })).toBe(expected);
   });
 
@@ -70,9 +68,9 @@ describe('jsonToLLMFormat', () => {
     const deepObject = {
       level1: {
         level2: {
-          level3: 'deep'
-        }
-      }
+          level3: 'deep',
+        },
+      },
     };
     expect(() => {
       jsonToLLMFormat(deepObject, { maxDepth: 2, throwOnMaxDepth: true });
@@ -82,16 +80,19 @@ describe('jsonToLLMFormat', () => {
   test('handles circular references', () => {
     const circular: any = { prop: 'value' };
     circular.self = circular;
-    expect(jsonToLLMFormat(circular)).toContain('[Circular reference detected]');
+    expect(jsonToLLMFormat(circular)).toContain(
+      '[Circular reference detected]',
+    );
   });
 
   test('formats keys with camelCase properly', () => {
     const input = {
       firstName: 'John',
       lastName: 'Doe',
-      phoneNumber: '123'
+      phoneNumber: '123',
     };
-    const expected = 'First Name:\n  John\nLast Name:\n  Doe\nPhone Number:\n  123';
+    const expected =
+      'First Name:\n  John\nLast Name:\n  Doe\nPhone Number:\n  123';
     expect(jsonToLLMFormat(input)).toBe(expected);
   });
 
@@ -107,10 +108,11 @@ describe('jsonToLLMFormat', () => {
       scores: [90, 85, 88],
       details: {
         age: 30,
-        hobbies: ['reading', 'gaming']
-      }
+        hobbies: ['reading', 'gaming'],
+      },
     };
-    const expected = 'User:\n  John\nScores:\n  #1:\n    90\n\n  #2:\n    85\n\n  #3:\n    88\nDetails:\n  Age:\n    30\n  Hobbies:\n    #1:\n      reading\n\n    #2:\n      gaming';
+    const expected =
+      'User:\n  John\nScores:\n  #1:\n    90\n\n  #2:\n    85\n\n  #3:\n    88\nDetails:\n  Age:\n    30\n  Hobbies:\n    #1:\n      reading\n\n    #2:\n      gaming';
     expect(jsonToLLMFormat(input)).toBe(expected);
   });
 });
