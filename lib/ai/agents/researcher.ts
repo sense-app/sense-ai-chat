@@ -18,14 +18,11 @@ export interface Research {
 
 export const research = (dataStream: DataStreamWriter) =>
   tool({
-    description:
-      'Do research on the following queries by searching online and reading websites',
+    description: 'Do research on the following queries by searching online and reading websites',
     parameters: z.object({
       thoughts: z
         .string()
-        .describe(
-          `Explain why choose this action, what's the thought process behind choosing this action`,
-        ),
+        .describe(`Explain why choose this action, what's the thought process behind choosing this action`),
       queries: z
         .array(z.string())
         .describe(
@@ -35,9 +32,14 @@ export const research = (dataStream: DataStreamWriter) =>
     execute: async (params) => {
       const { thoughts, queries } = params;
       dataStream.writeMessageAnnotation(thoughts);
+      dataStream.writeMessageAnnotation(`Reasoning...${queries.join(', ')}`);
+      const searchResults = await websearch(queries);
+
+      dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
+
       const research: Research = {
         queries,
-        searchResults: [],
+        searchResults: [searchResults.results],
         contents: [],
         visitedUrls: new Set(),
         learnings: [],
@@ -52,44 +54,42 @@ export const research = (dataStream: DataStreamWriter) =>
 
 export const search = (dataStream: DataStreamWriter, research: Research) =>
   tool({
-    description:
-      'Use an online search engine to look up the following queries and provide the search results',
+    description: 'Use an online search engine to look up the following queries and provide the search results',
     parameters: z.object({
       thoughts: z
         .string()
-        .describe(
-          `Explain why choose this action, what's the thought process behind choosing this action`,
-        ),
+        .describe(`Explain why choose this action, what's the thought process behind choosing this action`),
       queries: z
         .array(z.string())
-        .describe(
-          `Search queries to find the user's desired products and the online stores that sell them`,
-        ),
+        .describe(`Search queries to find the user's desired products and the online stores that sell them`),
     }),
     execute: async (params) => {
       const { thoughts, queries } = params;
       dataStream.writeMessageAnnotation(thoughts);
       dataStream.writeMessageAnnotation(`Reasoning...${queries.join(', ')}`);
-      const seachQueries = await rewriteQuery(queries);
-      const searchResults = await serpSearch(seachQueries.queries);
+      const searchResults = await websearch(queries);
 
-      const totalResults = searchResults.reduce(
-        (total: number, result: any) =>
-          total +
-          (result?.organic?.length ?? 0) +
-          (result?.topStories?.length ?? 0),
-        0,
-      );
+      dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
 
-      dataStream.writeMessageAnnotation(`Found ${totalResults} search results`);
-      const searchResultsLLMFormatted = jsonToLLMFormat(searchResults);
-
-      research.queries.push(...seachQueries.queries);
-      research.searchResults.push(...searchResultsLLMFormatted);
+      research.queries.push(...queries);
+      research.searchResults.push(...searchResults.results);
 
       return research;
     },
   });
+
+const websearch = async (queries: string[]) => {
+  const searchQueries = await rewriteQuery(queries);
+  const searchResults = await serpSearch(searchQueries.queries);
+  const searchResultsLLMFormatted = jsonToLLMFormat(searchResults);
+
+  const totalResults = searchResults.reduce(
+    (total: number, result: any) => total + (result?.organic?.length ?? 0) + (result?.topStories?.length ?? 0),
+    0,
+  );
+
+  return { total: totalResults, results: searchResultsLLMFormatted };
+};
 
 export const read = (dataStream: DataStreamWriter, research: Research) =>
   tool({
@@ -97,12 +97,8 @@ export const read = (dataStream: DataStreamWriter, research: Research) =>
     parameters: z.object({
       thoughts: z
         .string()
-        .describe(
-          `Explain why choose this action, what's the thought process behind choosing this action`,
-        ),
-      urls: z
-        .array(z.string())
-        .describe(`List of urls to visit and read contents`),
+        .describe(`Explain why choose this action, what's the thought process behind choosing this action`),
+      urls: z.array(z.string()).describe(`List of urls to visit and read contents`),
     }),
     execute: async (params) => {
       const { thoughts, urls } = params;
@@ -115,9 +111,7 @@ export const read = (dataStream: DataStreamWriter, research: Research) =>
       const domains = webpageUrls.map((url) => url.hostname);
       dataStream.writeMessageAnnotation(`Learning from ${domains.join(', ')}`);
 
-      const contents = await Promise.all(
-        urls.map((url) => readWebpageContent(url)),
-      );
+      const contents = await Promise.all(urls.map((url) => readWebpageContent(url)));
 
       research.contents.push(...contents);
       webpageUrls.forEach((url) => research.visitedUrls.add(url.toString()));
@@ -183,24 +177,18 @@ const researchResultsSchema = z.object({
       z.object({
         name: z.string().describe('Name of the product'),
         reason: z.string().describe('Why did you choose this product?'),
+        stores: z
+          .array(
+            z.object({
+              name: z.string().describe('Name of the e-commerce store'),
+              reason: z.string().describe('Why did you choose this store to buy this product?'),
+            }),
+          )
+          .optional()
+          .describe(`List of stores found from the research recommended to buy the product`),
       }),
     )
-    .describe(
-      `List of products found from the research that match the user's query`,
-    ),
-  stores: z
-    .array(
-      z.object({
-        name: z.string().describe('Name of the e-commerce store'),
-        reason: z
-          .string()
-          .describe('Why did you choose this store to buy the product?'),
-      }),
-    )
-    .optional()
-    .describe(
-      `List of stores found from the research that sell the products and are recommended to buy the products`,
-    ),
+    .describe(`List of products found from the research that match the user's query`),
 });
 
 export type ResearchResults = z.infer<typeof researchResultsSchema>;
