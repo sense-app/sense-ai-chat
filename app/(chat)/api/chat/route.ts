@@ -26,7 +26,7 @@ import {
   getPrompt,
   type KnowledgeBank,
   SHOPPING_SYSTEM_PROMPT,
-} from '@/lib/ai/agents/shopper';
+} from '@/lib/ai/agents/shopper1';
 import { reflect } from '@/lib/ai/agents/reflect';
 import { search } from '@/lib/ai/agents/search';
 import { read } from '@/lib/ai/agents/read';

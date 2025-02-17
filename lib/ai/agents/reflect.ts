@@ -6,7 +6,7 @@ import {
   ChatState,
   excludeActions,
   getPrompt,
-} from './shopper';
+} from './shopper1';
 import { deduplicate } from './deduplicator';
 
 export const reflect = ({ dataStream, knowledgeBank }: ChatState) =>

@@ -1,5 +1,5 @@
-import { CoreMessage, DataStreamWriter } from 'ai';
-import { SearchResult } from './search';
+import type { CoreMessage, DataStreamWriter } from 'ai';
+import type { SearchResult } from './search';
 import { z } from 'zod';
 
 /*
@@ -14,6 +14,7 @@ Query: Phones under $200
 8. Answer - Answer the user's question with structured product data
 */
 
+// biome-ignore lint/style/useEnumInitializers: <explanation>
 export enum Action {
   Reflect,
   Search,

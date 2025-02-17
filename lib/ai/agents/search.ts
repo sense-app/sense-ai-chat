@@ -1,7 +1,7 @@
 import { tool } from 'ai';
 import { z } from 'zod';
 import pLimit from 'p-limit';
-import { allActions, type ChatState, getPrompt } from './shopper';
+import { allActions, type ChatState, getPrompt } from './shopper1';
 import {
   SafeSearchType,
   type SearchResults,

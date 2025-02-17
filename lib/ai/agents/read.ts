@@ -1,6 +1,6 @@
 import { tool } from 'ai';
 import { z } from 'zod';
-import { allActions, type ChatState, getPrompt } from './shopper';
+import { allActions, type ChatState, getPrompt } from './shopper1';
 import { learn } from './learn';
 
 const JINA_URL = `https://r.jina.ai/`;
@@ -63,7 +63,7 @@ export const read = ({ dataStream, knowledgeBank }: ChatState) =>
     },
   });
 
-const readWebpageContent = async (url: string) => {
+export const readWebpageContent = async (url: string) => {
   const response = await fetch(`${JINA_URL}${url}`, {
     headers: {
       'Content-Type': 'application/json',

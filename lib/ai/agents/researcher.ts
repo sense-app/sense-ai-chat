@@ -1,22 +1,17 @@
-import {
-  type DataStreamWriter,
-  generateObject,
-  generateText,
-  Output,
-  streamObject,
-  streamText,
-  tool,
-} from 'ai';
+import { type DataStreamWriter, generateText, Output, tool } from 'ai';
 import { z } from 'zod';
 import { rewriteQuery } from '@/lib/ai/agents/query-rewriter';
 import { serpSearch } from '@/lib/services/serp';
 import { jsonToLLMFormat } from '@/lib/llm-formatter';
 import { myProvider } from '@/lib/ai/models';
+import { isValidUrl } from '@/lib/utils';
+import { readWebpageContent } from '@/lib/ai/agents/read';
 
 export interface Research {
   queries: string[];
   searchResults: string[];
   contents: string[];
+  visitedUrls: Set<string>;
   learnings: string[];
   thoughts: string[];
 }
@@ -44,11 +39,14 @@ export const research = (dataStream: DataStreamWriter) =>
         queries,
         searchResults: [],
         contents: [],
+        visitedUrls: new Set(),
         learnings: [],
         thoughts: [],
       };
 
       const result = researcher(dataStream, research);
+      console.dir(result, { depth: null });
+      return result;
     },
   });
 
@@ -89,6 +87,40 @@ export const search = (dataStream: DataStreamWriter, research: Research) =>
       research.queries.push(...seachQueries.queries);
       research.searchResults.push(...searchResultsLLMFormatted);
 
+      return research;
+    },
+  });
+
+export const read = (dataStream: DataStreamWriter, research: Research) =>
+  tool({
+    description: 'Read contents from any webpage given their url',
+    parameters: z.object({
+      thoughts: z
+        .string()
+        .describe(
+          `Explain why choose this action, what's the thought process behind choosing this action`,
+        ),
+      urls: z
+        .array(z.string())
+        .describe(`List of urls to visit and read contents`),
+    }),
+    execute: async (params) => {
+      const { thoughts, urls } = params;
+      dataStream.writeMessageAnnotation(thoughts);
+
+      const webpageUrls = urls
+        .filter((url) => !research.visitedUrls.has(url))
+        .filter((url) => isValidUrl(url))
+        .map((url) => new URL(url));
+      const domains = webpageUrls.map((url) => url.hostname);
+      dataStream.writeMessageAnnotation(`Learning from ${domains.join(', ')}`);
+
+      const contents = await Promise.all(
+        urls.map((url) => readWebpageContent(url)),
+      );
+
+      research.contents.push(...contents);
+      webpageUrls.forEach((url) => research.visitedUrls.add(url.toString()));
       return research;
     },
   });
@@ -184,7 +216,7 @@ const researcher = async (dataStream: DataStreamWriter, research: Research) => {
     }),
     tools: {
       query: search(dataStream, research),
-      //TODO add read/visit
+      read: read(dataStream, research),
     },
     maxSteps: 10,
   });

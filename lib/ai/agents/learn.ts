@@ -1,7 +1,7 @@
 import { generateObject } from 'ai';
 import { myProvider } from '../models';
 import { z } from 'zod';
-import { productSchema } from './shopper';
+import { productSchema } from './shopper1';
 
 const LearningsSchema = z.object({
   learnings: z.array(z.string()).describe('Learnings from the contents'),
