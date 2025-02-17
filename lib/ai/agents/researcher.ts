@@ -1,8 +1,17 @@
-import { type DataStreamWriter, tool } from 'ai';
+import {
+  type DataStreamWriter,
+  generateObject,
+  generateText,
+  Output,
+  streamObject,
+  streamText,
+  tool,
+} from 'ai';
 import { z } from 'zod';
 import { rewriteQuery } from '@/lib/ai/agents/query-rewriter';
 import { serpSearch } from '@/lib/services/serp';
 import { jsonToLLMFormat } from '@/lib/llm-formatter';
+import { myProvider } from '@/lib/ai/models';
 
 export interface Research {
   queries: string[];
@@ -39,11 +48,11 @@ export const research = (dataStream: DataStreamWriter) =>
         thoughts: [],
       };
 
-      const result = researcher(research);
+      const result = researcher(dataStream, research);
     },
   });
 
-export const query = (dataStream: DataStreamWriter, research: Research) =>
+export const search = (dataStream: DataStreamWriter, research: Research) =>
   tool({
     description:
       'Use an online search engine to look up the following queries and provide the search results',
@@ -89,8 +98,8 @@ const RESEARCHER_SYSTEM_PROMPT = `
     Your role is to do shopping research to find the best matching products and the online stores selling them.
 
     You have access to the following tools:
-    Visit - to visit any websites and read content given their url
-    Query - to ask any queries that might help with your shopping research. This tool will use an online search engine to search the queries and returns the search results
+    Read - to visit any websites and read content given their url
+    Search - to ask any queries that might help with your shopping research. This tool will use an online search engine to search the queries and returns the search results
   `;
 
 const getResearchPrompt = (research: Research) => {
@@ -134,6 +143,54 @@ const getResearchPrompt = (research: Research) => {
   return sections.join('\n');
 };
 
-const researcher = async (research: Research) => {
+const researchResultsSchema = z.object({
+  learnings: z.string().describe('What you learned from the research'),
+  thoughts: z.string().describe('What are your thoughts about the research'),
+  products: z
+    .array(
+      z.object({
+        name: z.string().describe('Name of the product'),
+        reason: z.string().describe('Why did you choose this product?'),
+      }),
+    )
+    .describe(
+      `List of products found from the research that match the user's query`,
+    ),
+  stores: z
+    .array(
+      z.object({
+        name: z.string().describe('Name of the e-commerce store'),
+        reason: z
+          .string()
+          .describe('Why did you choose this store to buy the product?'),
+      }),
+    )
+    .optional()
+    .describe(
+      `List of stores found from the research that sell the products and are recommended to buy the products`,
+    ),
+});
+
+export type ResearchResults = z.infer<typeof researchResultsSchema>;
+
+const researcher = async (dataStream: DataStreamWriter, research: Research) => {
   const prompt = getResearchPrompt(research);
+  const { experimental_output } = await generateText({
+    model: myProvider.languageModel('chat-model-large'),
+    system: RESEARCHER_SYSTEM_PROMPT,
+    prompt,
+    experimental_output: Output.object({
+      schema: researchResultsSchema,
+    }),
+    tools: {
+      query: search(dataStream, research),
+      //TODO add read/visit
+    },
+    maxSteps: 10,
+  });
+
+  console.log('researcher');
+  console.dir(experimental_output, { depth: null });
+
+  return experimental_output;
 };
