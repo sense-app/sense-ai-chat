@@ -24,7 +24,7 @@ import { generateTitleFromUserMessage } from '../../actions';
 import {
   defaultKnowledgeBank,
   getPrompt,
-  KnowledgeBank,
+  type KnowledgeBank,
   SHOPPING_SYSTEM_PROMPT,
 } from '@/lib/ai/agents/shopper';
 import { reflect } from '@/lib/ai/agents/reflect';

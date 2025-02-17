@@ -1,6 +1,6 @@
 import { tool } from 'ai';
 import { z } from 'zod';
-import { allActions, ChatState, getPrompt } from './shopper';
+import { allActions, type ChatState, getPrompt } from './shopper';
 import { learn } from './learn';
 
 const JINA_URL = `https://r.jina.ai/`;
@@ -67,6 +67,7 @@ const readWebpageContent = async (url: string) => {
   const response = await fetch(`${JINA_URL}${url}`, {
     headers: {
       'Content-Type': 'application/json',
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       'x-api-key': process.env.JINA_API_KEY!,
     },
   });
