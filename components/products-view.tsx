@@ -43,7 +43,7 @@ const ProductsView = ({ products }: { products: ProductType[] }) => {
             </div>
           </div>
           {products.map((product, j) => (
-            <div key={i} className="w-full">
+            <div key={i} className="w-full space-y-2">
               <div className="w-full aspect-square relative rounded-xl overflow-hidden border border-input bg-neutral-100">
                 <Image
                   src={
