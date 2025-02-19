@@ -131,6 +131,9 @@ export const SHOPPING_SYSTEM_PROMPT = `
     search - To Query external sources using a public search engine. Focus on solving one specific aspect of the question. Only give keywords search query, not full sentences
     read - To Visit any URLs from the available URLs to get more information. Identify key learnings and metrics from the content. Aggregate the products from different stores into structured json format. Include as many details as possible.
     answer - To Answer the user's question with structured product data
+
+
+    always suggest at least 6 or more different types of phones
 `;
 
 export const getPrompt = (knowledgeBank: KnowledgeBank) => {
