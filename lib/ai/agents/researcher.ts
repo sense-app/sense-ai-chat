@@ -71,6 +71,7 @@ export const search = (dataStream: DataStreamWriter, research: Research) =>
 
       dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
 
+      research.thoughts.push(`Search step - ${thoughts}`);
       research.queries.push(...queries);
       research.searchResults.push(...searchResults.results);
 
@@ -80,7 +81,7 @@ export const search = (dataStream: DataStreamWriter, research: Research) =>
 
 const websearch = async (queries: string[]) => {
   const searchQueries = await rewriteQuery(queries);
-  const searchResults = await serpSearch(searchQueries.queries);
+  const searchResults = await serpSearch({ queries: searchQueries.queries });
   const searchResultsLLMFormatted = jsonToLLMFormat(searchResults);
 
   const totalResults = searchResults.reduce(
@@ -114,6 +115,7 @@ export const read = (dataStream: DataStreamWriter, research: Research) =>
       const contents = await Promise.all(urls.map((url) => readWebpageContent(url)));
 
       research.contents.push(...contents);
+      research.thoughts.push(`Read step - ${thoughts}`);
       webpageUrls.forEach((url) => research.visitedUrls.add(url.toString()));
       return research;
     },
@@ -121,7 +123,7 @@ export const read = (dataStream: DataStreamWriter, research: Research) =>
 
 const RESEARCHER_SYSTEM_PROMPT = `
     You are an intelligent shopping researcher.
-    Your role is to do shopping research to find the best matching products and the online stores selling them.
+    Your task is to do shopping research to find the best matching products and the online stores selling them.
 
     You have access to the following tools:
     Read - to visit any websites and read content given their url
@@ -190,8 +192,6 @@ const researchResultsSchema = z.object({
     )
     .describe(`List of products found from the research that match the user's query`),
 });
-
-export type ResearchResults = z.infer<typeof researchResultsSchema>;
 
 const researcher = async (dataStream: DataStreamWriter, research: Research) => {
   const prompt = getResearchPrompt(research);

@@ -3,9 +3,7 @@ import { z } from 'zod';
 import { myProvider } from '../models';
 
 const searchQueriesSchema = z.object({
-  thought: z
-    .string()
-    .describe('Strategic reasoning about query complexity and search approach'),
+  thoughts: z.string().describe('Strategic reasoning about query complexity and search approach'),
   queries: z
     .array(z.string().describe('Search query with integrated operators'))
     .describe('Array of search queries with appropriate operators'),
@@ -81,9 +79,7 @@ function getPrompt(query: string): string {
   `;
 }
 
-export const rewriteQuery = async (
-  queries: string[],
-): Promise<SearchQueries> => {
+export const rewriteQuery = async (queries: string[]): Promise<SearchQueries> => {
   console.log('rewriteQuery', queries);
   const responses = await Promise.all(
     queries.map((query) =>
@@ -98,7 +94,7 @@ export const rewriteQuery = async (
   console.log(responses);
 
   return {
-    thought: responses.map((r) => r.object.thought).join('\n\n'),
+    thoughts: responses.map((r) => r.object.thoughts).join('\n\n'),
     queries: responses.flatMap((r) => r.object.queries),
   };
 };

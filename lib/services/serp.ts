@@ -6,11 +6,19 @@ interface SearchQuery {
   tbs?: string;
 }
 
-export const serpSearch = async (
-  queries: string[],
+interface SerpSearchParams {
+  queries: string[];
+  countryCode?: string;
+  city?: string;
+  type?: 'search' | 'shopping';
+}
+
+export const serpSearch = async ({
+  queries,
   countryCode = 'us',
-  city?: string,
-): Promise<any> => {
+  city,
+  type = 'search',
+}: SerpSearchParams): Promise<any> => {
   const searchQueries: SearchQuery[] = queries.map((q) => ({
     q,
     gl: countryCode.toLowerCase(),
@@ -33,10 +41,7 @@ export const serpSearch = async (
   };
 
   try {
-    const response = await fetch(
-      'https://google.serper.dev/search',
-      requestOptions,
-    );
+    const response = await fetch(`https://google.serper.dev/${type}`, requestOptions);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
