@@ -110,7 +110,6 @@ const SHOPPER_SYSTEM_PROMT = `
   Your task is to sort and group the search results based on quality, relevance, price, and other factors that you think are important. 
   You may omit some search results if you think they are not relevant or incorrect.
   Provide only accurate and relevant results.
-
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {

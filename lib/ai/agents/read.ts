@@ -7,8 +7,7 @@ const JINA_URL = `https://r.jina.ai/`;
 
 export const read = ({ dataStream, knowledgeBank }: ChatState) =>
   tool({
-    description:
-      'Visit webpages given their urls, read the content and learn from it.',
+    description: 'Visit webpages given their urls, read the content and learn from it.',
     parameters: z.object({
       urls: z.array(z.string()),
     }),
@@ -21,20 +20,13 @@ export const read = ({ dataStream, knowledgeBank }: ChatState) =>
       });
       console.log(`Learning from domains: ${domains.join(', ')}`);
 
-      const contents = (
-        await Promise.all(urls.map((url) => readWebpageContent(url)))
-      ).filter((content) => content.length > 0);
-
-      const userQuery =
-        knowledgeBank.coreMessages[
-          knowledgeBank.coreMessages.length - 1
-        ].content.toString();
-
-      const result = await learn(
-        userQuery,
-        knowledgeBank.questions ?? [],
-        contents,
+      const contents = (await Promise.all(urls.map((url) => readWebpageContent(url)))).filter(
+        (content) => content.length > 0,
       );
+
+      const userQuery = knowledgeBank.coreMessages[knowledgeBank.coreMessages.length - 1].content.toString();
+
+      const result = await learn(userQuery, knowledgeBank.questions ?? [], contents);
       knowledgeBank.availableActions = allActions;
       if (result.products?.length > 0) {
         knowledgeBank.products.push(...result.products);
@@ -52,9 +44,7 @@ export const read = ({ dataStream, knowledgeBank }: ChatState) =>
 
       // Remove the processed URLs from searchResults
       const urlSet = new Set(urls);
-      knowledgeBank.searchResults = knowledgeBank.searchResults.filter(
-        (result) => !urlSet.has(result.url),
-      );
+      knowledgeBank.searchResults = knowledgeBank.searchResults.filter((result) => !urlSet.has(result.url));
 
       console.log('read knowledgeBank');
       console.dir(knowledgeBank, { depth: null });
@@ -64,6 +54,7 @@ export const read = ({ dataStream, knowledgeBank }: ChatState) =>
   });
 
 export const readWebpageContent = async (url: string) => {
+  console.log(`Reading webpage: ${url}`);
   const response = await fetch(`${JINA_URL}${url}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -72,9 +63,7 @@ export const readWebpageContent = async (url: string) => {
     },
   });
   if (!response.ok) {
-    console.log(
-      `Error reading webpage status: ${response.statusText} url: ${url}`,
-    );
+    console.log(`Error reading webpage status: ${response.statusText} url: ${url}`);
     return '';
   }
   const text = await response.text();

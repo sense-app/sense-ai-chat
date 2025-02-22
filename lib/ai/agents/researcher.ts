@@ -1,4 +1,4 @@
-import { type DataStreamWriter, generateText, Output, tool } from 'ai';
+import { type DataStreamWriter, generateObject, generateText, tool } from 'ai';
 import { z } from 'zod';
 import { rewriteQuery } from '@/lib/ai/agents/query-rewriter';
 import { serpSearch } from '@/lib/services/serp';
@@ -94,7 +94,7 @@ const websearch = async (queries: string[]) => {
 
 export const read = (dataStream: DataStreamWriter, research: Research) =>
   tool({
-    description: 'Read contents from any webpage given their url',
+    description: 'Read contents from any webpage given their urls',
     parameters: z.object({
       thoughts: z
         .string()
@@ -124,10 +124,12 @@ export const read = (dataStream: DataStreamWriter, research: Research) =>
 const RESEARCHER_SYSTEM_PROMPT = `
     You are an intelligent shopping researcher.
     Your task is to do shopping research to find the best matching products and the online stores selling them.
+    Do thorough research by reading articles, blogs and websites if needed and gather as many information as possible.
+    Find many matching product results.
 
     You have access to the following tools:
-    Read - to visit any websites and read content given their url
     Search - to ask any queries that might help with your shopping research. This tool will use an online search engine to search the queries and returns the search results
+    Read - to read conent from any websites given their urls
   `;
 
 const getResearchPrompt = (research: Research) => {
@@ -194,14 +196,14 @@ const researchResultsSchema = z.object({
 });
 
 const researcher = async (dataStream: DataStreamWriter, research: Research) => {
+  console.log('researcher is being called');
+  console.dir(research, { depth: null });
+
   const prompt = getResearchPrompt(research);
-  const { experimental_output } = await generateText({
+  const result = await generateText({
     model: myProvider.languageModel('chat-model-large'),
     system: RESEARCHER_SYSTEM_PROMPT,
     prompt,
-    experimental_output: Output.object({
-      schema: researchResultsSchema,
-    }),
     tools: {
       query: search(dataStream, research),
       read: read(dataStream, research),
@@ -209,8 +211,32 @@ const researcher = async (dataStream: DataStreamWriter, research: Research) => {
     maxSteps: 10,
   });
 
-  console.log('researcher');
-  console.dir(experimental_output, { depth: null });
+  const researchResults = await generateObject({
+    model: myProvider.languageModel('chat-model-large'),
+    system: `Given the following research results, structure the response to the output JSON format`,
+    prompt: `
+      <ResearchSummary>
+        ${result?.text}
+      </ResearchSummary>
 
-  return experimental_output;
+      <context>
+        ${getResearchPrompt(research)}
+      </context>
+    `,
+    schema: researchResultsSchema,
+  });
+
+  console.dir(researchResults, { depth: null });
+
+  const formatProduct = (product: (typeof researchResults.object.products)[0]) => {
+    const storeName = product.stores?.length ? ` from ${product.stores.map((s) => s.name).join(', ')}` : '';
+    return `${product.name} because ${product.reason}${storeName}`;
+  };
+
+  const productSummary = researchResults.object.products.map(formatProduct).join(', ');
+
+  dataStream.writeMessageAnnotation(`
+    The best matching products are ${productSummary}
+  `);
+  return researchResults.object;
 };

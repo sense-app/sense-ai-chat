@@ -1,44 +1,19 @@
-import {
-  type Message,
-  convertToCoreMessages,
-  createDataStreamResponse,
-  smoothStream,
-  streamText,
-} from 'ai';
+import { type Message, convertToCoreMessages, createDataStreamResponse, streamText } from 'ai';
 
 import { auth } from '@/app/(auth)/auth';
 import { myProvider } from '@/lib/ai/models';
-import {
-  deleteChatById,
-  getChatById,
-  saveChat,
-  saveMessages,
-} from '@/lib/db/queries';
-import {
-  generateUUID,
-  getMostRecentUserMessage,
-  sanitizeResponseMessages,
-} from '@/lib/utils';
+import { deleteChatById, getChatById, saveChat, saveMessages } from '@/lib/db/queries';
+import { generateUUID, getMostRecentUserMessage, sanitizeResponseMessages } from '@/lib/utils';
 
 import { generateTitleFromUserMessage } from '../../actions';
-import {
-  defaultKnowledgeBank,
-  getPrompt,
-  type KnowledgeBank,
-  SHOPPING_SYSTEM_PROMPT,
-} from '@/lib/ai/agents/shopper1';
-import { reflect } from '@/lib/ai/agents/reflect';
-import { search } from '@/lib/ai/agents/search';
-import { read } from '@/lib/ai/agents/read';
+import { SUPERVISOR_SYSTEM_PROMPT } from '@/lib/ai/agents/supervisor';
+import { research } from '@/lib/ai/agents/researcher';
+import { shop } from '@/lib/ai/agents/shopper';
 
 export const maxDuration = 60;
 
 export async function POST(request: Request) {
-  const {
-    id,
-    messages,
-    selectedChatModel,
-  }: { id: string; messages: Array<Message>; selectedChatModel: string } =
+  const { id, messages, selectedChatModel }: { id: string; messages: Array<Message>; selectedChatModel: string } =
     await request.json();
 
   const session = await auth();
@@ -64,25 +39,18 @@ export async function POST(request: Request) {
     messages: [{ ...userMessage, createdAt: new Date(), chatId: id }],
   });
 
-  const knowledgeBank: KnowledgeBank = {
-    ...defaultKnowledgeBank,
-    coreMessages: convertToCoreMessages(messages),
-  };
-
   return createDataStreamResponse({
     execute: async (dataStream) => {
       const result = streamText({
         model: myProvider.languageModel('chat-model-large'),
-        system: SHOPPING_SYSTEM_PROMPT,
-        prompt: getPrompt(knowledgeBank),
+        system: SUPERVISOR_SYSTEM_PROMPT,
+        messages: convertToCoreMessages(messages),
         maxSteps: 20,
-        experimental_transform: smoothStream({ chunking: 'word' }),
         experimental_generateMessageId: generateUUID,
         experimental_continueSteps: true,
         tools: {
-          reflect: reflect({ dataStream, knowledgeBank }),
-          search: search({ dataStream, knowledgeBank }),
-          read: read({ dataStream, knowledgeBank }),
+          researcher: research(dataStream),
+          shopper: shop(dataStream),
         },
         onStepFinish(event) {
           // console.log('onStepFinish', event);
