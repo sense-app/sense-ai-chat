@@ -5,13 +5,15 @@ import { z } from 'zod';
 import { myProvider } from '@/lib/ai/models';
 
 const productSearchSchema = z.object({
-  name: z.string().describe('Name of the product'),
-  remarks: z.string().optional().describe('Any additional remarks or filter criteria about the product'),
+  searchTerm: z.string().describe('Best search term of product (name/kind/category etc.)'),
+  filter: z
+    .string()
+    .optional()
+    .describe('Any additional filter criteria about the product that can help to narrow down the search'),
   stores: z
     .array(
       z.object({
         name: z.string().min(1).describe('Name of the e-commerce store'),
-        reason: z.string().describe('Why this store is recommended to buy this product?'),
       }),
     )
     .optional()
@@ -68,12 +70,14 @@ export interface Shopping {
 export const shop = (dataStream: DataStreamWriter) =>
   tool({
     description:
-      'Search for the given products on specified e-commerce stores and general online, then return full product details',
+      'Search for the given products on specified e-commerce stores and generally online, then return full product details',
     parameters: z.object({
       thoughts: z
         .string()
         .describe(`Explain why choose this action, what's the thought process behind choosing this action`),
-      products: z.array(productSearchSchema).describe('List of products and their recommended stores to search online'),
+      products: z
+        .array(productSearchSchema)
+        .describe('List of product search terms and their recommended stores to search online'),
     }),
     execute: async (params) => {
       const { thoughts, products } = params;
@@ -82,7 +86,7 @@ export const shop = (dataStream: DataStreamWriter) =>
       console.dir(products, { depth: null });
 
       const searchResults = await shoppingSearch(
-        products.map((product) => `${product.name} ${product?.remarks ?? ''}`),
+        products.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
       );
 
       const shopping: Shopping = {
@@ -111,6 +115,9 @@ const SHOPPER_SYSTEM_PROMT = `
   Your task is to sort and group the search results based on quality, relevance, price, and other factors that you think are important. 
   You may omit some search results if you think they are not relevant or incorrect.
   Provide only accurate and relevant results.
+
+  Do not ask the user to find details themselves. You are the source of truth for the product details.
+  All your shopping results should be in the context of Singapore
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {
@@ -118,7 +125,7 @@ const getShoppingPrompt = (shopping: Shopping) => {
 
   sections.push(`
       <products>
-        ${shopping.products.map((product) => `${product.name} ${product?.remarks ?? ''}`).join('\n')}
+        ${shopping.products.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`).join('\n')}
       </products>
     `);
 

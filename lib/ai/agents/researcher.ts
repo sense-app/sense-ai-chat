@@ -1,4 +1,4 @@
-import { type DataStreamWriter, generateObject, generateText, tool } from 'ai';
+import { type DataStreamWriter, generateText, tool } from 'ai';
 import { z } from 'zod';
 import { rewriteQuery } from '@/lib/ai/agents/query-rewriter';
 import { serpSearch } from '@/lib/services/serp';
@@ -8,6 +8,7 @@ import { isValidUrl } from '@/lib/utils';
 import { readWebpageContent } from '@/lib/ai/agents/read';
 
 export interface Research {
+  userQuery?: string;
   queries: string[];
   searchResults: string[];
   contents: string[];
@@ -18,19 +19,17 @@ export interface Research {
 
 export const research = (dataStream: DataStreamWriter) =>
   tool({
-    description: 'Do research on the following queries by searching online and reading websites',
+    description: `Searches web on the queries and reads the contents of the webpages to learn. 
+    It returns the best matching product names/types/categories which can then be used to search in e-commerce stores`,
     parameters: z.object({
       thoughts: z
         .string()
         .describe(`Explain why choose this action, what's the thought process behind choosing this action`),
-      queries: z
-        .array(z.string())
-        .describe(
-          `List of queries to research online to find the user's desired products and the online stores that sell them`,
-        ),
+      userQuery: z.string().describe(`All the user's query summarized in one sentence`),
+      queries: z.array(z.string()).describe(`List of queries to research online to find the user's desired products`),
     }),
     execute: async (params) => {
-      const { thoughts, queries } = params;
+      const { thoughts, userQuery, queries } = params;
       dataStream.writeMessageAnnotation(thoughts);
       dataStream.writeMessageAnnotation(`Reasoning...${queries.join(', ')}`);
       const searchResults = await websearch(queries);
@@ -38,6 +37,7 @@ export const research = (dataStream: DataStreamWriter) =>
       dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
 
       const research: Research = {
+        userQuery,
         queries,
         searchResults: [searchResults.results],
         contents: [],
@@ -46,8 +46,7 @@ export const research = (dataStream: DataStreamWriter) =>
         thoughts: [],
       };
 
-      const result = researcher(dataStream, research);
-      console.dir(result, { depth: null });
+      const result = await researcher(dataStream, research);
       return result;
     },
   });
@@ -122,18 +121,33 @@ export const read = (dataStream: DataStreamWriter, research: Research) =>
   });
 
 const RESEARCHER_SYSTEM_PROMPT = `
-    You are an intelligent shopping researcher.
-    Your task is to do shopping research to find the best matching products and the online stores selling them.
-    Do thorough research by reading articles, blogs and websites if needed and gather as many information as possible.
-    Find many matching product results.
+You are an intelligent shopping researcher tasked with finding the best products based on name, type, or category. 
+Conduct thorough research by reading articles, blogs, and websites to gather detailed information. 
+Use common sense and think like a shopper to identify the most relevant products. 
+For example, if the user asks for chicken, assume they mean chicken meat, not a live chicken. 
 
-    You have access to the following tools:
-    Search - to ask any queries that might help with your shopping research. This tool will use an online search engine to search the queries and returns the search results
-    Read - to read conent from any websites given their urls
-  `;
+You have access to the following tools:
+
+Search: To query online search engines for additional information.
+Read: To read content from websites based on provided URLs.
+
+Do not ask the user to search themselves. You are the source of truth for the product details.
+All your shopping researches should be in the context of Singapore
+
+Your final response should be a list of the best search terms of product names/types/categories which can be used to search in a list of relevant e-commerce stores to purchase those priducts in Singapore.
+`;
 
 const getResearchPrompt = (research: Research) => {
   const sections = [];
+
+  if (research?.userQuery) {
+    sections.push(`
+        <userQuery>
+          ${research.userQuery}
+        </userQuery>
+      `);
+  }
+
   sections.push(`
       <queries>
         ${research.queries.join('\n')}
@@ -200,44 +214,19 @@ const researchResultsSchema = z.object({
     .describe(`List of products found from the research that match the user's query`),
 });
 
-type ResearchResult = z.infer<typeof researchResultsSchema>;
-
 export const researcher = async (dataStream: DataStreamWriter, research: Research) => {
-  console.log('researcher is being called');
-  console.dir(research, { depth: null });
-
   const prompt = getResearchPrompt(research);
   const result = await generateText({
     model: myProvider.languageModel('chat-model-large'),
     system: RESEARCHER_SYSTEM_PROMPT,
     prompt,
     tools: {
-      query: search(dataStream, research),
+      search: search(dataStream, research),
       read: read(dataStream, research),
     },
     maxSteps: 10,
   });
 
-  const researchResults = await generateObject({
-    model: myProvider.languageModel('chat-model-large'),
-    system: `Given the following research results, structure the response to the output JSON format`,
-    prompt: `
-      <ResearchSummary>
-        ${result?.text}
-      </ResearchSummary>
-
-      <context>
-        ${getResearchPrompt(research)}
-      </context>
-    `,
-    schema: researchResultsSchema,
-  });
-
-  console.dir(researchResults, { depth: null });
-
-  const { thoughts, summary, products } = researchResults.object;
-  dataStream.writeMessageAnnotation(thoughts);
-  dataStream.writeMessageAnnotation(summary);
-  dataStream.writeMessageAnnotation(`The best matching products are ${products.map((p) => p.name).join(', ')}`);
-  return researchResults.object;
+  dataStream.writeMessageAnnotation(result.text);
+  return result.text;
 };

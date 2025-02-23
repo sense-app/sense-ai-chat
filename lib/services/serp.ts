@@ -15,7 +15,7 @@ interface SerpSearchParams {
 
 export const serpSearch = async ({
   queries,
-  countryCode = 'us',
+  countryCode = 'sg',
   city,
   type = 'search',
 }: SerpSearchParams): Promise<any> => {
