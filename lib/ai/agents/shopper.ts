@@ -55,6 +55,7 @@ export const productSchema = z.object({
 
 export const shoppingResultsSchema = z.object({
   thoughts: z.string().describe('Thoughts about the shopping results'),
+  summary: z.string().describe('Summary of the all shopping results and recommendations'),
   products: z.array(productSchema).describe('List of products that best matches the user query'),
 });
 
@@ -96,7 +97,7 @@ export const shop = (dataStream: DataStreamWriter) =>
     },
   });
 
-const shoppingSearch = async (queries: string[]) => {
+export const shoppingSearch = async (queries: string[]) => {
   const searchResults = await serpSearch({ queries, type: 'shopping' });
   const searchResultsLLMFormatted = jsonToLLMFormat(searchResults);
   const totalResults = searchResults.reduce((total: number, result: any) => total + (result?.shopping?.length ?? 0), 0);
@@ -130,7 +131,7 @@ const getShoppingPrompt = (shopping: Shopping) => {
   return sections.join('\n');
 };
 
-const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) => {
+export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) => {
   const prompt = getShoppingPrompt(shopping);
   const { experimental_output } = await generateText({
     model: myProvider.languageModel('chat-model-large'),

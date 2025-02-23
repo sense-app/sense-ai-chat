@@ -1,6 +1,8 @@
 import { type CoreMessage, type DataStreamWriter, generateObject } from 'ai';
 import { z } from 'zod';
 import { myProvider } from '@/lib/ai/models';
+import { researcher, websearch, type Research } from '@/lib/ai/agents/researcher';
+import { shopper, shoppingSearch, type Shopping } from '@/lib/ai/agents/shopper';
 
 export const SUPERVISOR_SYSTEM_PROMPT = `
 You are an intelligent shopping search engine. 
@@ -33,18 +35,64 @@ export const queryAnalyzerResultsSchema = z.object({
 });
 
 export const supervisor = async (dataStream: DataStreamWriter, messages: CoreMessage[]) => {
-  const queryAnalyzerResult = await generateObject({
-    model: myProvider.languageModel('chat-model-large'),
-    schema: queryAnalyzerResultsSchema,
-    system: QUERY_ANALYZER_PROMPT,
-    messages,
-  });
+  const queryAnalyzerResult = (
+    await generateObject({
+      model: myProvider.languageModel('chat-model-large'),
+      schema: queryAnalyzerResultsSchema,
+      system: QUERY_ANALYZER_PROMPT,
+      messages,
+    })
+  ).object;
 
-  if (!queryAnalyzerResult.object.isShoppingRelated) {
-    return queryAnalyzerResult;
+  dataStream.writeMessageAnnotation(`Reasoning...`);
+  dataStream.writeMessageAnnotation(queryAnalyzerResult.thoughts);
+
+  if (!queryAnalyzerResult.isShoppingRelated) {
+    return {
+      invalid: {
+        thoughts: queryAnalyzerResult.thoughts,
+        queries: queryAnalyzerResult.queries,
+      },
+      shoppingResults: null,
+    };
   }
 
   //TODO Call Researcher and Shopper agents
+  dataStream.writeMessageAnnotation(`Searching...${queryAnalyzerResult.queries.join(', ')}`);
+  const searchResults = await websearch(queryAnalyzerResult.queries);
+  dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
 
-  return queryAnalyzerResult;
+  const research: Research = {
+    queries: queryAnalyzerResult.queries,
+    searchResults: [searchResults.results],
+    contents: [],
+    visitedUrls: new Set(),
+    learnings: [],
+    thoughts: [],
+  };
+
+  const researchResults = await researcher(dataStream, research);
+
+  dataStream.writeMessageAnnotation(researchResults.thoughts);
+  dataStream.writeMessageAnnotation(researchResults.summary);
+
+  console.dir(researchResults.products, { depth: null });
+
+  const shoppingSearchResults = await shoppingSearch(
+    researchResults.products.map((product) => `${product.name} ${product?.remarks ?? ''}`),
+  );
+
+  const shopping: Shopping = {
+    thoughts: researchResults.thoughts,
+    products: researchResults.products,
+    searchResults: [shoppingSearchResults.results],
+  };
+
+  const shoppingResults = await shopper(dataStream, shopping);
+  console.dir(shoppingResults, { depth: null });
+
+  return {
+    invalid: null,
+    shoppingResults,
+  };
 };

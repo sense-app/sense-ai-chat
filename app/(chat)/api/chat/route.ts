@@ -1,14 +1,11 @@
-import { type Message, convertToCoreMessages, createDataStreamResponse, streamText } from 'ai';
+import { type Message, convertToCoreMessages, createDataStreamResponse } from 'ai';
 
 import { auth } from '@/app/(auth)/auth';
-import { myProvider } from '@/lib/ai/models';
 import { deleteChatById, getChatById, saveChat, saveMessages } from '@/lib/db/queries';
-import { generateUUID, getMostRecentUserMessage, sanitizeResponseMessages } from '@/lib/utils';
+import { getMostRecentUserMessage } from '@/lib/utils';
 
 import { generateTitleFromUserMessage } from '../../actions';
-import { SUPERVISOR_SYSTEM_PROMPT } from '@/lib/ai/agents/supervisor';
-import { research } from '@/lib/ai/agents/researcher';
-import { shop } from '@/lib/ai/agents/shopper';
+import { supervisor } from '@/lib/ai/agents/supervisor';
 
 export const maxDuration = 60;
 
@@ -40,58 +37,65 @@ export async function POST(request: Request) {
   });
 
   return createDataStreamResponse({
+    // execute: async (dataStream) => {
+    //   const result = streamText({
+    //     model: myProvider.languageModel('chat-model-large'),
+    //     system: SUPERVISOR_SYSTEM_PROMPT,
+    //     messages: convertToCoreMessages(messages),
+    //     maxSteps: 20,
+    //     experimental_generateMessageId: generateUUID,
+    //     experimental_continueSteps: true,
+    //     tools: {
+    //       researcher: research(dataStream),
+    //       shopper: shop(dataStream),
+    //     },
+    //     onStepFinish(event) {
+    //       // console.log('onStepFinish', event);
+    //     },
+    //     onFinish: async ({ response, reasoning }) => {
+    //       if (session.user?.id) {
+    //         try {
+    //           const sanitizedResponseMessages = sanitizeResponseMessages({
+    //             messages: response.messages,
+    //             reasoning,
+    //           });
+
+    //           await saveMessages({
+    //             messages: sanitizedResponseMessages.map((message) => {
+    //               return {
+    //                 id: message.id,
+    //                 chatId: id,
+    //                 role: message.role,
+    //                 content: message.content,
+    //                 createdAt: new Date(),
+    //               };
+    //             }),
+    //           });
+    //         } catch (error) {
+    //           console.error('Failed to save chat');
+    //         }
+    //       }
+    //     },
+    //     experimental_telemetry: {
+    //       isEnabled: true,
+    //       functionId: 'stream-text',
+    //     },
+    //   });
+
+    //   result.mergeIntoDataStream(dataStream, {
+    //     sendReasoning: true,
+    //   });
+
+    //   const steps = await result.steps;
+    //   console.dir(steps, { depth: null });
+    //   console.log('total steps', steps.length);
+    // },
     execute: async (dataStream) => {
-      const result = streamText({
-        model: myProvider.languageModel('chat-model-large'),
-        system: SUPERVISOR_SYSTEM_PROMPT,
-        messages: convertToCoreMessages(messages),
-        maxSteps: 20,
-        experimental_generateMessageId: generateUUID,
-        experimental_continueSteps: true,
-        tools: {
-          researcher: research(dataStream),
-          shopper: shop(dataStream),
-        },
-        onStepFinish(event) {
-          // console.log('onStepFinish', event);
-        },
-        onFinish: async ({ response, reasoning }) => {
-          if (session.user?.id) {
-            try {
-              const sanitizedResponseMessages = sanitizeResponseMessages({
-                messages: response.messages,
-                reasoning,
-              });
-
-              await saveMessages({
-                messages: sanitizedResponseMessages.map((message) => {
-                  return {
-                    id: message.id,
-                    chatId: id,
-                    role: message.role,
-                    content: message.content,
-                    createdAt: new Date(),
-                  };
-                }),
-              });
-            } catch (error) {
-              console.error('Failed to save chat');
-            }
-          }
-        },
-        experimental_telemetry: {
-          isEnabled: true,
-          functionId: 'stream-text',
-        },
-      });
-
-      result.mergeIntoDataStream(dataStream, {
-        sendReasoning: true,
-      });
-
-      const steps = await result.steps;
-      console.dir(steps, { depth: null });
-      console.log('total steps', steps.length);
+      const result = await supervisor(dataStream, convertToCoreMessages(messages));
+      dataStream.writeMessageAnnotation(
+        result.invalid ? JSON.stringify(result.invalid) : JSON.stringify(result.shoppingResults),
+      );
+      console.dir(result, { depth: null });
     },
     onError: (error) => {
       console.log(error);

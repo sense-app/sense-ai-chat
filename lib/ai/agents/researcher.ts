@@ -65,10 +65,10 @@ export const search = (dataStream: DataStreamWriter, research: Research) =>
     }),
     execute: async (params) => {
       const { thoughts, queries } = params;
+      dataStream.writeMessageAnnotation(`Reasoning...`);
       dataStream.writeMessageAnnotation(thoughts);
-      dataStream.writeMessageAnnotation(`Reasoning...${queries.join(', ')}`);
+      dataStream.writeMessageAnnotation(`Searching...${queries.join(', ')}`);
       const searchResults = await websearch(queries);
-
       dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
 
       research.thoughts.push(`Search step - ${thoughts}`);
@@ -79,9 +79,9 @@ export const search = (dataStream: DataStreamWriter, research: Research) =>
     },
   });
 
-const websearch = async (queries: string[]) => {
-  const searchQueries = await rewriteQuery(queries);
-  const searchResults = await serpSearch({ queries: searchQueries.queries });
+export const websearch = async (queries: string[]) => {
+  // const searchQueries = await rewriteQuery(queries);
+  const searchResults = await serpSearch({ queries: queries });
   const searchResultsLLMFormatted = jsonToLLMFormat(searchResults);
 
   const totalResults = searchResults.reduce(
@@ -174,12 +174,17 @@ const getResearchPrompt = (research: Research) => {
 };
 
 const researchResultsSchema = z.object({
-  learnings: z.string().describe('What you learned from the research'),
+  summary: z
+    .string()
+    .describe(
+      'Summary of all the findings from your research on the best matching products in Markdown format. Provide detailed findings',
+    ),
   thoughts: z.string().describe('What are your thoughts about the research'),
   products: z
     .array(
       z.object({
         name: z.string().describe('Name of the product'),
+        remarks: z.string().optional().describe('Any additional remarks or filter criteria about the product'),
         reason: z.string().describe('Why did you choose this product?'),
         stores: z
           .array(
@@ -195,7 +200,9 @@ const researchResultsSchema = z.object({
     .describe(`List of products found from the research that match the user's query`),
 });
 
-const researcher = async (dataStream: DataStreamWriter, research: Research) => {
+type ResearchResult = z.infer<typeof researchResultsSchema>;
+
+export const researcher = async (dataStream: DataStreamWriter, research: Research) => {
   console.log('researcher is being called');
   console.dir(research, { depth: null });
 
@@ -228,15 +235,9 @@ const researcher = async (dataStream: DataStreamWriter, research: Research) => {
 
   console.dir(researchResults, { depth: null });
 
-  const formatProduct = (product: (typeof researchResults.object.products)[0]) => {
-    const storeName = product.stores?.length ? ` from ${product.stores.map((s) => s.name).join(', ')}` : '';
-    return `${product.name} because ${product.reason}${storeName}`;
-  };
-
-  const productSummary = researchResults.object.products.map(formatProduct).join(', ');
-
-  dataStream.writeMessageAnnotation(`
-    The best matching products are ${productSummary}
-  `);
+  const { thoughts, summary, products } = researchResults.object;
+  dataStream.writeMessageAnnotation(thoughts);
+  dataStream.writeMessageAnnotation(summary);
+  dataStream.writeMessageAnnotation(`The best matching products are ${products.map((p) => p.name).join(', ')}`);
   return researchResults.object;
 };
