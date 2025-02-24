@@ -88,6 +88,10 @@ export const shoppingResultsSchema = z.object({
   storeGroup: z.array(storeGroupSchema).describe('List of products grouped by store'),
 });
 
+export type ProductGroup = z.infer<typeof productGroupSchema>;
+export type StoreGroup = z.infer<typeof storeGroupSchema>;
+export type ShoppingResults = z.infer<typeof shoppingResultsSchema>;
+
 export interface Shopping {
   thoughts: string;
   products: ProductSearch[];
