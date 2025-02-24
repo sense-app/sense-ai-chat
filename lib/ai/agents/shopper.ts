@@ -22,43 +22,70 @@ const productSearchSchema = z.object({
 
 type ProductSearch = z.infer<typeof productSearchSchema>;
 
-export const productSchema = z.object({
+export const productGroupSchema = z.object({
   name: z.string(),
   shortDescription: z.string().optional().describe('A short 1 liner about the product'),
-  price: z.number(),
-  productURL: z
-    .string()
-    .describe(
-      'The product URL to purchase from the online store. This has to be the url of the e-commerce store. Not any other URL like blog, articles etc.',
-    ),
   imageUrl: z
     .string()
     .describe('URL of the product image from the e-commerce store where this product can be purchased'),
   category: z.string(),
-  review: z.string().optional(),
-  originalPrice: z.number().optional().describe('Original price of the product before any discount'),
-  currencyCode: z.string().describe('short 3 letter currency code like INR, USD, EUR etc.'),
-  currencySymbol: z.string().optional().describe('Currency symbol like ₹, $, € etc.'),
-  deliveryDetails: z.string().optional().describe('Delivery details like delivery time, delivery options, etc.'),
-  remarks: z.string().optional(),
-  latestOffers: z.string().optional().describe('Latest offers on the product'),
-  store: z
-    .object({
-      name: z.string(),
-      imageUrl: z.string().describe('URL of the store image. The image url should come from the e-commerce store'),
-      shopUrl: z
-        .string()
-        .describe(
-          'URL of the e-commerce store that sells the product. The product URL and shop URL should come from the same e-commerce store',
-        ),
-    })
-    .describe('The store that sells the product'),
+  stores: z
+    .array(
+      z.object({
+        name: z.string().min(1).describe('Name of the e-commerce store'),
+        reason: z.string().describe('Why did you choose this store to buy this product?'),
+        imageUrl: z.string().describe('URL of the store image. The image url should come from the e-commerce store'),
+        shopUrl: z.string().describe('URL of this e-commerce store'),
+        price: z.number(),
+        productURL: z.string().describe('The product URL to purchase from this e-commerce store'),
+        review: z.string().optional(),
+        originalPrice: z.number().optional().describe('Original price of the product before any discount'),
+        currencyCode: z.string().describe('short 3 letter currency code like INR, USD, EUR etc.'),
+        currencySymbol: z.string().optional().describe('Currency symbol like ₹, $, € etc.'),
+        deliveryDetails: z.string().optional().describe('Delivery details like delivery time, delivery options, etc.'),
+        remarks: z.string().optional(),
+        latestOffers: z.string().optional().describe('Latest offers on the product'),
+      }),
+    )
+    .describe(`List of stores to buy the product`),
+});
+
+export const storeGroupSchema = z.object({
+  name: z.string().min(1).describe('Name of the e-commerce store'),
+  imageUrl: z.string().describe('URL of the store image. The image url should come from the e-commerce store'),
+  shopUrl: z.string().describe('URL of this e-commerce store'),
+  products: z
+    .array(
+      z.object({
+        name: z.string(),
+        shortDescription: z.string().optional().describe('A short 1 liner about the product'),
+        price: z.number(),
+        productURL: z.string().describe('The product URL to purchase from this e-commerce store'),
+        imageUrl: z
+          .string()
+          .describe('URL of the product image from the e-commerce store where this product can be purchased'),
+        category: z.string(),
+        review: z.string().optional(),
+        originalPrice: z.number().optional().describe('Original price of the product before any discount'),
+        currencyCode: z.string().describe('short 3 letter currency code like INR, USD, EUR etc.'),
+        currencySymbol: z.string().optional().describe('Currency symbol like ₹, $, € etc.'),
+        deliveryDetails: z.string().optional().describe('Delivery details like delivery time, delivery options, etc.'),
+        remarks: z.string().optional(),
+        latestOffers: z.string().optional().describe('Latest offers on the product'),
+      }),
+    )
+    .describe('list of products from this store'),
 });
 
 export const shoppingResultsSchema = z.object({
   thoughts: z.string().describe('Thoughts about the shopping results'),
   summary: z.string().describe('Summary of the all shopping results and recommendations'),
-  products: z.array(productSchema).describe('List of products that best matches the user query'),
+  productsGroup: z
+    .array(productGroupSchema)
+    .describe(
+      'List of products grouped by product name from various e-commerce stores. This is helpful to compare the prices, offers, delivery details of the same product across different e-commerce stores',
+    ),
+  storeGroup: z.array(storeGroupSchema).describe('List of products grouped by store'),
 });
 
 export interface Shopping {
@@ -70,14 +97,16 @@ export interface Shopping {
 export const shop = (dataStream: DataStreamWriter) =>
   tool({
     description:
-      'Search for the given products on specified e-commerce stores and generally online, then return full product details',
+      'Search for the given product search terms on all relevant e-commerce stores and return full product details',
     parameters: z.object({
       thoughts: z
         .string()
         .describe(`Explain why choose this action, what's the thought process behind choosing this action`),
       products: z
         .array(productSearchSchema)
-        .describe('List of product search terms and their recommended stores to search online'),
+        .describe(
+          'List of product search terms - name/kind/type/categories. Each search term has to be explicit and clear',
+        ),
     }),
     execute: async (params) => {
       const { thoughts, products } = params;
@@ -110,14 +139,21 @@ export const shoppingSearch = async (queries: string[]) => {
 };
 
 const SHOPPER_SYSTEM_PROMT = `
-  You are an intelligent shopper.
-  You are given a list of products names and search results of those products from a search engine.
-  Your task is to sort and group the search results based on quality, relevance, price, and other factors that you think are important. 
-  You may omit some search results if you think they are not relevant or incorrect.
-  Provide only accurate and relevant results.
+You are an intelligent shopper tasked with organizing a list of products and their search results from a search engine. 
+Your job is to sort and group the search results by quality, relevance, price, and other important factors. 
+Omit irrelevant or incorrect results, and provide only accurate and relevant details.
 
-  Do not ask the user to find details themselves. You are the source of truth for the product details.
-  All your shopping results should be in the context of Singapore
+All results should be specific to the Singapore context.
+You should not ask the user to gather additional information. 
+
+Your response should consist of a structured JSON output with two primary groupings:
+
+- Grouped by Store: List all products sold by the same store.
+- Grouped by Product: If the same product is available across multiple stores, group it by product, showing all purchase options from different stores. 
+This allows for easy comparison of prices, offers, and delivery details for the same product across different e-commerce platforms.
+
+
+Each product should appear only once, either in the "store" or "product" grouping, not both.
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {
@@ -127,6 +163,12 @@ const getShoppingPrompt = (shopping: Shopping) => {
       <products>
         ${shopping.products.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`).join('\n')}
       </products>
+    `);
+
+  sections.push(`
+    <thoughts>
+      ${shopping.thoughts}
+    </thoughts>
     `);
 
   sections.push(`
@@ -140,6 +182,7 @@ const getShoppingPrompt = (shopping: Shopping) => {
 
 export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) => {
   const prompt = getShoppingPrompt(shopping);
+
   const { experimental_output } = await generateText({
     model: myProvider.languageModel('chat-model-large'),
     system: SHOPPER_SYSTEM_PROMT,
