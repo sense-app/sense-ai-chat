@@ -1,69 +1,123 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 import { cn } from '@/lib/utils';
-import { Button } from './ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Button } from '@/components/ui/button';
+import { ShoppingBag } from 'lucide-react';
 
-import type { ProductGroup } from '@/lib/ai/agents/shopper';
-
-interface ProductCardProps extends Omit<ProductGroup, 'stores'> {
-  stores: ProductGroup['stores'];
+interface ProductCardProps {
+  name: string;
+  shortDescription?: string;
+  imageUrl: string;
+  price: number;
+  originalPrice?: number;
+  category: string;
+  productURL: string;
+  currencyCode: string;
+  currencySymbol?: string;
+  deliveryDetails?: string;
+  latestOffers?: string;
+  review?: string;
   className?: string;
+  storeName?: string;
+  storeImageUrl?: string;
 }
 
-export function ProductCard({ name, shortDescription, imageUrl, category, stores, className }: ProductCardProps) {
-  const primaryStore = stores[0];
-
-  const handleBuyClick = (url: string) => {
-    window.open(url, '_blank');
-  };
+export const ProductCard = ({
+  name,
+  shortDescription,
+  imageUrl,
+  price,
+  originalPrice,
+  category,
+  productURL,
+  currencyCode,
+  currencySymbol = getCurrencySymbol(currencyCode),
+  deliveryDetails,
+  latestOffers,
+  review,
+  className,
+  storeName,
+  storeImageUrl,
+}: ProductCardProps) => {
+  const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
 
   return (
-    <Card className={cn('h-full flex flex-col', className)}>
-      <CardHeader className="flex-none">
-        <div className="relative aspect-square overflow-hidden rounded-lg mb-4">
+    <Card className={cn('h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-md', className)}>
+      <CardHeader className="p-3">
+        <AspectRatio ratio={1} className="bg-muted rounded-md overflow-hidden mb-2">
           <img
-            src={imageUrl}
+            src={imageUrl || '/placeholder.svg'}
             alt={name}
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
             onError={(e) => {
-              e.currentTarget.src = '/images/placeholder.png';
+              e.currentTarget.src = '/placeholder.svg';
             }}
           />
-        </div>
-        <CardTitle className="line-clamp-2">{name}</CardTitle>
-        {shortDescription && <CardDescription className="line-clamp-2">{shortDescription}</CardDescription>}
+        </AspectRatio>
+        {discount > 0 && <Badge className="absolute top-5 left-5 bg-red-500">{discount}% OFF</Badge>}
       </CardHeader>
-      <CardContent className="flex-grow">
-        <div className="text-sm text-muted-foreground mb-2">{category}</div>
-        <div className="space-y-2">
-          <div className="flex items-baseline justify-between">
-            <div className="font-semibold">
-              {primaryStore.currencySymbol || primaryStore.currencyCode}
-              {primaryStore.price.toLocaleString()}
+      <CardContent className="flex-grow p-4 pt-0">
+        {storeName && storeImageUrl && (
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-full overflow-hidden">
+              <img
+                src={storeImageUrl}
+                alt={storeName}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = '/placeholder.svg';
+                }}
+              />
             </div>
-            {primaryStore.originalPrice && (
-              <div className="text-sm text-muted-foreground line-through">
-                {primaryStore.currencySymbol || primaryStore.currencyCode}
-                {primaryStore.originalPrice.toLocaleString()}
-              </div>
-            )}
+            <span className="text-xs text-muted-foreground">{storeName}</span>
           </div>
-          {primaryStore.latestOffers && (
-            <div className="text-sm text-green-600 dark:text-green-400">{primaryStore.latestOffers}</div>
-          )}
-          {primaryStore.review && <div className="text-sm text-muted-foreground">{primaryStore.review}</div>}
-          <div className="flex items-center justify-between mt-4">
-            <img src={primaryStore.imageUrl} alt={primaryStore.name} className="h-6 object-contain" />
-            <Button onClick={() => handleBuyClick(primaryStore.productURL)} className="ml-2">
-              Buy Now
-            </Button>
-          </div>
+        )}
+        <CardTitle className="text-lg line-clamp-2 h-12 mb-1">{name}</CardTitle>
+        {shortDescription && (
+          <CardDescription className="text-sm line-clamp-2 mb-3">{shortDescription}</CardDescription>
+        )}
+        <div className="flex flex-col gap-2 mt-auto">
+          {deliveryDetails && <div className="text-xs text-muted-foreground">{deliveryDetails}</div>}
+          {latestOffers && <div className="text-xs text-green-600 font-medium">{latestOffers}</div>}
+          {review && <div className="text-xs italic text-muted-foreground">"{review}"</div>}
         </div>
       </CardContent>
-      <CardFooter className="flex-none">
-        {primaryStore.deliveryDetails && (
-          <div className="text-sm text-muted-foreground">{primaryStore.deliveryDetails}</div>
-        )}
+      <CardFooter className="p-4 pt-0 flex justify-between items-center">
+        <div className="flex items-baseline gap-1">
+          <span className="text-xl font-bold">
+            {currencySymbol}
+            {price.toLocaleString()}
+          </span>
+          {originalPrice && originalPrice > price && (
+            <span className="text-sm text-muted-foreground line-through">
+              {currencySymbol}
+              {originalPrice.toLocaleString()}
+            </span>
+          )}
+        </div>
+        <Button size="sm" asChild>
+          <a href={productURL} target="_blank" rel="noopener noreferrer">
+            <ShoppingBag className="h-4 w-4 mr-2" />
+            Buy
+          </a>
+        </Button>
       </CardFooter>
     </Card>
   );
+};
+
+function getCurrencySymbol(currencyCode: string): string {
+  const symbols: Record<string, string> = {
+    USD: '$',
+    EUR: '€',
+    GBP: '£',
+    INR: '₹',
+    JPY: '¥',
+    CNY: '¥',
+    AUD: 'A$',
+    CAD: 'C$',
+  };
+
+  return symbols[currencyCode] || currencyCode;
 }

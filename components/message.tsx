@@ -20,7 +20,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 import { MessageEditor } from './message-editor';
 import { DocumentPreview } from './document-preview';
 import { MessageReasoning } from './message-reasoning';
-import { ProductGrid } from './product-grid';
+import { ShoppingGrid } from './shopping-grid';
 
 const PurePreviewMessage = ({
   chatId,
@@ -143,7 +143,7 @@ const PurePreviewMessage = ({
                         ) : toolName === 'requestSuggestions' ? (
                           <DocumentToolResult type="request-suggestions" result={result} isReadonly={isReadonly} />
                         ) : toolName === 'shopper' ? (
-                          <ProductGrid data={result} />
+                          <ShoppingGrid results={result} />
                         ) : (
                           <pre>{JSON.stringify(result, null, 2)}</pre>
                         )}
