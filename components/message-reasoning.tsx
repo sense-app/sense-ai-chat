@@ -10,10 +10,7 @@ interface MessageReasoningProps {
   reasoning: string;
 }
 
-export function MessageReasoning({
-  isLoading,
-  reasoning,
-}: MessageReasoningProps) {
+export function MessageReasoning({ isLoading, reasoning }: MessageReasoningProps) {
   const [isExpanded, setIsExpanded] = useState(true);
 
   const variants = {

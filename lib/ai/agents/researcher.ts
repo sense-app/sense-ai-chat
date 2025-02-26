@@ -227,6 +227,5 @@ export const researcher = async (dataStream: DataStreamWriter, research: Researc
     maxSteps: 10,
   });
 
-  dataStream.writeMessageAnnotation(result.text);
   return result.text;
 };

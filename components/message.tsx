@@ -78,7 +78,7 @@ const PurePreviewMessage = ({
             {message.reasoning && <MessageReasoning isLoading={isLoading} reasoning={message.reasoning} />}
 
             {message.annotations && (
-              <MessageReasoning isLoading={isLoading} reasoning={JSON.stringify(message.annotations)} />
+              <MessageReasoning isLoading={isLoading} reasoning={message.annotations.toString()} />
             )}
 
             {(message.content || message.reasoning) && mode === 'view' && (
@@ -142,6 +142,8 @@ const PurePreviewMessage = ({
                           <DocumentToolResult type="update" result={result} isReadonly={isReadonly} />
                         ) : toolName === 'requestSuggestions' ? (
                           <DocumentToolResult type="request-suggestions" result={result} isReadonly={isReadonly} />
+                        ) : toolName === 'researcher' ? (
+                          <Markdown>{result}</Markdown>
                         ) : toolName === 'shopper' ? (
                           <ShoppingGrid results={result} />
                         ) : (

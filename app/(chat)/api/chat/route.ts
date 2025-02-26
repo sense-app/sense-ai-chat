@@ -93,13 +93,6 @@ export async function POST(request: Request) {
       console.dir(steps, { depth: null });
       console.log('total steps', steps.length);
     },
-    // execute: async (dataStream) => {
-    //   const result = await supervisor(dataStream, convertToCoreMessages(messages));
-    //   dataStream.writeMessageAnnotation(
-    //     result.invalid ? JSON.stringify(result.invalid) : JSON.stringify(result.shoppingResults),
-    //   );
-    //   console.dir(result, { depth: null });
-    // },
     onError: (error) => {
       console.log(error);
       return 'Oops, an error occured!';

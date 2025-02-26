@@ -114,9 +114,6 @@ export const shop = (dataStream: DataStreamWriter) =>
     }),
     execute: async (params) => {
       const { thoughts, products } = params;
-      dataStream.writeMessageAnnotation(thoughts);
-      console.log('shopper', thoughts);
-      console.dir(products, { depth: null });
 
       const searchResults = await shoppingSearch(
         products.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
@@ -196,7 +193,7 @@ export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) 
     }),
   });
 
-  console.log('researcher');
+  console.log('shopper');
   console.dir(experimental_output, { depth: null });
 
   return experimental_output;

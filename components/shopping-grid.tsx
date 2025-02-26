@@ -16,28 +16,20 @@ export const ShoppingGrid = ({ results }: ShoppingGridProps) => {
       {results.summary && <p>{results.summary}</p>}
 
       {/* Products Section */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Products</h2>
-        {results.productsGroup && results.productsGroup.length > 0 ? (
+      {results.productsGroup?.length > 0 && (
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold">Products</h2>
           <ProductStoreGrid productGroups={results.productsGroup} />
-        ) : (
-          <div className="py-6 text-center">
-            <p className="text-muted-foreground">No product groups available</p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Stores Section */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Stores</h2>
-        {results.storeGroup && results.storeGroup.length > 0 ? (
+      {results.storeGroup?.length > 0 && results.storeGroup.some((store) => (store.products?.length ?? 0) > 0) && (
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold">Stores</h2>
           <StoreProductGrid storeGroups={results.storeGroup} />
-        ) : (
-          <div className="py-6 text-center">
-            <p className="text-muted-foreground">No store groups available</p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
