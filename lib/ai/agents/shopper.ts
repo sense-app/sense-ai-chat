@@ -1,8 +1,10 @@
 import { jsonToLLMFormat } from '@/lib/llm-formatter';
-import { serpSearch } from '@/lib/services/serp';
+import { serpSearch, type SerpShoppingResult } from '@/lib/services/serp';
 import { type DataStreamWriter, generateObject, generateText, Output, tool } from 'ai';
 import { z } from 'zod';
 import { myProvider } from '@/lib/ai/models';
+
+import { writeToFile } from '@/lib/utils';
 
 const productSearchSchema = z.object({
   searchTerm: z.string().describe('Best search term of product (name/kind/category etc.)'),
@@ -78,7 +80,6 @@ export const storeGroupSchema = z.object({
 });
 
 export const shoppingResultsSchema = z.object({
-  thoughts: z.string().describe('Thoughts about the shopping results'),
   summary: z.string().describe('Summary of the all shopping results and recommendations'),
   productsGroup: z
     .array(productGroupSchema)
@@ -93,8 +94,8 @@ export type StoreGroup = z.infer<typeof storeGroupSchema>;
 export type ShoppingResults = z.infer<typeof shoppingResultsSchema>;
 
 export interface Shopping {
-  thoughts: string;
-  products: ProductSearch[];
+  query: string;
+  searchTerm: string;
   searchResults: string[];
 }
 
@@ -106,42 +107,54 @@ export const shop = (dataStream: DataStreamWriter) =>
       thoughts: z
         .string()
         .describe(`Explain why choose this action, what's the thought process behind choosing this action`),
-      products: z
+      query: z.string().describe('What does the user want?'),
+      searchTerms: z
         .array(productSearchSchema)
         .describe(
           'List of product search terms - name/kind/type/categories. Each search term has to be explicit and clear',
         ),
     }),
     execute: async (params) => {
-      const { thoughts, products } = params;
+      const { thoughts, query, searchTerms } = params;
 
       const searchResults = await shoppingSearch(
-        products.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
+        searchTerms.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
       );
 
-      const shopping: Shopping = {
-        thoughts,
-        products,
-        searchResults: [searchResults.results],
+      const shoppingItems = searchResults.results.map((result) => ({
+        query,
+        searchTerm: result.searchQuery,
+        searchResults: [result.results],
+      })) as Shopping[];
+
+      const allShoppingResults = await Promise.all(shoppingItems.map((item) => shopper(dataStream, item)));
+
+      // Combine all results into a single shopping result
+      const combinedResults: ShoppingResults = {
+        summary: allShoppingResults.map((result) => result.summary).join('\n\n'),
+        productsGroup: allShoppingResults.flatMap((result) => result.productsGroup),
+        storeGroup: allShoppingResults.flatMap((result) => result.storeGroup),
       };
 
-      const shoppingResults = await shopper(dataStream, shopping);
-      console.dir(shoppingResults, { depth: null });
-      return shoppingResults;
+      return combinedResults;
     },
   });
 
 export const shoppingSearch = async (queries: string[]) => {
-  const searchResults = await serpSearch({ queries, type: 'shopping' });
-  const searchResultsLLMFormatted = jsonToLLMFormat(searchResults);
-  const totalResults = searchResults.reduce((total: number, result: any) => total + (result?.shopping?.length ?? 0), 0);
+  const searchResults = (await serpSearch({ queries, type: 'shopping' })) as SerpShoppingResult[];
+  const totalResults = searchResults.reduce((acc, result) => acc + (result?.shopping?.length ?? 0), 0);
 
-  return { total: totalResults, results: searchResultsLLMFormatted };
+  const searchResultsLLMFormatted = searchResults.map((results) => ({
+    searchQuery: results.searchParameters.q,
+    results: jsonToLLMFormat(results.shopping),
+  }));
+
+  return { totalResults, results: searchResultsLLMFormatted };
 };
 
 const SHOPPER_SYSTEM_PROMT = `
-You are an intelligent shopper tasked with organizing a list of products and their search results from a search engine. 
-Your job is to sort and group the search results by quality, relevance, price, and other important factors. 
+Evaluate the user query, product search terms with the product details from the search results and return the best matching product details.
+Return as many product details as possible. Sort and group the search results by quality, relevance, price, and other important factors. 
 Omit irrelevant or incorrect results, and provide only accurate and relevant details.
 
 All results should be specific to the Singapore context.
@@ -153,24 +166,25 @@ Your response should consist of a structured JSON output with two primary groupi
 - Grouped by Product: If the same product is available across multiple stores, group it by product, showing all purchase options from different stores. 
 This allows for easy comparison of prices, offers, and delivery details for the same product across different e-commerce platforms.
 
+Do not exceed 8000 tokens per output. Return partial results and then continu
 
 Each product should appear only once, either in the "store" or "product" grouping, not both.
-Be careful about JSON errors. Structure the response accurarely in JSON format. Handle URLs correctly.
+Be careful with JSON errors. Structure the response accurarely in JSON format. Handle URLs correctly and do not edit them.
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {
   const sections = [];
 
   sections.push(`
-      <products>
-        ${shopping.products.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`).join('\n')}
-      </products>
+      <Userquery>
+        ${shopping.query}
+      </Userquery>
     `);
 
   sections.push(`
-    <thoughts>
-      ${shopping.thoughts}
-    </thoughts>
+      <productSearchTerm>
+        ${shopping.searchTerm}
+      </productSearchTerm>
     `);
 
   sections.push(`
@@ -179,7 +193,12 @@ const getShoppingPrompt = (shopping: Shopping) => {
       </searchResults>
     `);
 
-  return sections.join('\n');
+  const prompt = sections.join('\n');
+
+  // Write the prompt to a file in tmp directory
+  writeToFile(prompt, 'shopping-prompt');
+
+  return prompt;
 };
 
 export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) => {
@@ -189,6 +208,8 @@ export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) 
     model: myProvider.languageModel('chat-model-large'),
     system: SHOPPER_SYSTEM_PROMT,
     prompt,
+    maxTokens: 50000,
+    maxRetries: 3,
     schema: shoppingResultsSchema,
   });
 
@@ -198,13 +219,13 @@ export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) 
   //   model: myProvider.languageModel('chat-model-large'),
   //   system: SHOPPER_SYSTEM_PROMT,
   //   prompt,
+  //   maxSteps: 5,
+  //   maxRetries: 3,
+  //   maxTokens: 50000,
   //   experimental_output: Output.object({
   //     schema: shoppingResultsSchema,
   //   }),
   // });
-
-  // console.log('shopper');
-  // console.dir(experimental_output, { depth: null });
 
   // return experimental_output;
 };

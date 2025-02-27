@@ -1,9 +1,4 @@
-import type {
-  CoreAssistantMessage,
-  CoreToolMessage,
-  Message,
-  ToolInvocation,
-} from 'ai';
+import type { CoreAssistantMessage, CoreToolMessage, Message, ToolInvocation } from 'ai';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -22,9 +17,7 @@ export const fetcher = async (url: string) => {
   const res = await fetch(url);
 
   if (!res.ok) {
-    const error = new Error(
-      'An error occurred while fetching the data.',
-    ) as ApplicationError;
+    const error = new Error('An error occurred while fetching the data.') as ApplicationError;
 
     error.info = await res.json();
     error.status = res.status;
@@ -62,9 +55,7 @@ function addToolMessageToChat({
       return {
         ...message,
         toolInvocations: message.toolInvocations.map((toolInvocation) => {
-          const toolResult = toolMessage.content.find(
-            (tool) => tool.toolCallId === toolInvocation.toolCallId,
-          );
+          const toolResult = toolMessage.content.find((tool) => tool.toolCallId === toolInvocation.toolCallId);
 
           if (toolResult) {
             return {
@@ -83,9 +74,7 @@ function addToolMessageToChat({
   });
 }
 
-export function convertToUIMessages(
-  messages: Array<DBMessage>,
-): Array<Message> {
+export function convertToUIMessages(messages: Array<DBMessage>): Array<Message> {
   return messages.reduce((chatMessages: Array<Message>, message) => {
     if (message.role === 'tool') {
       return addToolMessageToChat({
@@ -175,9 +164,7 @@ export function sanitizeResponseMessages({
     };
   });
 
-  return messagesBySanitizedContent.filter(
-    (message) => message.content.length > 0,
-  );
+  return messagesBySanitizedContent.filter((message) => message.content.length > 0);
 }
 
 export function sanitizeUIMessages(messages: Array<Message>): Array<Message> {
@@ -195,9 +182,7 @@ export function sanitizeUIMessages(messages: Array<Message>): Array<Message> {
     }
 
     const sanitizedToolInvocations = message.toolInvocations.filter(
-      (toolInvocation) =>
-        toolInvocation.state === 'result' ||
-        toolResultIds.includes(toolInvocation.toolCallId),
+      (toolInvocation) => toolInvocation.state === 'result' || toolResultIds.includes(toolInvocation.toolCallId),
     );
 
     return {
@@ -207,9 +192,7 @@ export function sanitizeUIMessages(messages: Array<Message>): Array<Message> {
   });
 
   return messagesBySanitizedToolInvocations.filter(
-    (message) =>
-      message.content.length > 0 ||
-      (message.toolInvocations && message.toolInvocations.length > 0),
+    (message) => message.content.length > 0 || (message.toolInvocations && message.toolInvocations.length > 0),
   );
 }
 
@@ -218,10 +201,7 @@ export function getMostRecentUserMessage(messages: Array<Message>) {
   return userMessages.at(-1);
 }
 
-export function getDocumentTimestampByIndex(
-  documents: Array<Document>,
-  index: number,
-) {
+export function getDocumentTimestampByIndex(documents: Array<Document>, index: number) {
   if (!documents) return new Date();
   if (index > documents.length) return new Date();
 
@@ -238,5 +218,29 @@ export function isValidUrl(url: string) {
     return true;
   } catch (e) {
     return false;
+  }
+}
+
+const isServer = typeof window === 'undefined';
+
+export function writeToFile(data: string, filename: string) {
+  if (!isServer) {
+    console.warn('writeToFile is only available on the server side');
+    return;
+  }
+
+  // Dynamic import for server-side only
+  const fs = require('node:fs');
+  const path = require('node:path');
+
+  try {
+    const tmpDir = path.join(process.cwd(), 'tmp');
+    // Ensure tmp directory exists
+    if (!fs.existsSync(tmpDir)) {
+      fs.mkdirSync(tmpDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(tmpDir, `${filename}.txt`), data, 'utf-8');
+  } catch (error) {
+    console.error('Error writing shopping prompt to file:', error);
   }
 }

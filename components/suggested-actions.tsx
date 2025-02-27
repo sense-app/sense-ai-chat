@@ -16,24 +16,24 @@ interface SuggestedActionsProps {
 function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the advantages',
-      label: 'of using Next.js?',
-      action: 'What are the advantages of using Next.js?',
+      title: 'What are the best budget friendly',
+      label: 'gaming laptops?',
+      action: 'What are the best budget friendly gaming laptops?',
     },
     {
-      title: 'Write code to',
-      label: `demonstrate djikstra's algorithm`,
-      action: `Write code to demonstrate djikstra's algorithm`,
+      title: 'Find phones within',
+      label: `$200 to $300 budget`,
+      action: `Find phones within $200 to $300 budget`,
     },
     {
-      title: 'Help me write an essay',
-      label: `about silicon valley`,
-      action: `Help me write an essay about silicon valley`,
+      title: 'Recommend me a good pair of',
+      label: `sunglasses`,
+      action: `Recommend me a good pair of sunglasses`,
     },
     {
-      title: 'What is the weather',
-      label: 'in San Francisco?',
-      action: 'What is the weather in San Francisco?',
+      title: 'Find organic milk',
+      label: 'in Singapore?',
+      action: 'Find organic milk in Singapore',
     },
   ];
 
@@ -61,9 +61,7 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
             className="text-left border rounded-xl px-4 py-3.5 text-sm flex-1 gap-1 sm:flex-col w-full h-auto justify-start items-start"
           >
             <span className="font-medium">{suggestedAction.title}</span>
-            <span className="text-muted-foreground">
-              {suggestedAction.label}
-            </span>
+            <span className="text-muted-foreground">{suggestedAction.label}</span>
           </Button>
         </motion.div>
       ))}

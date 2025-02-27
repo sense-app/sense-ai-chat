@@ -1,0 +1,363 @@
+
+      <Userquery>
+        Find phones within $200 to $300 budget
+      </Userquery>
+    
+
+      <productSearchTerm>
+        Motorola Moto G series price between $200 and $300
+      </productSearchTerm>
+    
+
+      <searchResults>
+        #1:
+  Title:
+    Motorola Moto G Stylus 5G XT2131 128GB 4GB RAM 48MP Camera 5000mAh Battery Cell Phone smartphone
+  Source:
+    Shopee
+  Link:
+    https://shopee.sg/product/754370620/29127062135?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbStUSGYzSEhoU1lWcnVWbUlaaXlIdW9jMHNPTldxTGxJNTR0V21Hb3JaTndoMFhPSTFpT240ak1wcFhTYkpwdm16ZWV2S3lPTVZZRDd1ZkYvdWdRSTY
+  Price:
+    $157.15 used
+  Image Url:
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT-JQihB_brqiT2a7YFkiSPGFISF3Enab9ZfbllHKdYMltQEP-QecXHttFdeM3z4B-6nLHG&usqp=CAE
+  Position:
+    1
+
+#2:
+  Title:
+    Motorola Moto G Stylus 5G Xt2131 4Gb Ram 64Gb128Gb Rom 6.8 Inch Smartphone
+  Source:
+    Lazada Singapore
+  Link:
+    https://www.lazada.sg/products/motorola-moto-g-stylus-5g-xt2131-4gb-ram-64gb128gb-rom-68-inch-smartphone-i2886997173-s20007110983.html?from_gmc=1&fl_tag=1
+  Price:
+    $174.17
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRn8jyXygezWQUPDu5Q-RnnFsYUzWvYW5j1a-uq4YdeVRqLHEKT4ZXorAM&usqp=CAE
+  Position:
+    2
+
+#3:
+  Title:
+    Motorola G 5G | 2024 | Unlocked | Made for US 4GB/128GB | 50MP Camera | 1Sim+esim | Sage Green | Used smartphone Global ROM
+  Source:
+    Shopee
+  Link:
+    https://shopee.sg/product/754370620/25090075065?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbStUSGYzSEhoU1lWcnVWbUlaaXlIdXh6emRTOVF3YUVFbkozVWhQSEZTYTBvbkpTNXJEMUdDdlpMQjJPZjFUbmR2Uk1EYWdIakdWUkdXS1F2Kzk4Vlc
+  Price:
+    $199.86 used
+  Image Url:
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRKJ0S32MPcCkPwyWsU1LDugQEq10PPD_1KzI_qX7GeRI6jtjlhyub3fO0f&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    553
+  Position:
+    3
+
+#4:
+  Title:
+    Motorola Moto G30 Xt2129 128Gb+4Gb 64Mp 4G Lte Unlocked Original Smartphone
+  Source:
+    Lazada Singapore
+  Link:
+    https://www.lazada.sg/products/motorola-moto-g30-xt2129-128gb4gb-64mp-4g-lte-unlocked-original-smartphone-i3038262783-s20727782499.html?from_gmc=1&fl_tag=1
+  Price:
+    $142.39
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQhVnz7l0Op1iHVNt0dlG1KWQL5Eb1AnBI45dgiMVuWmyS7giv_GQFTPbI&usqp=CAE
+  Position:
+    4
+
+#5:
+  Title:
+    Motorola Moto G Stylus ( ) Unlocked 4Gb Ram 128Gb Rom 4G Mobile Phone Blue
+  Source:
+    Lazada Singapore
+  Link:
+    https://www.lazada.sg/products/motorola-moto-g-stylus-2020-unlocked-4gb-ram-128gb-rom-4g-mobile-phone-blue-i3038237878-s20727743013.html?from_gmc=1&fl_tag=1
+  Price:
+    $112.39
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRFQhRu8X-tDH9kP0HOxKD0uYgCmElEs0YL66X0_bzDJ-u74TBjYNAxZQsy&usqp=CAE
+  Position:
+    5
+
+#6:
+  Title:
+    Motorola Moto G23 - Matte charcoal
+  Source:
+    Memorabid
+  Link:
+    https://www.memorabid.com/en/auction/44939-motorola-moto-g23-matte-charcoal?srsltid=AfmBOorxHwUnNn3NxkewBCbeZ5phuw1A-wDmooZ_3tmc-OeR57gbzy1sj3g
+  Price:
+    $105.43 used
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQN7riok82B8Qqw5ZDIUkz3Uk04YuMYXYVcR4LpTpmC9VElT9AUZo7OOzOW4pElWVe_zYXr&usqp=CAE
+  Position:
+    6
+
+#7:
+  Title:
+    Motorola Moto G Stylus 5G 2023 (128GB, 4GB) 6.6", 50MP Dual Camera, Android 13 (Fully Unlocked for T-Mobile, Verizon, AT&T, Global) XT2315-1 (256GB
+  Source:
+    Amazon.sg - Seller
+  Link:
+    https://www.amazon.sg/Motorola-Android-Unlocked-T-Mobile-XT2315-1/dp/B0CXWBBFZW?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ARPIJN329XQ0D
+  Price:
+    $279.57
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQRr7-CIMdmhG6HxZ2ZJSUbEdkDe0o3FvO-1tB_DApvl7RSg3dyil5Bqcs36TLOtBPIue9p&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    1
+  Position:
+    7
+
+#8:
+  Title:
+    Motorola Moto G7 Play Original Xt1952 Unlocked 32Gb 5.7 Inches 4G Lte Cellphone
+  Source:
+    Lazada Singapore
+  Link:
+    https://www.lazada.sg/products/motorola-moto-g7-play-original-xt1952-unlocked-32gb-57-inches-4g-lte-cellphone-i3038290828-s20727820879.html?from_gmc=1&fl_tag=1
+  Price:
+    $72.39
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRu2hUT390eKbWndRy7CJ9GtVluC-WfnUTmWR8rUeLsbOdnu-TbL8sG8Q4DAblUWMgjaqZJ&usqp=CAE
+  Position:
+    8
+
+#9:
+  Title:
+    Motorola Moto G Power 5G | 2023 | Unlocked | Made for US 4/128GB | 50 MPCamera | Mineral Black - For Sale - Price
+  Source:
+    Hand Power Tools
+  Link:
+    https://www.handpowertoolslist.com/motorola-moto-g-power-5g-2023-unlocked-made-for-us-4-128gb-50-mpcamera-mineral-black-for-sale-price/?utm_source=Google%20Shopping&utm_campaign=allproduct&utm_medium=cpc&utm_term=36749
+  Price:
+    $183.69 + tax
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQWFFLO1T5ojRukzyggeuc3FWOG2jlk71MpxJr1bw9rU9CkY5B8M3worJg&usqp=CAE
+  Position:
+    9
+
+#10:
+  Title:
+    Motorola moto g power 5G – 2024 - 128 GB - Pale Lilac - Unlocked
+  Source:
+    eBay - ipadelectronics
+  Link:
+    https://www.ebay.com/itm/326434578524?chn=ps&mkevt=1&mkcid=28&var=515546766114&google_free_listing_action=view_item&srsltid=AfmBOorUxKBV4g5GL7V0P-X4rGEk37vYNt1epVTuUaW4KOBcfiJsEoaZtG4
+  Price:
+    $301.84 + tax
+  Image Url:
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTV3VT_ZBNoURtV7ZzYPHT3F0-CykTrYc9iqGp2YIMz7jQtZumAAHn1pro5&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    589
+  Offers:
+    3
+  Product Id:
+    8938752493559352666
+  Position:
+    10
+
+#11:
+  Title:
+    Motorola moto g power 5g - 256GB - Mineral Black - Unlocked
+  Source:
+    Realry
+  Link:
+    https://realry.com/products/67be1ad7c06876408103e7fe?srsltid=AfmBOopqkFVz_40NdAl1Old5QHnCcBAJ5EttSz6jgPtVhFxeCZ97ozuFJOg
+  Price:
+    $402.46 + tax
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQIbM-au__VD7elAwyyww24-JhfMRIf8EouZJEK5WA-kwRiP3-RLcE7HbBi&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    171
+  Position:
+    11
+
+#12:
+  Title:
+    Motorola Moto G14 Dual SIM (2023) 4G LTE (4/128GB) 6.5"" IPS LDC Display | Android 13 | 50MP Rear Camera | 5000mAh Battery |
+  Source:
+    Shopee
+  Link:
+    https://shopee.sg/product/754370620/28619166902?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbStUSGYzSEhoU1lWcnVWbUlaaXlIdWwzQUovczlYdURjU3RKL09FRDV0ZDNuN3oxdWVqRmdXbDBrUWtwRkZKcnJsdEUxNktkUG85c3BhSGNTMW00bTI
+  Price:
+    $166.96
+  Image Url:
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRwkpIj_9WcDf0xXjUDhWMcNkGGMaYzF48xWa_AjhoUV24_Ou5S-ak8-LM7&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    1
+  Position:
+    12
+
+#13:
+  Title:
+    moto g power 5g - 2024 - Pale Lilac - 128GB - Unlocked
+  Link:
+    https://taswiquh.online/motorola-moto-g-power-5g-128gb-unlocked/?utm_source=Google+Shopping&utm_medium=cpc&utm_campaign=taswiquh.online+&srsltid=AfmBOoomPPNylz90yZ0HjrLaJFlsI1Hpnh1Y6Ef-8EXjViO-uRZ4Hr_rQlc
+  Price:
+    $402.46 + tax
+  Image Url:
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTd9ZQhtqrf_LVJoMX6RmI6CouIyqpBomSqtDBgHTMGnu506vWAs4-nNbCj&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    589
+  Position:
+    13
+
+#14:
+  Title:
+    Motorola Moto G Stylus 5G ( ) Unlocked 4Gb Ram 128Gb Rom 50Mp - Blue Phone
+  Source:
+    Lazada Singapore
+  Link:
+    https://www.lazada.sg/products/motorola-moto-g-stylus-5g-2022-unlocked-4gb-ram-128gb-rom-50mp-blue-phone-i3038247721-s20727706624.html?from_gmc=1&fl_tag=1
+  Price:
+    $142.39
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSVtz2woLzqaKv6NRIpAIpXlLDMYTdRpu8QC2emxjI8Z2H2ak7S98Magkns&usqp=CAE
+  Position:
+    14
+
+#15:
+  Title:
+    Motorola Moto G84 5g 8gb/256gb 6.5 Black
+  Source:
+    Techinn.com
+  Link:
+    https://www.tradeinn.com/techinn/en/motorola-moto-g84-5g-8gb-256gb-6.5/141561748/p?utm_source=google_products&utm_medium=merchant&id_producte=145803076&country=sg&srsltid=AfmBOopKMU6Fb82QroveHjd_rzuIUaeiWtoBUsimeNnfAAxc37tEqF30xJM
+  Price:
+    $274.49
+  Delivery:
+    $19.99 delivery
+  Image Url:
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTQto4pjhsyFxHJ_Z-ymEnrevwy46VKijejvympnLvW2jYGCLl0xMrEAha4WXi4Cz-iLidqvA&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    4
+  Position:
+    15
+
+#16:
+  Title:
+    Excellent condition Moto G7 64GB unlocked Android 14 Motorola.
+  Source:
+    メルカリ
+  Link:
+    https://jp.mercari.com/en/item/m16569129252?srsltid=AfmBOoo92xPaq2t91ioB3uOhbKDBtKoJq5Rw6MVR1Tt1lo9f-ORvF5ZBg3Q
+  Price:
+    $128.01 used
+  Image Url:
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRFUkyT5zQ6WIrIMQed7ikSRtqar6H5CGGd9sUzKvwMXctWmLeuViXM5no&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    2
+  Position:
+    16
+
+#17:
+  Title:
+    Motorola - Moto G Android Smartphone 5G 256gb Unlocked Moonlight Gray
+  Source:
+    eBay - times2sell
+  Link:
+    https://www.ebay.com/itm/126834647259?chn=ps&mkevt=1&mkcid=28&var=427972842633&google_free_listing_action=view_item&srsltid=AfmBOoqEPCRGqKsBG8Dj_5-sNX4PiYcqAWfrh4xRWhndjs60ByKHTzP00SU
+  Price:
+    $312.57 + tax
+  Image Url:
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTDMpzl5PMZw6pvb23HYi1u8rLGJDeKg1DATl8fWpY1mmQTnN3sKIxcQAQ4HM7SMFAgcEs2&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    901
+  Offers:
+    4
+  Product Id:
+    12535165180838889939
+  Position:
+    17
+
+#18:
+  Title:
+    [Global Rom] Motorola Moto G54 Dimensity 7020 / Motorola Moto G53 Snapdragon 480+ 5G 120Hz 5000 mAh Dual SIM
+  Source:
+    Shopee
+  Link:
+    https://shopee.sg/product/1016137385/22856474451?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzWlZXSDlBUWhZeXN6d1pPdHFqZ21ocGNVam0wUHpXS05RaHU5VXovSnpBcDRXbjBJVXc2VnU4bkhNS1VuYS9ITXNGZTlsRm15RnV5ZE9EeHNjOFhTWW8
+  Price:
+    $295.00
+  Image Url:
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQujFHIu0wEMmu_RMQby7C-w9V2827M3bb6jfl-730qqeS1xo546-pzSUD9kKYksHPL6O2jsQ&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    5
+  Position:
+    18
+
+#19:
+  Title:
+    Motorola Moto G 4G LTE (3rd Gen)
+  Source:
+    Unlocked Mobiles
+  Link:
+    https://www.unlocked-mobiles.com/sim-free-mobile-phones/motorola-moto-g-4g-lte-sim-free-p-84715.html?options=%7B1%7D147&country=GB&currency=GBP
+  Price:
+    $238.04
+  Delivery:
+    $36.73 delivery
+  Image Url:
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSirQCypSGLpu-YqwVjZz2g9oi3LzNcgl5ZHOJdWyAXXgeFn4Yg_F4W_8lPl9yIQ55LNgWr&usqp=CAE
+  Position:
+    19
+
+#20:
+  Title:
+    Motorola Moto G Power ( ) Single Sim 6.5 Inches Smartphone 50Mp Camera 4Gb Ram 64Gb Rom Android Fingerprint Mobile Phone
+  Source:
+    Lazada Singapore
+  Link:
+    https://www.lazada.sg/products/motorola-moto-g-power-2022-single-sim-65-inches-smartphone-50mp-camera-4gb-ram-64gb-rom-android-fingerprint-mobile-phone-i2886928462-s20007081944.html?from_gmc=1&fl_tag=1
+  Price:
+    $177.80
+  Delivery:
+    Free delivery
+  Image Url:
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRXm1QpO2DaGaTdlCbVMzHtOFfuKeI-oRAZVgNkmOFWi-FIJsSdOT8biiJffirXpSX6JqLTCQ&usqp=CAE
+  Position:
+    20
+      </searchResults>
+    

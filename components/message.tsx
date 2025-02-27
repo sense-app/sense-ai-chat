@@ -2,7 +2,7 @@
 
 import type { ChatRequestOptions, Message } from 'ai';
 import cx from 'classnames';
-import { AnimatePresence, motion, progress } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useState } from 'react';
 
 import type { Vote } from '@/lib/db/schema';

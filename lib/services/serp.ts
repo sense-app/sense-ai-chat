@@ -13,6 +13,27 @@ interface SerpSearchParams {
   type?: 'search' | 'shopping';
 }
 
+export interface SerpShoppingResult {
+  searchParameters: {
+    q: string;
+    type: string;
+    engine: string;
+  };
+  shopping: Array<{
+    title: string;
+    source: string;
+    link: string;
+    price: string;
+    delivery?: string;
+    imageUrl?: string;
+    rating?: number;
+    ratingCount?: number;
+    offers?: string;
+    productId?: string;
+    position: number;
+  }>;
+}
+
 export const serpSearch = async ({
   queries,
   countryCode = 'sg',
