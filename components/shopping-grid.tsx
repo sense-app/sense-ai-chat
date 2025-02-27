@@ -13,7 +13,7 @@ export const ShoppingGrid = ({ results }: ShoppingGridProps) => {
 
   return (
     <div className="space-y-10">
-      {results.summary && <p>{results.summary}</p>}
+      {/* {results.summary && <p>{results.summary}</p>} */}
 
       {/* Products Section */}
       {results.productsGroup?.length > 0 && (
@@ -24,10 +24,10 @@ export const ShoppingGrid = ({ results }: ShoppingGridProps) => {
       )}
 
       {/* Stores Section */}
-      {results.storeGroup?.length > 0 && results.storeGroup.some((store) => (store.products?.length ?? 0) > 0) && (
+      {results.storeGroup?.length > 0 && results.storeGroup.some((store) => store.products.length > 0) && (
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Stores</h2>
-          <StoreProductGrid storeGroups={results.storeGroup} />
+          <StoreProductGrid storeGroups={results.storeGroup.filter((store) => store.products.length > 0)} />
         </div>
       )}
     </div>

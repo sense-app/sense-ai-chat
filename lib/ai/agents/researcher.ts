@@ -30,11 +30,17 @@ export const research = (dataStream: DataStreamWriter) =>
     }),
     execute: async (params) => {
       const { thoughts, userQuery, queries } = params;
-      dataStream.writeMessageAnnotation(thoughts);
-      dataStream.writeMessageAnnotation(`Reasoning...${queries.join(', ')}`);
+      // dataStream.writeMessageAnnotation(`
+      //     ${thoughts}
+
+      //     Reasoning...${queries.join(', ')}
+      //   `);
+
       const searchResults = await websearch(queries);
 
-      dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
+      // dataStream.writeMessageAnnotation(`
+      //   Found ${searchResults.total} search results
+      //   `);
 
       const research: Research = {
         userQuery,
@@ -64,11 +70,10 @@ export const search = (dataStream: DataStreamWriter, research: Research) =>
     }),
     execute: async (params) => {
       const { thoughts, queries } = params;
-      dataStream.writeMessageAnnotation(`Reasoning...`);
-      dataStream.writeMessageAnnotation(thoughts);
-      dataStream.writeMessageAnnotation(`Searching...${queries.join(', ')}`);
+      // dataStream.writeMessageAnnotation(`${thoughts}\\`);
+      // dataStream.writeMessageAnnotation(`Searching...${queries.join(', ')}\\`);
       const searchResults = await websearch(queries);
-      dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results`);
+      // dataStream.writeMessageAnnotation(`Found ${searchResults.total} search results\\`);
 
       research.thoughts.push(`Search step - ${thoughts}`);
       research.queries.push(...queries);
@@ -102,14 +107,14 @@ export const read = (dataStream: DataStreamWriter, research: Research) =>
     }),
     execute: async (params) => {
       const { thoughts, urls } = params;
-      dataStream.writeMessageAnnotation(thoughts);
+      // dataStream.writeMessageAnnotation(`${thoughts}\\`);
 
       const webpageUrls = urls
         .filter((url) => !research.visitedUrls.has(url))
         .filter((url) => isValidUrl(url))
         .map((url) => new URL(url));
       const domains = webpageUrls.map((url) => url.hostname);
-      dataStream.writeMessageAnnotation(`Learning from ${domains.join(', ')}`);
+      // dataStream.writeMessageAnnotation(`Learning from ${domains.join(', ')}\\`);
 
       const contents = await Promise.all(urls.map((url) => readWebpageContent(url)));
 

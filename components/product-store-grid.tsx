@@ -77,9 +77,7 @@ export const ProductStoreGrid = ({ productGroups }: ProductStoreGridProps) => {
                             <CardContent className="p-0 space-y-3">
                               {store.reason && (
                                 <div className="bg-muted/50 p-3 rounded-md">
-                                  <p className="text-sm">
-                                    <strong>Why this store:</strong> {store.reason}
-                                  </p>
+                                  <p className="text-sm">{store.reason}</p>
                                 </div>
                               )}
 

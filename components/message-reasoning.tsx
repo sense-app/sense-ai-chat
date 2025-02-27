@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDownIcon, LoaderIcon } from './icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Markdown } from './markdown';
@@ -8,10 +8,37 @@ import { Markdown } from './markdown';
 interface MessageReasoningProps {
   isLoading: boolean;
   reasoning: string;
+  title?: {
+    progress: string;
+    completion: string;
+  };
 }
 
-export function MessageReasoning({ isLoading, reasoning }: MessageReasoningProps) {
+export function MessageReasoning({ isLoading, reasoning, title }: MessageReasoningProps) {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout | undefined;
+    if (isLoading) {
+      setElapsedSeconds(0);
+      timer = setInterval(() => {
+        setElapsedSeconds((prev) => prev + 1);
+      }, 1000);
+    } else {
+      // Keep the last elapsed time when loading completes
+      if (timer) {
+        clearInterval(timer);
+      }
+    }
+
+    // Cleanup function
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
+  }, [isLoading]);
 
   const variants = {
     collapsed: {
@@ -28,18 +55,21 @@ export function MessageReasoning({ isLoading, reasoning }: MessageReasoningProps
     },
   };
 
+  const titleWithTimer = (isLoading: boolean, elapsedSeconds: number) =>
+    `${isLoading ? 'Reasoning' : 'Reasoned'} for ${elapsedSeconds} second${elapsedSeconds !== 1 ? 's' : ''}`;
+
   return (
     <div className="flex flex-col">
       {isLoading ? (
         <div className="flex flex-row gap-2 items-center">
-          <div className="font-medium">Reasoning</div>
+          <div className="font-medium">{title ? title.progress : titleWithTimer(isLoading, elapsedSeconds)}</div>
           <div className="animate-spin">
             <LoaderIcon />
           </div>
         </div>
       ) : (
         <div className="flex flex-row gap-2 items-center">
-          <div className="font-medium">Reasoned for a few seconds</div>
+          <div className="font-medium">{title ? title.completion : titleWithTimer(isLoading, elapsedSeconds)}</div>
           <div
             className="cursor-pointer"
             role="button"

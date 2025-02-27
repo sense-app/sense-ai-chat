@@ -1,6 +1,6 @@
 import { jsonToLLMFormat } from '@/lib/llm-formatter';
 import { serpSearch } from '@/lib/services/serp';
-import { type DataStreamWriter, generateText, Output, tool } from 'ai';
+import { type DataStreamWriter, generateObject, generateText, Output, tool } from 'ai';
 import { z } from 'zod';
 import { myProvider } from '@/lib/ai/models';
 
@@ -155,6 +155,7 @@ This allows for easy comparison of prices, offers, and delivery details for the 
 
 
 Each product should appear only once, either in the "store" or "product" grouping, not both.
+Be careful about JSON errors. Structure the response accurarely in JSON format. Handle URLs correctly.
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {
@@ -184,17 +185,26 @@ const getShoppingPrompt = (shopping: Shopping) => {
 export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) => {
   const prompt = getShoppingPrompt(shopping);
 
-  const { experimental_output } = await generateText({
+  const result = await generateObject({
     model: myProvider.languageModel('chat-model-large'),
     system: SHOPPER_SYSTEM_PROMT,
     prompt,
-    experimental_output: Output.object({
-      schema: shoppingResultsSchema,
-    }),
+    schema: shoppingResultsSchema,
   });
 
-  console.log('shopper');
-  console.dir(experimental_output, { depth: null });
+  return result.object;
 
-  return experimental_output;
+  // const { experimental_output } = await generateText({
+  //   model: myProvider.languageModel('chat-model-large'),
+  //   system: SHOPPER_SYSTEM_PROMT,
+  //   prompt,
+  //   experimental_output: Output.object({
+  //     schema: shoppingResultsSchema,
+  //   }),
+  // });
+
+  // console.log('shopper');
+  // console.dir(experimental_output, { depth: null });
+
+  // return experimental_output;
 };

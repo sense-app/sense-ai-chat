@@ -2,13 +2,13 @@
 
 import type { ChatRequestOptions, Message } from 'ai';
 import cx from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, progress } from 'framer-motion';
 import { memo, useState } from 'react';
 
 import type { Vote } from '@/lib/db/schema';
 
 import { DocumentToolCall, DocumentToolResult } from './document';
-import { PencilEditIcon, SparklesIcon } from './icons';
+import { LoaderIcon, PencilEditIcon, SparklesIcon } from './icons';
 import { Markdown } from './markdown';
 import { MessageActions } from './message-actions';
 import { PreviewAttachment } from './preview-attachment';
@@ -21,6 +21,7 @@ import { MessageEditor } from './message-editor';
 import { DocumentPreview } from './document-preview';
 import { MessageReasoning } from './message-reasoning';
 import { ShoppingGrid } from './shopping-grid';
+import { jsonToLLMFormat } from '@/lib/llm-formatter';
 
 const PurePreviewMessage = ({
   chatId,
@@ -81,35 +82,6 @@ const PurePreviewMessage = ({
               <MessageReasoning isLoading={isLoading} reasoning={message.annotations.toString()} />
             )}
 
-            {(message.content || message.reasoning) && mode === 'view' && (
-              <div className="flex flex-row gap-2 items-start">
-                {message.role === 'user' && !isReadonly && (
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="px-2 h-fit rounded-full text-muted-foreground opacity-0 group-hover/message:opacity-100"
-                        onClick={() => {
-                          setMode('edit');
-                        }}
-                      >
-                        <PencilEditIcon />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>Edit message</TooltipContent>
-                  </Tooltip>
-                )}
-
-                <div
-                  className={cn('flex flex-col gap-4', {
-                    'bg-primary text-primary-foreground px-3 py-2 rounded-xl': message.role === 'user',
-                  })}
-                >
-                  <Markdown>{message.content as string}</Markdown>
-                </div>
-              </div>
-            )}
-
             {message.content && mode === 'edit' && (
               <div className="flex flex-row gap-2 items-start">
                 <div className="size-8" />
@@ -143,7 +115,11 @@ const PurePreviewMessage = ({
                         ) : toolName === 'requestSuggestions' ? (
                           <DocumentToolResult type="request-suggestions" result={result} isReadonly={isReadonly} />
                         ) : toolName === 'researcher' ? (
-                          <Markdown>{result}</Markdown>
+                          <MessageReasoning
+                            isLoading={isLoading}
+                            reasoning={result}
+                            title={{ progress: 'Researching...', completion: 'Completed deep shopping research' }}
+                          />
                         ) : toolName === 'shopper' ? (
                           <ShoppingGrid results={result} />
                         ) : (
@@ -167,10 +143,54 @@ const PurePreviewMessage = ({
                         <DocumentToolCall type="update" args={args} isReadonly={isReadonly} />
                       ) : toolName === 'requestSuggestions' ? (
                         <DocumentToolCall type="request-suggestions" args={args} isReadonly={isReadonly} />
+                      ) : toolName === 'researcher' ? (
+                        <MessageReasoning
+                          isLoading={isLoading}
+                          reasoning={jsonToLLMFormat(args)}
+                          title={{ progress: 'Researching', completion: 'Completed deep shopping research' }}
+                        />
+                      ) : toolName === 'shopper' ? (
+                        <MessageReasoning
+                          isLoading={isLoading}
+                          reasoning={jsonToLLMFormat(args)}
+                          title={{
+                            progress: 'Searching for products',
+                            completion: 'Completed shopping search',
+                          }}
+                        />
                       ) : null}
                     </div>
                   );
                 })}
+              </div>
+            )}
+
+            {(message.content || message.reasoning) && mode === 'view' && (
+              <div className="flex flex-row gap-2 items-start">
+                {message.role === 'user' && !isReadonly && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="px-2 h-fit rounded-full text-muted-foreground opacity-0 group-hover/message:opacity-100"
+                        onClick={() => {
+                          setMode('edit');
+                        }}
+                      >
+                        <PencilEditIcon />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Edit message</TooltipContent>
+                  </Tooltip>
+                )}
+
+                <div
+                  className={cn('flex flex-col gap-4', {
+                    'bg-primary text-primary-foreground px-3 py-2 rounded-xl': message.role === 'user',
+                  })}
+                >
+                  <Markdown>{message.content as string}</Markdown>
+                </div>
               </div>
             )}
 
@@ -222,8 +242,11 @@ export const ThinkingMessage = () => {
           <SparklesIcon size={14} />
         </div>
 
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-row gap-2 items-center">
           <div className="flex flex-col gap-4 text-muted-foreground">Thinking...</div>
+          <div className="animate-spin">
+            <LoaderIcon />
+          </div>
         </div>
       </div>
     </motion.div>
