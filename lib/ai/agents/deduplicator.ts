@@ -86,17 +86,12 @@ function getPrompt(newQueries: string[], existingQueries: string[]): string {
   Set B: ${JSON.stringify(existingQueries)}`;
 }
 
-export const deduplicate = async (
-  newQueries: string[],
-  existingQueries: string[],
-): Promise<DeduplicatedResult> => {
+export const deduplicate = async (newQueries: string[], existingQueries: string[]): Promise<DeduplicatedResult> => {
   const prompt = getPrompt(newQueries, existingQueries);
   const response = await generateObject({
     model: myProvider.languageModel('chat-model-small'),
     schema: DeduplicatedResultSchema,
     prompt: prompt,
   });
-  console.log('deduplicate');
-  console.dir(response, { depth: null });
   return response.object as DeduplicatedResult;
 };

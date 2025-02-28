@@ -1,5 +1,5 @@
 {
-  "name": "ai-chatbot",
+  "name": "shopper-ai",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,6 +27,7 @@
     "@codemirror/state": "^6.5.0",
     "@codemirror/theme-one-dark": "^6.1.2",
     "@codemirror/view": "^6.35.3",
+    "@google/generative-ai": "^0.21.0",
     "@midscene/web": "^0.12.0",
     "@playwright/browser-chromium": "^1.50.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",

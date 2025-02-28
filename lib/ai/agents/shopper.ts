@@ -1,8 +1,10 @@
 import { jsonToLLMFormat } from '@/lib/llm-formatter';
 import { serpSearch, type SerpShoppingResult } from '@/lib/services/serp';
-import { type DataStreamWriter, generateObject, generateText, Output, tool } from 'ai';
+import { type DataStreamWriter, generateText, Output, tool } from 'ai';
+import { GoogleGenerativeAI, type Schema } from '@google/generative-ai';
+import { shoppingResultsSchemaForGemini } from './shopping-results-schema';
+
 import { z } from 'zod';
-import { myProvider } from '@/lib/ai/models';
 
 import { writeToFile } from '@/lib/utils';
 
@@ -21,8 +23,6 @@ const productSearchSchema = z.object({
     .optional()
     .describe(`List of stores recommended to buy the product`),
 });
-
-type ProductSearch = z.infer<typeof productSearchSchema>;
 
 export const productGroupSchema = z.object({
   name: z.string(),
@@ -117,10 +117,10 @@ export const shop = (dataStream: DataStreamWriter) =>
     execute: async (params) => {
       const { thoughts, query, searchTerms } = params;
 
-      const searchResults = await shoppingSearch(
-        searchTerms.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
-      );
-
+      // const searchResults = await shoppingSearch(
+      //   searchTerms.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
+      // );
+      const searchResults = await shoppingSearch([`${searchTerms[0].searchTerm} ${searchTerms[0]?.filter ?? ''}`]);
       const shoppingItems = searchResults.results.map((result) => ({
         query,
         searchTerm: result.searchQuery,
@@ -170,6 +170,10 @@ Do not exceed 8000 tokens per output. Return partial results and then continu
 
 Each product should appear only once, either in the "store" or "product" grouping, not both.
 Be careful with JSON errors. Structure the response accurarely in JSON format. Handle URLs correctly and do not edit them.
+
+
+JSON Schema for output":
+
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {
@@ -201,21 +205,36 @@ const getShoppingPrompt = (shopping: Shopping) => {
   return prompt;
 };
 
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_API_KEY as string);
+
 export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) => {
   const prompt = getShoppingPrompt(shopping);
-
-  const result = await generateObject({
-    model: myProvider.languageModel('chat-model-large'),
-    system: SHOPPER_SYSTEM_PROMT,
-    prompt,
-    maxTokens: 50000,
-    maxRetries: 3,
-    schema: shoppingResultsSchema,
+  const model = genAI.getGenerativeModel({
+    model: 'gemini-2.0-flash',
+    systemInstruction: SHOPPER_SYSTEM_PROMT,
+    generationConfig: {
+      responseMimeType: 'application/json',
+      responseSchema: shoppingResultsSchemaForGemini as Schema,
+    },
   });
 
-  return result.object;
+  const result = await model.generateContent(prompt);
+  const response: ShoppingResults = JSON.parse(result.response.text());
+  writeToFile(JSON.stringify(response), 'shopping-results');
+  return response;
 
-  // const { experimental_output } = await generateText({
+  // const result = await generateObject({
+  //   model: myProvider.languageModel('chat-model-large'),
+  //   system: SHOPPER_SYSTEM_PROMT,
+  //   prompt,
+  //   maxTokens: 50000,
+  //   maxRetries: 3,
+  //   schema: shoppingResultsSchema,
+  // });
+
+  // return result.object;
+
+  // const result = await generateText({
   //   model: myProvider.languageModel('chat-model-large'),
   //   system: SHOPPER_SYSTEM_PROMT,
   //   prompt,
@@ -227,5 +246,14 @@ export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) 
   //   }),
   // });
 
-  // return experimental_output;
+  // return result.experimental_output;
+
+  // try {
+  //   const shoppingResults: ShoppingResults = JSON.parse(result.text);
+  //   return shoppingResults;
+  // } catch (error) {
+  //   console.error('Error parsing JSON:', error);
+  //   console.error('Result:', result.text);
+  //   throw new Error('Failed to parse shopping results');
+  // }
 };

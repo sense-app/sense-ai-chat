@@ -46,6 +46,7 @@ export async function POST(request: Request) {
         system: SUPERVISOR_SYSTEM_PROMPT,
         messages: convertToCoreMessages(messages),
         maxSteps: 20,
+        maxRetries: 3,
         experimental_generateMessageId: generateUUID,
         experimental_continueSteps: true,
         tools: {
@@ -90,8 +91,8 @@ export async function POST(request: Request) {
       });
 
       const steps = await result.steps;
-      console.dir(steps, { depth: null });
-      console.log('total steps', steps.length);
+      // console.dir(steps, { depth: null });
+      // console.log('total steps', steps.length);
     },
     onError: (error) => {
       console.log(error);

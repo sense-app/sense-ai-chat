@@ -22,8 +22,8 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
     },
     {
       title: 'Find phones within',
-      label: `$200 to $300 budget`,
-      action: `Find phones within $200 to $300 budget`,
+      label: `$300 to $500 budget`,
+      action: `Find phones within $300 to $500 budget`,
     },
     {
       title: 'Recommend me a good pair of',
@@ -31,9 +31,9 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
       action: `Recommend me a good pair of sunglasses`,
     },
     {
-      title: 'Find organic milk',
-      label: 'in Singapore?',
-      action: 'Find organic milk in Singapore',
+      title: 'Find organic milk delivery',
+      label: 'in Singapore',
+      action: 'Find organic milk delivery in Singapore',
     },
   ];
 
