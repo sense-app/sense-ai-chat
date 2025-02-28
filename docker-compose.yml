@@ -1,0 +1,14 @@
+
+version: '3.9'
+
+services:
+  nextapp:
+    container_name: nextapp
+    image: nextapp
+    build:
+      context: .
+      args:
+        ENV_KEY: f4e797b3bf6b75388649a469339d07172963f17cecf3f8f7e322c871699d7034
+        NODE_ENV: production
+    ports:
+      - "3000:3000"
