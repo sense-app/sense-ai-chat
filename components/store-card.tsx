@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface StoreCardProps {
   name: string;
@@ -17,11 +18,12 @@ export const StoreCard = ({ name, imageUrl, shopUrl, reason, className }: StoreC
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 overflow-hidden rounded-md">
-              <img
+            <div className="size-10 overflow-hidden rounded-md">
+              <Image
                 src={imageUrl || '/placeholder.svg'}
                 alt={name}
-                className="w-full h-full object-cover"
+                fill
+                className="size-full object-cover"
                 onError={(e) => {
                   e.currentTarget.src = '/placeholder.svg';
                 }}
@@ -31,7 +33,7 @@ export const StoreCard = ({ name, imageUrl, shopUrl, reason, className }: StoreC
           </div>
           <Button size="sm" variant="outline" asChild>
             <a href={shopUrl} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-4 w-4 mr-1" />
+              <ExternalLink className="size-4 mr-1" />
               Visit
             </a>
           </Button>

@@ -1,388 +1,350 @@
 
       <Userquery>
-        Find organic milk delivery in Singapore
+        fruits
       </Userquery>
     
 
       <productSearchTerm>
-        Arla Organic milk 
+        Tropical Fruits 
       </productSearchTerm>
     
 
       <searchResults>
         #1:
   Title:
-    Arla Organic Milk
+    Fresh Tropical Fruits Promo H
   Source:
     NTUC FairPrice
   Link:
-    https://www.fairprice.com.sg/product/arla-organic-milk-1l-2-per-pack-13164212?srsltid=AfmBOopeYlXFIbDtf5UQhaHbr7V9kvsKRRGieeldZFEi-EQ0cN6Oouu0hEU
+    https://www.fairprice.com.sg/product/fresh-tropical-fruits-promo-h-1-per-pack-13177173?srsltid=AfmBOoqZUvP24VDmHXYh4CA5lpWMoGII6VWPQ96nQtl4bb6ObwboJAsxomE
   Price:
-    $10.69
+    $4.00
   Delivery:
     $3.99 delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRu3ngkCv6EuOxdW3UT4ybd8dv7g5M1T-I1C66KOnUjsXzVRNzI1L9xk-E378PA1CjWIypz&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTIqh9WNw04zBcgkVbDtO1fgwp43yn7Dp97DRCWhngYQ7N1xGvRCmY4vhhoam9wpkpXIAdO4A&usqp=CAE
   Rating:
-    4.5
+    4
   Rating Count:
-    664
+    30
   Position:
     1
 
 #2:
   Title:
-    Arla Organic Fresh Milk 900ML 3.5-Percent Fat
+    Tropical Fruits Mix 500g
   Source:
-    Lazada Singapore
+    Tong Garden Singapore
   Link:
-    https://www.lazada.sg/products/arla-organic-fresh-milk-900ml-35-percent-fat-i342044215-s764866657.html?from_gmc=1&fl_tag=1
+    https://shop.tonggarden.com.sg/tropical-fruits-mix-500g.html?srsltid=AfmBOoo6fIOWl6I2aDGs6KF_RUQOBrlYR9bOBmdyJ26q0JHfN0OUcSm1Skc
   Price:
-    $5.56
+    $8.90
   Delivery:
-    Free delivery
+    $4.00 delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ4HiXd7whZi_oPMoW1q6JiPeatI-Zzyiws-FysUPAu960KUFiFWV3pqoX2nSX3sABThDJBTw&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTcJK-cAH6Nc4fkTdWvWf-bCsitj__VCg_yjPxkN6Ur-3wG2c8YThul9-ud&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    664
+    25
   Offers:
     2
   Product Id:
-    2974338243132723553
+    1323940122452452140
   Position:
     2
 
 #3:
   Title:
-    Arla Organic Milk - Low Fat
+    Tropical Fruits
   Source:
-    Cold Storage
+    Graze Groceries
   Link:
-    https://coldstorage.com.sg/en/p/Arla%20Organic%20Low%20Fat%20Milk%202sX1L/i/101580551.html?srsltid=AfmBOoqDMhnY-Jd9ENBYRbQOEfTaHNNRWO0nZleuiyK0wAn41U72tbEKLrs
+    https://grazegroceries.com/tropical-fruits/green-mango?srsltid=AfmBOorNMmlr69YgIlJ00plpKDPLR16DSQqmzSc_h3jAk1jCzCCtINazFms
   Price:
-    $10.80
+    $3.20
   Delivery:
-    $7.00 delivery
+    $8.00 delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTP1yOOUDXyEsBhekEZthEPaP0GwBN3ab0lp2aK20PxaFwc9_6wHimeFRVqd_y2FoHbXrcj&usqp=CAE
-  Rating:
-    4.5
-  Rating Count:
-    981
-  Offers:
-    2
-  Product Id:
-    3838025648566410040
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT4OaLcRLxHsvu9nbFOlh-LD290TvR16kTS09ZHKvcVaIvRNzzk-gnihXEVLf1ZcHCE3nVVGg&usqp=CAE
   Position:
     3
 
 #4:
   Title:
-    Arla Organic Full Cream UHT Milk 12 X 200ml
+    Fresh Tropical Fruits - Promo A
   Source:
-    foodpanda
+    NTUC FairPrice
   Link:
-    https://www.foodpanda.sg/groceries/product/ZT2008/arla-organic-full-cream-uht-milk-12-x-200ml?srsltid=AfmBOorXFJUSbpw0JV3e9QRmF9yClUL_TcdEGEIJ6GQ6HVMTyq9NiOnY6rI
+    https://www.fairprice.com.sg/product/13107167?srsltid=AfmBOopPPVoGFNvm00Ift1Por9DJFLWxqEgKKmeWrRTaJw7JZBXrA_in0aw
   Price:
-    $18.05
+    $1.50
   Delivery:
-    $6.00 delivery
+    $3.99 delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQhJ1exjGsmjgXrWZawhYM8J9OzpJnNfGGPac1OlvJ1lZ8eCAb27AYZYRqmpoYxhmnQOisE1w&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSZ8gaLQF2GIeL-HVOYGEoqJx9T301YfKyGYcItSRHMkSk9EIDfqUan-vn1D3zZthF2rtnngg&usqp=CAE
   Rating:
-    5
+    4
   Rating Count:
     2
-  Offers:
-    2
-  Product Id:
-    8503829984565642341
   Position:
     4
 
 #5:
   Title:
-    Arla Organic Low Fat Milk, 2s x 1L|
+    Fresh Tropical Fruits - Promo E
   Source:
-    Shopee
+    NTUC FairPrice
   Link:
-    https://shopee.sg/product/1326136418/28016888340?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYXAwMVdnOXp4NE9peFpzR0FCRUFVNVR3b3dxSmNlUWppcFRRYm1zdmV6aUs1dHo2blk4R0FvT05yT0pPUjV3OVFpQVZKMHRVL3FhcFpPQXNnNjN4Qkc
+    https://www.fairprice.com.sg/product/13107173?srsltid=AfmBOorYVF4t48jKMJGRI7B1nrylOOT0rWP8LsV0xBtpVYm-4B_Zqe1u6PU
   Price:
-    $10.80
+    $2.75
   Delivery:
-    Free delivery
+    $3.99 delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRKjqAQjdW8xrQQErMct_awdSNAn0AxLO8Y1Fl_Fq9gpM6it1wMnxVh0ZrFEbiWZZl3Xg1yNA&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRLGftNdUoeRL6azas8tRYD2JuVHB1vBEJy3S2VlnV16KT7h0enP1r4UUeRsa-hES6rBpz5uA&usqp=CAE
+  Rating:
+    2.5
+  Rating Count:
+    21
   Position:
     5
 
 #6:
   Title:
-    Arla Organic Full Cream Uht Milk 200Ml
+    ARDO Tropical Fruit Mix - Frozen
   Source:
     Lazada Singapore
   Link:
-    https://www.lazada.sg/products/arla-organic-full-cream-uht-milk-200ml-i2432913601-s14386627977.html?from_gmc=1&fl_tag=1
+    https://www.lazada.sg/products/ardo-tropical-fruit-mix-frozen-i2691177477-s17787546619.html?from_gmc=1&fl_tag=1
   Price:
-    $1.60
+    $8.84
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS6qF7oLMxV9zzjIN1Bap_4KYjo2JbBEuDt9IfiielrUhATMwYmMKKznW2f&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRdE6VRtyptMGyHGRg7rZoH3ayW8A19jNGozsth36vVqdc82nRjOs1kgZH7HOKg3gQ_Vm7t-Q&usqp=CAE
   Rating:
     5
   Rating Count:
-    1
+    39
   Position:
     6
 
 #7:
   Title:
-    Arla Organic Fresh Low Fat Milk 900ML 1.5-Percent Fat
+    Tropical M Frozen Fruits - Mango Chunks
   Source:
     NTUC FairPrice
   Link:
-    https://www.fairprice.com.sg/product/13164326?srsltid=AfmBOopSB0sUpQj0DKwLd1mKKAMIx9E2Jfox7cOMa6rGmDhutgfegWYdKmQ
+    https://www.fairprice.com.sg/product/tropical-m-frozen-fruits-mango-chunks-500g-13150606?srsltid=AfmBOorgVLeQ7T1uzdv1F9Motwuo5vMyf4KJlZdwLt8apVVn0j8WtpfS5pc
   Price:
-    $5.55
+    $10.08
   Delivery:
     $3.99 delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQA7ftdxY405TOMM-tIT4PT_UAY1bWm3WHNnGF4zg4UpJ1yVMEvZcJ2hfhMD6Xj1_Yjfwigiw&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQZI1sm_8m6masiGoYQiUv0eRRV-sudcNqWJSefcmeayoDZuH3ZkJJXO0VcFgolI_og_OFu&usqp=CAE
   Rating:
     4.5
   Rating Count:
-    981
-  Offers:
-    2
-  Product Id:
-    1120846700532417275
+    17
   Position:
     7
 
 #8:
   Title:
-    (First Ocean Foods) Arla Milk 100% Natural - 1LTR
+    Fresh Soursop Exotic Fruit
   Source:
-    Shopee
+    Pacific Wild Pick
   Link:
-    https://shopee.sg/product/1319197128/27620244839?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYjNQTHhlY1phZWE5VXFzWkFCWEZYSjhQOFB3aktTcnh4c1BtL0lCZkJ3dE5EcXIvS1pmYmQwNUVScG1NYjRaVFhWelN1S2lmT1ZreGJOandTTFI5TGc
+    https://pacificwildpick.com/products/fresh-soursop-exotic-fruit?currency=USD&variant=44751245869297&utm_source=google&utm_medium=cpc&utm_campaign=Google%20Shopping&stkn=c727c160a007&srsltid=AfmBOorfAqPbCA4HRyhGVCOLmYWMenO7_DW9Tg9V2ovtB6M_Efgf4R1tuk8
   Price:
-    $2.50
+    $245.66 + tax
+  Delivery:
+    $60.62 delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR_DDqNIdSW0nZPsfNuWcqQwvHVVJAC4i96HGeOG0L8Rj-BRGI_0kMXdBJs&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRvrrZp40nEyCQEoyDRiLRQIlahS5Yr2UiFtt8Sei-LO2y3taohZ2izLOVd&usqp=CAE
   Position:
     8
 
 #9:
   Title:
-    Arla Organic Lactose-Free Chocolate Milk
+    Philippine Dried Tropical Fruits 170 grams per pack/all new stocks
   Source:
-    Nordic Expat Shop
+    Shopee
   Link:
-    http://nordicexpatshop.com/ENG/arla-laktose-free-chocolate-milk?srsltid=AfmBOorg0vw9xBkobk9cCb1h-_FzIr_uJLMG-hrhi65qa-AA5rXiZwV577I
+    https://shopee.sg/product/1118320586/18086325161?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzWU9pWmpURFBEYnlWbUh4OTF2Q2JKZklpSUh4SCtWdnJsdWxZTm9qOWRETkFsNHRxdjJlaHBPdDJON3VkZWNMcTJ1YjVRd1E2bWwyRkplQ0ZGKzBzWmU
   Price:
-    $5.11 + tax
-  Delivery:
-    Free delivery
+    $8.61
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTyehJJwn54QglMFwDKCktavrqV48QgQGJFj0X_uVjsir8h_OTIe_g69nG_xRmSeswe0QD3yA&usqp=CAE
-  Rating:
-    5
-  Rating Count:
-    86
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT-YkyafrriCtxkkHzDr27j09iC4jHVOh4P5T2yeKrZbiQ2POpqGZ_5k1l2&usqp=CAE
   Position:
     9
 
 #10:
   Title:
-    Arla Full Cream Milk 1L
+    Tropical Fruits [Book]
   Source:
-    Shopee
+    eBooks.com
   Link:
-    https://shopee.sg/product/1274655972/28470655352?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzWWdneGlFOVR3SHg5dXZkNFFEVkdqdkJrTU43NFBUYkhIc0kyTXZKT0hoTTU0Szl4NlIwMDRtNGU5TW1SU1lhYTlBcVNmL3AvL2lBT0dBcG50ZlNCb0U
+    https://www.ebooks.com/en-gb/book/617535/tropical-fruits-volume-1/robert-e-paull/?srsltid=AfmBOoo1qRwGguzdSsSc73eAKDACLtbrJ_BuxPcRfziTUo9BrcW6xxm78Zc
   Price:
-    $4.50
+    $90.11
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTsrHKpKhjFrtQNKxMttMjH8BFl6aqTlTptpNgcyOoWbz0iFF8M4Ym1yNYZjT71oLs8QN1aQw&usqp=CAE
-  Rating:
-    5
-  Rating Count:
-    27
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS7jSwy7Uk28xCjjpAoZGSrV0QD39X03DqUGqsqeRKC-NQU8b1857u0-E4s&usqp=CAE
   Position:
     10
 
 #11:
   Title:
-    Arla Lactofree Long Life Semi Skimmed Milk 1L x2
+    Essential Foods Convenience Food Organic Tropical Fruits 400g
   Source:
-    GoSupps.com
+    fairmart.app/store/wellgrowth-n ...
   Link:
-    https://www.gosupps.com/arla-lactofree-long-life-semi-skimmed-milk-1l-x2.html?srsltid=AfmBOoqSxqtuHcu3Ktwhvk6hAfDSQ67ZtZ1aBuscHpjV7KJP6X1yrZn89tI
+    https://www.fairmart.app/store/wellgrowth-natural-essence/essential-organic-tropical-fruits-400g-00589?srsltid=AfmBOorAXvMSiWQVnaw11QFVJL1L-ykSVSeS1t8l7Q2JtOMMqwgGHMY-9WY
   Price:
-    $67.35 + tax
+    $8.40
   Delivery:
-    $26.93 delivery
+    Free delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQly94KeKhGT-rBVWLja_tQf202xDrw2LVM5DxeKtvimrhUDbtBnMrBI8fgYq_SmkEbAOLnPw&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQYx6XOwvqQZ71A7va0H9SN9TwJhcB5_9IcUf_ejZbEwlHLo5V6LwK3chK4jm-kjAkpCz_6yg&usqp=CAE
   Position:
     11
 
 #12:
   Title:
-    Organic Valley Ultra Pasteurized Milk - Whole
+    Tropical M Frozen Fruits - Pineapple Chunks
   Source:
     NTUC FairPrice
   Link:
-    https://www.fairprice.com.sg/product/organic-valley-whole-milk-950ml-13085380?srsltid=AfmBOoq-XZZEL3fBXuj42muiz1GUjIMbNWaxPLKoJtNzDtKk8dspJxQPGGY
+    https://www.fairprice.com.sg/product/tropical-m-frozen-fruits-pineapple-chunks-500g-13150605?srsltid=AfmBOorrnbtvMRN5QnFWTXoUkQNsDzfKAhrLzoRYGmHzKOwyE2k_TnwqOrk
   Price:
-    $12.61
+    $10.08
   Delivery:
     $3.99 delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQlHWtrv7TRkdKfgdQTdBz_GkhhxzzP-1pVtbzhZJOqsRhvyqW5I-a6N9KP9F1D1KFOGzsVPQ&usqp=CAE
-  Rating:
-    4.5
-  Rating Count:
-    2
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRS3EXZs-0lgRE2wojvITqxw1UCvV4c4-l8hYnZzSRnZkM-69lCubsHZM64032CJQUBZdlrtw&usqp=CAE
   Position:
     12
 
 #13:
   Title:
-    حليب المزرعة قليل الدسم 1L
+    Tropical Harvest Fruits Box Imported From Overseas - Pack Of 5 Varieties > Istana Royal Fruits
   Source:
-    dokan-ps
+    Lazada Singapore
   Link:
-    https://dokan.ps/shop/%D8%AD%D9%84%D9%8A%D8%A8-%D8%A7%D9%84%D9%85%D8%B2%D8%B1%D8%B9%D8%A9-%D9%82%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%AF%D8%B3%D9%85-1l/?srsltid=AfmBOop2kwolnLPT0XAkLi_Xg0E2nrOYgVkBUoE5Ma2Xr2RLBJ25ySadS_Q
+    https://www.lazada.sg/products/tropical-harvest-fruits-box-imported-from-overseas-pack-of-5-varieties-istana-royal-fruits-i3078911651-s21000444437.html?from_gmc=1&fl_tag=1
   Price:
-    $2.26
+    $26.90
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQHNNe2NfAyupLxQuy2xQeequXxMpY8dqtJazo7IBDjUryx3zelPyFBO0QJVyOYzsMMy0_Pag&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSQ3l6qay6JDZ0yYVknj-ol6kMPKf4c0sv4LFVWzD2_-A5FSJ6OoJV0vxsv61NLjX-2m88vOQ&usqp=CAE
   Position:
     13
 
 #14:
   Title:
-    [Big Head Leong] Arla UHT Milk 3.5% | 1L x 4 |
+    Yellow Passion Fruit - 6 - 8 pieces
   Source:
-    Shopee
+    Sin Kian Choon Trading
   Link:
-    https://shopee.sg/product/253370661/4289685596?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkV1BNaHBLV2lHSzd2WEZjb2w0eUJubDdlRE5UQktvc251RGwxS1hKNktxQTFQc28xNEd3eTQ4aHFoU2tVY3ExaXJ5M3lOeVJvSGJnd1FsRURBVE9ZK0xBZ0hqUnZkYmpwam0xM090VGJQSVc
+    https://www.skcfruits.com/products/yellow-passion-fruit?srsltid=AfmBOooY_3hqyIWh5-qfHdX5a2YibRT0AGVRpGLD8MDaEPac0JiWk5iOEsk
   Price:
-    $10.90
+    $9.60
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTGErM0ysMu2EOiZCabga5bvOfF69N2AKIZdk1fnHGYl0dMhMayYbnypKQ&usqp=CAE
-  Rating:
-    3
-  Rating Count:
-    1
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQh0F6nU6FZ1QiK0K1JohV_oU0bpfc2g_Aap96l3aeinIg6d6i2MlfYlj2IRNozDDuYJL38Lg&usqp=CAE
   Position:
     14
 
 #15:
   Title:
-    Organic Non-Homogenised Milk - Full Fat
+    Essential Foods - Convenience Food, Organic Tropical Fruits (400g)
   Source:
-    Little Farms
+    Shopee
   Link:
-    https://littlefarms.com/pcf-fresh-milk-1l-301689?srsltid=AfmBOoqyW8cgfp8mBS7WNngQkiCoT8wlK1ZJlExTYFU_jGC5BXKy1lBeV6Y
+    https://shopee.sg/product/225217469/29352590343?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbFYzTlBtWFdvY3NCOEMvRFNWb09mMjRFTnBXbyt0MjJjdDhreUU4NkNtTUErdTlhV2V5Rm1zSS8rRTEwV2xRY1gvZmQrT0tYOTJuRFBhVmtMN0dueE8
   Price:
-    $8.98
-  Delivery:
-    Free delivery
+    $8.40
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRcoq4u1nkBD5j_WFUuLHn7HvaEogJQu8IBY_QH_wmjZv42qAVzrDJMA-8PfLV_dpQ6nUlqBg&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSxaun3EtX-GsVdGT-Exms5veZy9roubz0z07zyUZHE2hQ1D0mNsUO_w7-pQSGzdoxHobWG&usqp=CAE
   Position:
     15
 
 #16:
   Title:
-    Arla Uht Full Cream Milk 1L
+    SLH Tropical Exotic Set [Ready-To-Eat] Fresh Fruits 1 Set | SLH Fresh Fruits
   Source:
-    Lazada Singapore
+    slhfreshfruits
   Link:
-    https://www.lazada.sg/products/arla-uht-full-cream-milk-1l-i2432841639-s14386793286.html?from_gmc=1&fl_tag=1
+    https://www.slhfreshfruits.sg/products/slh-tropical-exotic-set-ready-to-eat-fresh-fruits-1?variant=39428790255703&country=SG&currency=SGD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOorNhAO4TdyJe003p2aNzfqSUjNgtYUabegYkpX158jHCMeUqvKLKhk
   Price:
-    $2.80
+    $14.90
   Delivery:
-    Free delivery
+    $8.90 delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRo-INubWy0VGvZNlrN2bGtJxaDcZdUTgqilWTW7kN36GIBRyG_AZPSrYAmnyenkjC6Cjjb&usqp=CAE
-  Rating:
-    5
-  Rating Count:
-    27
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSSKE2jsF9stiyGkec-Kly5jQqsZM9IIx_ZIWw5ScXp-RawL068ug0TqUac&usqp=CAE
   Position:
     16
 
 #17:
   Title:
-    Arla Protein Srawberry & Raspberry Milk, 482ml|
+    Nature's Finest Tropical Fruits in Juice 200g
   Source:
-    Shopee
+    Brit Super Store
   Link:
-    https://shopee.sg/product/1326136418/24188096533?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYXAwMVdnOXp4NE9peFpzR0FCRUFVNVZnYklyaWp6UE1xemNsVVNYYUdzZ2JCaENCYzlVYUYvOUpZN242NVNJUGJ4UW9Dd1BQYktCeHpiNzVkM01udFk
+    https://www.britsuperstore.com/uk/browse-by-section/puddings-and-desserts/natures-finest/natures-finest-tropical-fruit-salad-220g.html?srsltid=AfmBOor0OGOCbp0cVH42TnR8JZQd1995Ge78aQ4Pv-HQDOUlW9aNSz-WnMo
   Price:
-    $5.20
-  Delivery:
-    Free delivery
+    $4.85
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRMmOEGtdmv2o3CbZYk4k6L6u538_NYbFRYgTUy8Qbb8md4CYa5cCo8SbEl3FVVaI55_hRO&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS7y8HSUbL2aCMOdGV94ITkhf-J5hfxG6rXNLLYheqHZqMwVwmLZnlV9qZNM_ahftq9fq13&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    27
   Position:
     17
 
 #18:
   Title:
-    Arla Protein Chocolate Milk, 479ml
+    Tropical And Exotic Fruit Basket
   Source:
-    Cold Storage
+    WishQue
   Link:
-    https://coldstorage.com.sg/en/p/Arla%20Protein%20Chocolate%20Milk,%20479ml/i/102957401.html?srsltid=AfmBOop0l6oxtaUBEOpeis7L18jYHAeuZT3min5Kp9kbUNMCqq5HkLTRsZU
+    https://wishque.com/product/view/tropical-and-exotic-fruit-basket-440?srsltid=AfmBOoo8_vz_bmOfC8Ky6JGMOpy0Tf1LAyzq9bJayTHhE0Nq0iRdhoF4OwM
   Price:
-    $4.50
-  Delivery:
-    $7.00 delivery
+    $50.61
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQNWjOhHE6piLnjtPzQwIPlwbbFvdlp6CtodnqYjXIA4VRHtzoE-d_5rejAnfu9QwoFFKADXQ&usqp=CAE
-  Rating:
-    4.5
-  Rating Count:
-    24
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS0cM-WH7D29P0BIOCEv9ytDVXDckSKOIsb6UorSvXMP-d0Pb8rpVRwg4M&usqp=CAE
   Position:
     18
 
 #19:
   Title:
-    Arla UHT Full Cream Milk 12x1L - Case
+    Yellow Passionfruit Mini Fruit Box
   Source:
-    Lazada Singapore
+    The First Fruits Singapore
   Link:
-    https://www.lazada.sg/products/arla-uht-full-cream-milk-12x1l-case-i2997687713-s20533358287.html?from_gmc=1&fl_tag=1
+    https://thefirstfruits.com/products/yellow-passionfruit-fruit-basket?variant=40662473670829&country=SG&currency=SGD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOor8-TIX9EFBBKFbQ9cq6mJ6dIaYvkazB-MLpgVmYDEEexFlee2aQhg
   Price:
-    $29.90
+    $45.00
   Delivery:
-    Free delivery
+    $8.00 delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSMVHX6-FEhqJutDzIWA7wVzZWpq9o8VGUve_R5d29AyPAXH6QPhtzyIaXl-K0ki3plixcHxQ&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRAjNBU2gp4huquSQ15y7pIJcrP2rPpB4CQWT6Tn7JjV5rRmxfeDUhao6QMQsdtMi-K_ifl&usqp=CAE
   Position:
     19
 
 #20:
   Title:
-    Organic Valley Organic Milk Reduced Fat 2% 950ml
+    Sunkist Premium TROPICAL FRUITS BLEND - MANGO,PINEAPPLE,CRANBERRY,RAISINS 150g - Halal Certified
   Source:
     Shopee
   Link:
-    https://shopee.sg/product/1326136418/29566893691?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYXAwMVdnOXp4NE9peFpzR0FCRUFVNUt1YmgvSDZpbThqdHJKUExPanpxc3NUd0Q1dTRkUXp2dUdlb0RXajdkNVh1anJEUEl6QVQ5VFBSWGlPN0p6UEo
+    https://shopee.sg/product/42008033/27157256704?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkV1BNaHBLV2lHSzd2WEZjb2w0eUJubFhTOU16WThoYUhpZTZWZWp4a3VybWZLMmNEYXIyR0MzcER2TnlQMmQxUGpWdjlsS1JTN3FZRnNTSWxnblkvYjhyMTBOQU5XQjFlYlpNdmNtVklSdWY
   Price:
-    $12.65
-  Delivery:
-    Free delivery
+    $7.00
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTjT-mkeiWmpOSmFBL-GIjlkCZI6ETMwK4KMAyYaLlUT8c2qoNpAZFVyeGsaq8Ex9t93IH-mw&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRDXsMaKr6rir49wJL0fWoOxz_c8Pj3_OkgycrZDA0uI9vLc5GRm1dxObD-&usqp=CAE
   Position:
     20
       </searchResults>

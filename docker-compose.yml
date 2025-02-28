@@ -8,7 +8,7 @@ services:
     build:
       context: .
       args:
-        ENV_KEY: f4e797b3bf6b75388649a469339d07172963f17cecf3f8f7e322c871699d7034
-        NODE_ENV: production
+        ENV_KEY: 1
+        NODE_ENV: dev
     ports:
       - "3000:3000"

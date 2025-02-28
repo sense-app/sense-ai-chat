@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "dotenvx run --convention=nextjs -- next dev --turbo",
-    "build": "dotenvx run --convention=nextjs -- tsx lib/db/migrate && next build",
+    "build": "next build",
     "start": "dotenvx run --convention=nextjs -- next start",
     "lint": "next lint && biome lint --write --unsafe",
     "lint:fix": "next lint --fix && biome lint --write --unsafe",
@@ -29,7 +29,6 @@
     "@codemirror/view": "^6.35.3",
     "@google/generative-ai": "^0.21.0",
     "@midscene/web": "^0.12.0",
-    "@playwright/browser-chromium": "^1.50.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/react-aspect-ratio": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.2",

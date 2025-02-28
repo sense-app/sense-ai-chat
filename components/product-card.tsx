@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -46,10 +47,11 @@ export const ProductCard = ({
     <Card className={cn('h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-md', className)}>
       <CardHeader className="p-3">
         <AspectRatio ratio={1} className="bg-muted rounded-md overflow-hidden mb-2">
-          <img
+          <Image
             src={imageUrl || '/placeholder.svg'}
             alt={name}
-            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+            fill
+            className="object-cover size-full transition-transform duration-300 hover:scale-105"
             onError={(e) => {
               e.currentTarget.src = '/placeholder.svg';
             }}
@@ -57,14 +59,15 @@ export const ProductCard = ({
         </AspectRatio>
         {discount > 0 && <Badge className="absolute top-5 left-5 bg-red-500">{discount}% OFF</Badge>}
       </CardHeader>
-      <CardContent className="flex-grow p-4 pt-0">
+      <CardContent className="grow p-4 pt-0">
         {storeName && storeImageUrl && (
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-full overflow-hidden">
-              <img
+            <div className="size-6 rounded-full overflow-hidden">
+              <Image
                 src={storeImageUrl}
                 alt={storeName}
-                className="w-full h-full object-cover"
+                fill
+                className="size-full object-cover"
                 onError={(e) => {
                   e.currentTarget.src = '/placeholder.svg';
                 }}
@@ -80,7 +83,7 @@ export const ProductCard = ({
         <div className="flex flex-col gap-2 mt-auto">
           {deliveryDetails && <div className="text-xs text-muted-foreground">{deliveryDetails}</div>}
           {latestOffers && <div className="text-xs text-green-600 font-medium">{latestOffers}</div>}
-          {review && <div className="text-xs italic text-muted-foreground">"{review}"</div>}
+          {review && <div className="text-xs italic text-muted-foreground">&ldquo;{review}&rdquo;</div>}
         </div>
       </CardContent>
       <CardFooter className="p-4 pt-0 flex justify-between items-center">
@@ -98,7 +101,7 @@ export const ProductCard = ({
         </div>
         <Button size="sm" asChild>
           <a href={productURL} target="_blank" rel="noopener noreferrer">
-            <ShoppingBag className="h-4 w-4 mr-2" />
+            <ShoppingBag className="size-4 mr-2" />
             Buy
           </a>
         </Button>

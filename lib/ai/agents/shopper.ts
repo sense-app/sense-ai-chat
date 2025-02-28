@@ -6,7 +6,7 @@ import { shoppingResultsSchemaForGemini } from './shopping-results-schema';
 
 import { z } from 'zod';
 
-import { writeToFile } from '@/lib/utils';
+import { writeToFile } from '@/lib/server/file-utils';
 
 const productSearchSchema = z.object({
   searchTerm: z.string().describe('Best search term of product (name/kind/category etc.)'),

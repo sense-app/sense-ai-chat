@@ -220,27 +220,3 @@ export function isValidUrl(url: string) {
     return false;
   }
 }
-
-const isServer = typeof window === 'undefined';
-
-export function writeToFile(data: string, filename: string) {
-  if (!isServer) {
-    console.warn('writeToFile is only available on the server side');
-    return;
-  }
-
-  // Dynamic import for server-side only
-  const fs = require('node:fs');
-  const path = require('node:path');
-
-  try {
-    const tmpDir = path.join(process.cwd(), 'tmp');
-    // Ensure tmp directory exists
-    if (!fs.existsSync(tmpDir)) {
-      fs.mkdirSync(tmpDir, { recursive: true });
-    }
-    fs.writeFileSync(path.join(tmpDir, `${filename}.txt`), data, 'utf-8');
-  } catch (error) {
-    console.error('Error writing shopping prompt to file:', error);
-  }
-}

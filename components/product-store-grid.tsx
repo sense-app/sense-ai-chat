@@ -5,6 +5,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag } from 'lucide-react';
+import Image from 'next/image';
 
 interface ProductStoreGridProps {
   productGroups: ProductGroup[];
@@ -23,10 +24,11 @@ export const ProductStoreGrid = ({ productGroups }: ProductStoreGridProps) => {
             <div className="md:grid md:grid-cols-5 gap-6">
               <div className="md:col-span-2">
                 <AspectRatio ratio={1} className="bg-muted overflow-hidden">
-                  <img
+                  <Image
                     src={product.imageUrl || '/placeholder.svg'}
                     alt={product.name}
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-cover size-full"
                     onError={(e) => {
                       e.currentTarget.src = '/placeholder.svg';
                     }}
@@ -48,18 +50,19 @@ export const ProductStoreGrid = ({ productGroups }: ProductStoreGridProps) => {
                     )}
                   </div>
 
-                  <div className="mt-4 flex-grow">
+                  <div className="mt-4 grow">
                     <h3 className="font-medium mb-2">Available from:</h3>
                     <Tabs defaultValue={product.stores[0]?.name || 'default'} className="w-full">
                       <TabsList className="w-full justify-start overflow-auto mb-2">
                         {product.stores.map((store, storeIndex) => (
                           <TabsTrigger key={`${store.name}-${storeIndex}`} value={store.name} className="min-w-max">
                             <div className="flex items-center gap-2">
-                              <div className="w-5 h-5 rounded-full overflow-hidden">
-                                <img
+                              <div className="size-5 rounded-full overflow-hidden">
+                                <Image
                                   src={store.imageUrl || '/placeholder.svg'}
                                   alt={store.name}
-                                  className="w-full h-full object-cover"
+                                  fill
+                                  className="size-full object-cover"
                                   onError={(e) => {
                                     e.currentTarget.src = '/placeholder.svg';
                                   }}
@@ -93,7 +96,7 @@ export const ProductStoreGrid = ({ productGroups }: ProductStoreGridProps) => {
                                       <strong>Offer:</strong> {store.latestOffers}
                                     </p>
                                   )}
-                                  {store.review && <p className="text-sm italic mt-2">"{store.review}"</p>}
+                                  {store.review && <p className="text-sm italic mt-2">&ldquo;{store.review}&rdquo;</p>}
                                 </div>
                                 <div className="flex flex-col justify-between items-end">
                                   <div className="text-right">
@@ -118,7 +121,7 @@ export const ProductStoreGrid = ({ productGroups }: ProductStoreGridProps) => {
                                   </div>
                                   <Button className="mt-4" asChild>
                                     <a href={store.productURL} target="_blank" rel="noopener noreferrer">
-                                      <ShoppingBag className="h-4 w-4 mr-2" />
+                                      <ShoppingBag className="size-4 mr-2" />
                                       Buy from {store.name}
                                     </a>
                                   </Button>
