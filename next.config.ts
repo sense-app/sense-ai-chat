@@ -6,9 +6,15 @@ const nextConfig: NextConfig = {
   },
   productionBrowserSourceMaps: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
-        hostname: 'avatar.vercel.sh',
+        protocol: 'https',
+        hostname: '*',
+      },
+      {
+        protocol: 'http',
+        hostname: '*',
       },
     ],
   },

@@ -47,10 +47,9 @@ export const ProductCard = ({
     <Card className={cn('h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-md', className)}>
       <CardHeader className="p-3">
         <AspectRatio ratio={1} className="bg-muted rounded-md overflow-hidden mb-2">
-          <Image
+          <img
             src={imageUrl || '/placeholder.svg'}
             alt={name}
-            fill
             className="object-cover size-full transition-transform duration-300 hover:scale-105"
             onError={(e) => {
               e.currentTarget.src = '/placeholder.svg';
@@ -63,10 +62,9 @@ export const ProductCard = ({
         {storeName && storeImageUrl && (
           <div className="flex items-center gap-2 mb-2">
             <div className="size-6 rounded-full overflow-hidden">
-              <Image
-                src={storeImageUrl}
+              <img
+                src={storeImageUrl || '/placeholder.svg'}
                 alt={storeName}
-                fill
                 className="size-full object-cover"
                 onError={(e) => {
                   e.currentTarget.src = '/placeholder.svg';

@@ -776,8 +776,8 @@ export const LineChartIcon = ({ size = 16 }: { size?: number }) => (
 
 export const ShoppingIcon = ({ size = 16, stroke = '#000000' }: { size?: number; stroke?: string }) => (
   <svg height={size} width={size} viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke={stroke}>
-    <g id="SVGRepo_bgCarrier" stroke-width="0" />
-    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
     <g id="SVGRepo_iconCarrier">
       {' '}
       <path

@@ -24,10 +24,9 @@ export const ProductStoreGrid = ({ productGroups }: ProductStoreGridProps) => {
             <div className="md:grid md:grid-cols-5 gap-6">
               <div className="md:col-span-2">
                 <AspectRatio ratio={1} className="bg-muted overflow-hidden">
-                  <Image
+                  <img
                     src={product.imageUrl || '/placeholder.svg'}
                     alt={product.name}
-                    fill
                     className="object-cover size-full"
                     onError={(e) => {
                       e.currentTarget.src = '/placeholder.svg';
@@ -58,10 +57,9 @@ export const ProductStoreGrid = ({ productGroups }: ProductStoreGridProps) => {
                           <TabsTrigger key={`${store.name}-${storeIndex}`} value={store.name} className="min-w-max">
                             <div className="flex items-center gap-2">
                               <div className="size-5 rounded-full overflow-hidden">
-                                <Image
+                                <img
                                   src={store.imageUrl || '/placeholder.svg'}
                                   alt={store.name}
-                                  fill
                                   className="size-full object-cover"
                                   onError={(e) => {
                                     e.currentTarget.src = '/placeholder.svg';

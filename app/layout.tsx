@@ -6,9 +6,38 @@ import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  metadataBase: new URL('https://theshopper.cc'),
+  title: 'Shopper AI - DeepSearch Shopping with cashback on purchases',
+  description: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+  openGraph: {
+    title: 'Shopper AI',
+    description: 'DeepSearch Shopping with cashback on purchases',
+    emails: 'arsh@abdrahman@gmail.com',
+    siteName: 'Shopper AI',
+    url: 'https://theshopper.cc',
+    countryName: 'United States',
+    images: {
+      url: 'https://theshopper.cc/cover.png',
+      alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+    },
+  },
+  twitter: {
+    site: '@abdrahmanBTC',
+    creator: '@abdrahmanBTC',
+    card: 'summary_large_image',
+    title: 'Shopper AI',
+    description: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+    images: {
+      url: 'https://theshopper.cc/cover.png',
+      alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+    },
+  },
+  robots: {
+    index: true,
+    googleBot: {
+      index: true,
+    },
+  },
 };
 
 export const viewport = {
@@ -57,12 +86,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Toaster position="top-center" />
           {children}
         </ThemeProvider>

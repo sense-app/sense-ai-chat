@@ -91,8 +91,8 @@ export async function POST(request: Request) {
       });
 
       const steps = await result.steps;
-      // console.dir(steps, { depth: null });
-      // console.log('total steps', steps.length);
+      console.dir(steps, { depth: null });
+      console.log('total steps', steps.length);
     },
     onError: (error) => {
       console.log(error);

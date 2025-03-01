@@ -1,6 +1,6 @@
 import { jsonToLLMFormat } from '@/lib/llm-formatter';
 import { serpSearch, type SerpShoppingResult } from '@/lib/services/serp';
-import { type DataStreamWriter, generateText, Output, tool } from 'ai';
+import { type DataStreamWriter, tool } from 'ai';
 import { GoogleGenerativeAI, type Schema } from '@google/generative-ai';
 import { shoppingResultsSchemaForGemini } from './shopping-results-schema';
 

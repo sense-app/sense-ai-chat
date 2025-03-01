@@ -1,6 +1,5 @@
 import { type DataStreamWriter, generateText, tool } from 'ai';
 import { z } from 'zod';
-import { rewriteQuery } from '@/lib/ai/agents/query-rewriter';
 import { serpSearch } from '@/lib/services/serp';
 import { jsonToLLMFormat } from '@/lib/llm-formatter';
 import { myProvider } from '@/lib/ai/models';

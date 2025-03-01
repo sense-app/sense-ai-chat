@@ -19,10 +19,9 @@ export const StoreCard = ({ name, imageUrl, shopUrl, reason, className }: StoreC
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="size-10 overflow-hidden rounded-md">
-              <Image
+              <img
                 src={imageUrl || '/placeholder.svg'}
                 alt={name}
-                fill
                 className="size-full object-cover"
                 onError={(e) => {
                   e.currentTarget.src = '/placeholder.svg';
