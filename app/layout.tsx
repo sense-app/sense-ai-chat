@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     countryName: 'United States',
     images: [
       {
-        url: '/cover.png',
+        url: '/images/cover.png',
         width: 1200,
         height: 630,
         alt: 'AI Deep search Shopping with cashback on purchases',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'AI Deep search Shopping with cashback on purchases',
     images: [
       {
-        url: 'https://theshopper.cc/cover.png',
+        url: 'https://theshopper.cc/images/cover.png',
         width: 1200,
         height: 630,
         alt: 'AI Deep search Shopping with cashback on purchases',
