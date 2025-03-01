@@ -6,21 +6,24 @@ import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://theshopper.cc'),
   title: 'Shopper AI - DeepSearch Shopping with cashback on purchases',
   description: 'Shop smarter with Shopper AI and earn cashback on your purchases',
   openGraph: {
+    type: 'website',
+    locale: 'en_US',
     title: 'Shopper AI',
-    description: 'DeepSearch Shopping with cashback on purchases',
+    description: 'AI Deep search Shopping with cashback on purchases',
     emails: 'arsh@abdrahman@gmail.com',
     siteName: 'Shopper AI',
     url: 'https://theshopper.cc',
     countryName: 'United States',
     images: [
       {
-        url: 'https://theshopper.cc/cover.png',
+        url: '/cover.png',
         width: 1200,
         height: 630,
-        alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+        alt: 'AI Deep search Shopping with cashback on purchases',
       },
     ],
   },
@@ -29,13 +32,13 @@ export const metadata: Metadata = {
     creator: '@abdrahmanBTC',
     card: 'summary_large_image',
     title: 'Shopper AI',
-    description: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+    description: 'AI Deep search Shopping with cashback on purchases',
     images: [
       {
         url: 'https://theshopper.cc/cover.png',
         width: 1200,
         height: 630,
-        alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+        alt: 'AI Deep search Shopping with cashback on purchases',
       },
     ],
   },

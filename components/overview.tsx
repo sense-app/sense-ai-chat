@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { ShoppingIcon } from './icons';
+import { BrandingHeader } from './branding-header';
 
 export const Overview = () => {
   return (
@@ -13,12 +14,10 @@ export const Overview = () => {
       transition={{ delay: 0.5 }}
     >
       <div className="rounded-xl p-6 flex flex-col gap-8 leading-relaxed text-center max-w-xl">
-        <p className="flex flex-row justify-center gap-4 items-center">
+        {/* <p className="flex flex-row justify-center gap-4 items-center">
           <ShoppingIcon size={48} />
-        </p>
-        <p>
-          Shop smarter with <span className="font-bold">Shopper AI</span> and earn cashback!
-        </p>
+        </p> */}
+        <BrandingHeader />
         <p>
           Find the best products across stores with deep shopping research and personalized recommendations that evolve
           with your preferences.

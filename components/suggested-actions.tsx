@@ -16,24 +16,24 @@ interface SuggestedActionsProps {
 function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the best budget friendly',
-      label: 'gaming laptops?',
-      action: 'What are the best budget friendly gaming laptops?',
+      title: 'Best budget friendly',
+      label: 'gaming laptops',
+      action: 'Best budget friendly gaming laptops',
     },
     {
-      title: 'Find phones within',
-      label: `$300 to $500 budget`,
-      action: `Find phones within $300 to $500 budget`,
+      title: 'Android phones',
+      label: `with the best camera`,
+      action: `Android phones with the best camera`,
     },
     {
-      title: 'Recommend me a good pair of',
-      label: `sunglasses`,
-      action: `Recommend me a good pair of sunglasses`,
+      title: 'Recommend me',
+      label: `a pair of sunglasses`,
+      action: `Recommend me a pair of sunglasses`,
     },
     {
-      title: 'Find organic milk delivery',
-      label: 'in Singapore',
-      action: 'Find organic milk delivery in Singapore',
+      title: 'Find organic milk',
+      label: 'delivery',
+      action: 'Find organic milk delivery',
     },
   ];
 

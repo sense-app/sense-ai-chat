@@ -219,7 +219,7 @@ export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) 
   };
 
   let retryCount = 0;
-  const maxRetries = 2;
+  const maxRetries = 0;
 
   while (retryCount <= maxRetries) {
     try {

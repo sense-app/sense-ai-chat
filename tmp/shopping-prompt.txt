@@ -1,158 +1,162 @@
 
       <Userquery>
-        organic milk delivery in Singapore
+        Best budget friendly gaming laptops
       </Userquery>
     
 
       <productSearchTerm>
-        Buy organic milk Singapore 
+        HP Victus 
       </productSearchTerm>
     
 
       <searchResults>
         #1:
   Title:
-    Promess UHT Fresh Milk - Made in France [with Organic Option] [1Lx12] Halal - My Dairy Milk Singapore|
+    HP Victus 15.6" FHD 144HZ Gaming Laptop | AMD Ryzen 5-7535HS (Beat i7-11800H) | AMD Radeon RX 6550M|Backlit Keyboard| 8GB RAM DDR5 | 512GB SSD |
   Source:
-    Shopee
+    Amazon.sg - Seller
   Link:
-    https://shopee.sg/product/435717830/22578877040?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhma0VibmtrWnBXbzBZNDQyaCtaQ013c2NvRlh3RlBSWTZGTmN0U1lLRFY2MStnTEJpdXZPMzU0M2tXdnJ0c0hWQUFHM3RRS2orekNzMHdZdFNBOWMwWVA
+    https://www.amazon.sg/HP-Victus-5-7535HS-i7-11800H-Keyboard/dp/B0DCNN32XK?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ARPIJN329XQ0D
   Price:
-    $20.90
+    $859.44
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTT4rgnMhsk-tztrBW4ebHKXLx-Slm0NK7bf-lISs3kBZIYE8r4o4OtDlNbxeLnR-WCwYT1&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSnGorYBAOTOMxO-gLfCV51jYm5L9xal2c4PjTxVAhzSA0_83GIvkWDsrg&usqp=CAE
   Rating:
-    5
+    4.5
   Rating Count:
-    205
+    1
   Position:
     1
 
 #2:
   Title:
-    Promess Organic UHT Full Cream Fresh Milk - Made in France [1L] - My Dairy Milk Singapore
+    hp victus 16
   Source:
-    Shopee
+    Carousell
   Link:
-    https://shopee.sg/product/435717830/24423906606?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhma0VibmtrWnBXbzBZNDQyaCtaQ013c1hpbnlPTzA5Sk5pZ0FaOTdyeFBqTXlsKzloQkdPU2pBRy9rbExhYVhEWk1GWjNLdmtKQlZmdFdML0ptMTJpOWo
+    https://www.carousell.sg/p/1355060059
   Price:
-    $2.55
+    $1,200.00 used
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSRj8RCjwvtpEKFFOFxCBJGsZo2MGlc74r_Cnmo6ijGg61xjXSBjLrtkj9Otboh01zd8yz8eA&usqp=CAE
-  Rating:
-    5
-  Rating Count:
-    9
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQCQY6Vr0jdbeoDGWCqXTHz7-BTXubdvo-BG1feOx_3joEqEXXfi5Y3eAOuTXUlAYNCTyFO&usqp=CAE
   Position:
     2
 
 #3:
   Title:
-    Best Oat Milk Singapore | PureHarvest Organic Oat Milk | Nature’s Glory 1L
+    Hp Victus 15.6 Gaming Laptop Pc - Nvidia Geforce Rtx 3050 Ti Amd Ryzen 7 5800H - Refined 1080P Ips Display - Compact Design - All-In-One Keyboard - E
   Source:
-    Nature's Glory
+    Lazada Singapore
   Link:
-    https://www.natures-glory.com/products/oat-milk-unsweetened-pureharvest-1litre-organic?variant=37941174173856&country=SG&currency=SGD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOoouWlmi4ytVdZGMtmxGsEfHlALDti1cJ_2zY6l6n95X_FVX4v_d_7E
+    https://www.lazada.sg/products/hp-victus-156-gaming-laptop-pc-nvidia-geforce-rtx-3050-ti-amd-ryzen-7-5800h-refined-1080p-ips-display-compact-design-all-in-one-keyboard-with-enlarged-touchpad-hd-webcam-15-fb0028nr-2022-i2883955991-s19975816826.html?from_gmc=1&fl_tag=1
   Price:
-    $3.00
+    $900.00
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSHypcd3OV0Gt-DFYsQbaipMjf7VQ_JM7EbAuaQCt4NR456oh0NuD9NRm4&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQpfADjvYFFucpE22TtnGxXj53UgAfPIFmaVJcBWdoEDHDl7IBrTzpghTI&usqp=CAE
   Rating:
     4.5
   Rating Count:
-    80
+    206
   Position:
     3
 
 #4:
   Title:
-    Lewis Road Creamery Organic Light Milk
+    HP - Victus 16.1" Gaming Laptop - Intel Core i5-8GB Memory - NVIDIA GeForce RTX 3050-256GB SSD - Performance Blue
   Source:
-    Kiwi Kitchen
+    Amazon.sg - Retail
   Link:
-    https://kiwikitchen.sg/product/lewis-road-creamery-organic-light-milk-750ml/?attribute_pa_size=6-x-750ml-carton&srsltid=AfmBOopHIYBtgucFZAWgrsgWDPp5dIvdayibo_vz3FD-XhYVIfYlzWu9MT8
+    https://www.amazon.sg/HP-Victus-GeForce-3050-256GB-Performance/dp/B09R859SFF?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ACT6OAM3OSC9S
   Price:
-    $57.95
+    $1,464.14
   Delivery:
-    $15.00 delivery
+    Free delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTiGvIivoYmkGDGBBSmTASuw9Y-IaeUj4dKck0p5_BDb-yLZa5zNqxtSrCwCX1MPDKOGFnI&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRUWoL6FqwvaXzt4LQxVMKdzX71rl0Ov_F-tPikxu1llnWymzOmilUnXOyM&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    176
   Position:
     4
 
 #5:
   Title:
-    Promess Organic UHT Full Cream Fresh Milk - Made in France Halal Whole Milk [12x1L] - MyDairyMilk Singapore|
+    HP - Victus 15.6" Full HD 144Hz Gaming Laptop - Intel Core i7 - 16GB Memory - NVIDIA GeForce RTX 4050 - 512GB SSD - Performance Blue
   Source:
-    Shopee
+    Microless.com
   Link:
-    https://shopee.sg/product/435717830/29310232964?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhma0VibmtrWnBXbzBZNDQyaCtaQ013czUrQ0hkQzNjc0FUcThBWFZIVitDRk5ScTBCVloyMHlZeGdrQUJPRDV1aDc4TnNFVlpkT1NmSUU3bWovdkpvMDA
+    https://global.microless.com/product/hp-victus-15-fa1163dx-gaming-laptop-15-6-fhd-ips-144hz-display-intel-core-i7-12650h-16gb-ram-512b-ssd-geforce-rtx-4050-6gb-laptop-gpu-english-keyboard-win11-performance-blue-9t3v7ua/?currency=usd&srsltid=AfmBOorgCmOCEif96Tv2ObvPQ13fqsZgmL7p8EHfFoNLwnXdMMaJPScWQmA
   Price:
-    $28.90
+    $1,328.38 + tax
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRHG6RoaNJMg4oV96DCSuDfcu1juTj9v1JS5yvWFbq1FwOyd0_IVFqCst41lLBgJ8n2anFAsw&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7qk08szK4kPeGQUMvNrRXUGXDgtRShG2VzMpqQgCN1iATaNSros_BlUAD&usqp=CAE
   Rating:
-    5
+    4.5
   Rating Count:
-    9
+    273
   Position:
     5
 
 #6:
   Title:
-    Promess UHT Fresh Milk - Full Cream/ Skimmed [With Organic Option] - Made In France (12x1L) My Dairy Milk Singapore
+    HP Victus 15.6" 144Hz FHD Gaming Laptop,AMD Ryzen 5 7535HS,16GB DDR5 RAM,1TB SSD,AMD Radeon RX 6550M,Beats RTX 2050,Backlit Keyboard,Windows11 Pro,
   Source:
-    Lazada Singapore
+    Amazon.sg - Seller
   Link:
-    https://www.lazada.sg/products/promess-uht-fresh-milk-full-cream-skimmed-with-organic-option-made-in-france-12x1l-my-dairy-milk-singapore-i246979500-s8268115031.html?from_gmc=1&fl_tag=1
+    https://www.amazon.sg/HP-Victus-Backlit-Keyboard-Windows11/dp/B0DDW8QH1Q?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ARPIJN329XQ0D
   Price:
-    $24.90
+    $973.73
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSORwWLRxw9QFIaS5GfygmNRcWadYQwhZtQc7eUuA5GNsxxO6f2liTACVOi&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTfyZX1mVvzDSfo8f579ESd0OVBxVNsL5CDoLKroUVoPfxT-nmxaUhwbDfNP4dAfPmUNebpRw&usqp=CAE
   Rating:
-    5
+    4.5
   Rating Count:
-    667
+    1
   Position:
     6
 
 #7:
   Title:
-    Promess MyFarm UHT Fresh French Milk - Made in France [Organic Option] [1Lx12] - My Dairy Milk Singapore
+    HP Victus 15.6" FHD 144Hz Gaming Laptop, Intel 8-Core i5-12450H(Beats i7-11800H), NVIDIA GeForce RTX 3050, Backlit KB, Touchpad, WiFi 6, W/128GB SSD
   Source:
-    Shopee
+    Amazon.sg - Seller
   Link:
-    https://shopee.sg/product/362146/1167761980?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWnpLMUx5ZlFLVWtJVFQ2cWdDKzJoSHI2VDdmWWlpM0Z6NjFqb0pScUYyUjNtenhtVXQwYWRzNFBhYktrWXFiUUhxTll5RjhmRnRxekVtZWdDT3gxRFlQM2c0cmxoZ1JYeHpqN2E3blR6SFQ
+    https://www.amazon.sg/HP-Victus-i5-12450H-i7-11800H-Touchpad/dp/B0DD6ZVN6G?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ARPIJN329XQ0D
   Price:
-    $23.90
+    $1,215.04
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLxZ9pgYZ9JMd5w6r3EFFZaxRkL0YmuK0OfYmUDrkPXP-9FTAYRY5pBsrJ3piIVMaPhuMd1A&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQg-rY7tgt9AdBiIp6O7Z0ESiuAV8UEOYQ68w7o4RdVI8aJskSL79ox4Tyh&usqp=CAE
   Rating:
-    5
+    4.5
   Rating Count:
-    667
+    376
   Position:
     7
 
 #8:
   Title:
-    Marigold UHT Strawberry Milk 1 L Online in Singapore | Marigold UHT Strawberry Milk 1 L Online | Organic grocery in Singapore | Marigold UHT 
+    HP - Victus 15.6" Gaming Laptop - AMD Ryzen 5 7535hs - 8GB Memory - Nvidia GeForce RTX 2050 - 512gb SSD - Mica Silver
   Source:
-    waangoo.com
+    eBay
   Link:
-    https://www.waangoo.com/products/marigold-uht-strawberry-milk-1?variant=46611725615400&country=SG&currency=SGD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOooOfNfeB5hz_TOGKmrkUVlGVGimNKh4oHwCO0eeBb1gSjNG0SyEk6M
+    https://www.ebay.com/itm/396116515315?chn=ps&mkevt=1&mkcid=28&google_free_listing_action=view_item
   Price:
-    $3.13
-  Delivery:
-    $8.00 delivery
+    $740.95 + tax
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRNHk3DKvJYPQF-5e0kzFvL2nJdPRsa9I4YIb2Nh-ni3tzwANbPhUoc1UgSok-uASvR8YO5IA&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ6NGB0rCjaIHubgXwdAoeGViAHOK68y6WRaiUWJTv0_Gasbi-eylZ3Fyk1&usqp=CAE
   Rating:
-    5
+    4.5
   Rating Count:
     1
   Position:
@@ -160,209 +164,239 @@
 
 #9:
   Title:
-    Koita Premium Organic Whole Milk 12 X 1000ml
+    HP Victus 16 Gamging Laptop 2024/HP Victus 10 i7-14650HX/i7-13620HX RTX4060/RTX4070 16.1inch HP Victus Gaming Laptop
   Source:
-    ramanico
+    Shopee
   Link:
-    https://www.ramanico.com/products/koita-premium-organic-whole-milk-12-x-1000ml?utm_source=google_shopping&utm_medium=google_search_feed&srsltid=AfmBOorARpQfPiGZy73V-PJM-KpXY4kbOKNMU4X88Kgkkm6C_1SpFOtPUhk
+    https://shopee.sg/product/63407136/28926543967?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkV1BNaHBLV2lHSzd2WEZjb2w0eUJubU5GYXF4bTJ1TEUwQmFGSjFlNWJiNVZVZlF1MDB6Q3ZLa0JGLzBTSG5CUU8yKzc4U2lMMERBZzJKYzFWVmdHZW92VFgwV2Y0aWYxREkwWTFhS29vZkI
   Price:
-    $58.20
-  Delivery:
-    $5.00 delivery
+    $1,505.00
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQpSXIc3vceS1fpYrsGtV-5-izTGikFR_-2vS4kC3IS4T6VlQywSJxMYZnGlf9APNIuiDPNKQ&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTOPAbIqAXi3C-PhcATGHIHktawe0slO0_rBIkvreSH_FmQRakhzgifpk28&usqp=CAE
   Position:
     9
 
 #10:
   Title:
-    Organic Valley Ultra Pasteurized Milk - Whole
+    HP Victus 15-fb1013dx (845A2UA#ABA), 15.6" FHD 144Hz, Ryzen 5, NVIDIA GeForce RTX 2050 Graphics, Gaming Laptop
   Source:
-    NTUC FairPrice
+    Microless.com
   Link:
-    https://www.fairprice.com.sg/product/organic-valley-whole-milk-950ml-13085380?srsltid=AfmBOorP4vqfc5v9mOHGASCXHilIPlmzVzEdQf5oXXQW-3NRX6UjGbuZRVY
+    https://global.microless.com/product/hp-victus-15-fb1013dx-gaming-laptop-15-6-fhd-ips-144hz-amd-ryzen-5-7535hs-8gb-ram-512gb-ssd-geforce-rtx-2050-4gb-gpu-english-k-b-win11-mica-silver-845a2ua-aba/?currency=usd&srsltid=AfmBOoplf_1OSMtIlrCAtTz2ys8Oow5Cx65z4YH5k8hENaVKgv3ysRzaQ_Y
   Price:
-    $11.65
-  Delivery:
-    $3.99 delivery
+    $852.62 + tax
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQlHWtrv7TRkdKfgdQTdBz_GkhhxzzP-1pVtbzhZJOqsRhvyqW5I-a6N9KP9F1D1KFOGzsVPQ&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRO34t4FKQZzmyIitMFFxmTLIR2xZtuJy2nLew7zfBY_-xdtTYRFf0sUqZGMOu2qGUX0dtlaQ&usqp=CAE
   Rating:
     4.5
   Rating Count:
-    2
+    1
   Position:
     10
 
 #11:
   Title:
-    Lewis Road Creamery Organic Homogenised Milk
+    HP Victus 15.6 Full HD Gaming Laptop - Ryzen 5 7535HS - Mica Silver
   Source:
-    Kiwi Kitchen
+    Big Apple Buddy
   Link:
-    https://kiwikitchen.sg/product/lewis-road-creamery-organic-milk-homogenised-750ml/?attribute_pa_size=6-x-750ml-carton&srsltid=AfmBOorJRW2NO2CRlQGKD4FNKC5iDK6TYx4HhYcrdhbtayuT55Id-cfXABw
+    https://www.bigapplebuddy.com/product/8/victus-156-full-hd-gaming-laptop-amd-ryzen-5-7535hs-8gb-ddr5-memory-amd-radeon-rx-6550m-512gb-ssd-mica-silver/70319849?child_sku=6578933&utm-medium=pla&utm-co=SG&srsltid=AfmBOoq6lKaL9g31t5GBHVds918HJWsTCtOYCXJQJ8RQKlt9KHZqqOmqY5E
   Price:
-    $57.95
+    $1,077.75 + tax
   Delivery:
-    $15.00 delivery
+    $249.64 delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQAiZ7DKi2t67Qh-zfSemfyNPbOxCglFTAyIoEOMwcqCiJ3cav1kphZRKCAMhWdUgnguc5hGyA&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSY7ceiJkkayGJgXQ1r1MAg8GlW9q_kW_jgT-mz_t9FDa_PpASfwwLC5ew&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    1
   Position:
     11
 
 #12:
   Title:
-    PROMESS Organic UHT Fresh French Milk - Full Cream - Made In France (12x1L) MyDairyMilk Singapore
+    HP Victus Gaming 16-S0106AX (R7 7840HS, RTX 3050, 16GB, 512GB, 144Hz, 16-inch)
   Source:
-    Lazada Singapore
+    Playforce
   Link:
-    https://www.lazada.sg/products/promess-organic-uht-fresh-french-milk-full-cream-made-in-france-12x1l-mydairymilk-singapore-i300052516-s21200614390.html?from_gmc=1&fl_tag=1
+    https://www.playforce.com.sg/products/victus-gaming-16-r7-7840hs-rtx-3050-16gb-512gb-144hz-16-inch?variant=46207699583163&country=SG&currency=SGD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOooObNcX8_gYQ4Yxq5V9RdYeqBCpDQr_y6nxuLNwg7tydOQbzaZlfVc
   Price:
-    $32.90
+    $1,149.00
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSRtrdaCHwgw_pIRRCgEha7bPNvyFX8cDATq67vOAjCgpSr6ryIvNqmXvTg0QISJrB_FmsHhA&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTdeidVXo1LPgWY2EIaMAtYKPU65Ef86RUkpqvilFVseYom4TiEmR3MySpk9nkbYjV4RfsmAg&usqp=CAE
   Rating:
-    5
+    4.5
   Rating Count:
-    9
+    250
   Position:
     12
 
 #13:
   Title:
-    (Expiry - 28/07/2025) Koita Premium Organic Whole Milk 24X200ML
+    HP VICTUS 16-s1152ng 16.1" FHD IPS 144Hz AMD Ryzen 5 8645HS 16GB RAM 512GB SSD RTX - 512 GB - 16 GB (A4CN5EA#ABD)
   Source:
-    Shopee
+    Grooves-Inc.com
   Link:
-    https://shopee.sg/product/12659510/5664785965?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkYkVsYzY3b1A0bldEa1JSdzVkOFJGYXhRelpoVmtpR3Vqb2NZQllEZjJ2Z05xVnFSOXVSdU9VVkNqU1djM0NjS3JqMCtFV0ZUMWJ5dWN1L1NhLzB4S3J0eGtBUlBXY0VEZlkxemtZaTZrVWo
+    https://www.grooves-inc.com/victus-laptop-s1152ng-amd-ryzen-8645hs-freedos-rtx-4050-version-german-keyboard-accessories-pZZa1-2101217727.html?currency=EUR&language=en&_z=sg&srsltid=AfmBOoqxbyWi7wao3t8zLmadOSJM-LM64jVCbnYfWsjXJv5Ak7EY2UzVFfY
   Price:
-    $44.00
+    $1,383.55
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSmPmqcvpxbQJgcqQ_zs6BAUpkNGUONF3-JFKRJEoWango7Ftcvzr7FLow&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRjnDhE_JRASVsDI6EyFLtYlP2kOA1yIJ1tBQB8Mb1bQJ5I2wCPA_fkw3w&usqp=CAE
   Rating:
-    5
+    4.5
   Rating Count:
-    173
+    19
   Position:
     13
 
 #14:
   Title:
-    Koita Premium Organic Whole Milk 5 x 200ml
+    HP - Victus 15.6" Full HD 144Hz Gaming Laptop - Intel Core i5 - 8GB Memory - Nvidia GeForce RTX 3050 - 512gb SSD - Performance Blue
   Source:
-    ramanico
+    Realry
   Link:
-    https://www.ramanico.com/products/koita-premium-organic-whole-milk-1-x-200ml?srsltid=AfmBOooeT-JrOE0eebLjHhYhIpAuu2FROuEBvZU0hafpoYI7HWDThefjtBY
+    https://realry.com/products/678f2f04c2ff55eb33026033?srsltid=AfmBOopqQ8mxLDFOF6zSB3L7NR4erOMp4JVeeuegy-mRKdOZXdJU_twcHps
   Price:
-    $10.25
+    $1,185.53 + tax
   Delivery:
-    $5.00 delivery
+    Free delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQd0Z73jVLrWm9Bmdj95xUMehLEhImnB7eeGRbmAbEa-l-72_uOwANs4ZaGvgj_7emdMgVn&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRASZojJ41jQIZRuh4LWhS42_KdFVCTdU831E7TnW9dm_Wl5SVfmpJUjy4&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    477
+  Offers:
+    5+
+  Product Id:
+    1414950912457640981
   Position:
     14
 
 #15:
   Title:
-    Lewis Road Creamery Organic Non-Homogenised Milk 6 x 1.5L Carton
+    HP Victus 16.1 inch Gaming Laptop 16-r0336TX, Silver
   Source:
-    Kiwi Kitchen
+    HP Store Singapore
   Link:
-    https://kiwikitchen.sg/product/lewis-road-creamery-organic-milk-non-homogenised/?srsltid=AfmBOorVKtQUz-XdaF8Uzr2zopI2CCANwyaNz8Qj9wd9LjfGp9uNYpBV2qs
+    https://www.hp.com/sg-en/shop/victus-gaming-laptop-16-r0336tx-b0cc2pa.html
   Price:
-    $114.95
+    $1,699.00
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQiEjFk2tHxqTlqyAx1Amu0m1PU_dGa00Ns6hJung0r4Tj8R3sAudwUY02tRKENqyeHzNeg&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSVoqvC6_HVrQI0gOTtneRLDKaml3nIUPLMRVLPgGSf5PrTEu8vT7e-ZeTWRFFGPZJjuYqxFw&usqp=CAE
+  Rating:
+    3.5
+  Rating Count:
+    11
+  Offers:
+    4
+  Product Id:
+    6157664984471367886
   Position:
     15
 
 #16:
   Title:
-    Farmhouse UHT Fresh Milk (1 CTN) - Dairy Foods - Farms2Home.sg - Shop Indian Grocery in Singapore
+    Victus by HP 16-e0010ca Gaming laptop - NVIDIA GeForce RTX 3050 with AMD Ryzen 5 Processor
   Source:
-    Farms2Home
+    Newegg.com - Deal Targets
   Link:
-    https://farms2home.sg/dairy-foods/milk/farmhouse-uht-milk-1-ctn/?srsltid=AfmBOoothgxt5w2lXVJERPaka_9yTXwugFsHQo0VVanCCSdLEH6N35_ir78
+    https://www.newegg.com/global/sg-en/performance-blue-hp-victus-16-e0010ca-gaming-entertainment/p/N82E16834272994?item=9SIAFVFGHD0181&nm_mc=knc-googlesgadwords-global&cm_mmc=knc-googlesgadwords-global-_-gaming%20laptops-_-hp-_-9SIAFVFGHD0181&utm_source=google&utm_medium=organic+shopping&utm_campaign=knc-googlesgadwords-global-_-gaming%20laptops-_-hp-_-9SIAFVFGHD0181&source=region&srsltid=AfmBOopyM_OM_vghLjedxHVj1uf1sdFI5tHu_mRVJhHvjzD7iXiyQFW6t3o
   Price:
-    $29.90
+    $1,396.12
   Delivery:
-    $5.00 delivery
+    $65.35 delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ8zdMfWnXvxlzJdRpdBtpdUrXqXbtzsDENvCD70bC3RZ50bFjhcEDYgjI17BR7wNL_rClqBw&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQFFahzaH-_Ar5nMPHHBKc7xSWzBMbgOB7IyajuhTtV4AQs7Y6zyGqSgofhxkSTLxsdxV4F&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    7
   Position:
     16
 
 #17:
   Title:
-    Organic Milk Light 1.5% Fat 1L
+    Hp Victus 15.6" Amd Ryzen5/8gb/512gb/radeon Rx6550m Gaming Laptop
   Source:
-    Obbo B2B Marketplace
+    eBay
   Link:
-    https://obbo.sg/products/organicmilklight15fat1l-s4280-i4795000
+    https://www.ebay.com/itm/296806537985
   Price:
-    $8.44
-  Delivery:
-    $5.00 delivery
+    $727.29 + tax
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQm4r0epmFddz_1gbLu0W6HNYVSFYNBYIEh-KuzP12Ux2OFLmCg3vB4MA8&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTZHeysbuHHdP_uEUSh_o7kkSpQBSa_pBB4gmZ5zd-jPxop0ED7I7BiDjN-&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    1
   Position:
     17
 
 #18:
   Title:
-    Non-Homogenised Milk - Full Fat
+    Hp Victus Gaming Laptop - 15-Fa1324Tx 15.6 Fhd (1920 X 1080) 144 Hz - Intel Core I7-13700H - Nvidia Geforce Rtx 4050 - 16Gb Ram - 1Tb Ssd - Win11 Hom
   Source:
-    Little Farms
+    Lazada Singapore
   Link:
-    https://littlefarms.com/pcf-fresh-milk-1l-301689?srsltid=AfmBOor7gYP5INLLX6PtzJo9GTbkJtHCV58fiTe-uhiPEzz-2GXG3pJUrO8
+    https://www.lazada.sg/products/free-ms-officehp-victus-gaming-laptop-15-fa1324tx-156-fhd-1920-x-1080-144-hz-intel-core-i7-13700h-nvidia-geforce-rtx-4050-16gb-ram-1tb-ssd-win11-home-2y-i1093560300-s13784058682.html?from_gmc=1&fl_tag=1
   Price:
-    $8.98
+    $1,479.00
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRcoq4u1nkBD5j_WFUuLHn7HvaEogJQu8IBY_QH_wmjZv42qAVzrDJMA-8PfLV_dpQ6nUlqBg&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQkLVXhDsr9l1zQ7Piy7n2xCF2HXu8-_ZxZHv0Ch-0YFNZFVbnJszIty4FeMe3jhEGcriSN&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    22
   Position:
     18
 
 #19:
   Title:
-    Dream Rice Organic Milk 1L
+    HP Victus Fa0998TX Intel Core i5 12th Gen (15 inch, 16GB, 512GB, Windows 11, MS Office 2021, NVIDIA GeForce RTX 3050 Graphics, Full HD IPS Display,
   Source:
-    Brit Super Store
+    Allneeds
   Link:
-    https://www.britsuperstore.com/uk/browse-by-section/groceries/milks-and-creams/rice-dream/rice-dream-organic-original-1-litre.html?srsltid=AfmBOor32qHFbzMxqnhFovzSDh_Tbnkma-t9gsWiK5Bw-fsSixrnGif7tS8
+    https://allneedsllc.com/product/hp-15-victus-gaming-12th-gen-intel-core-i5-16gb-ram-512gb-ssd4gb-nvidia-rtx-3050-wins-11/?srsltid=AfmBOoqV336EgcJxJBGnygQgWr4me5_g2tU7Rl1GWIfnxdV6NlMN3oLPeyA
   Price:
-    $5.60
+    $1,214.30
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS29V3JDLutTIY0aQu5cCyRvXzkFUg7UuyhZNDggXNsBMP-CZBo3R3N09znk_--7WaLqgJ4&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSyS5JA73V4vJBZ9nop-cX1zWKGgt6i7ICEzFV9q7p1KhBQ9iuOiSL0RN2ZGHDhgCv29-ox&usqp=CAE
+  Rating:
+    4
+  Rating Count:
+    85
   Position:
     19
 
 #20:
   Title:
-    Arla Organic Milk - Low Fat
+    【Free MS Office】HP Victus Gaming 15-fa1324TX | NVIDIA GeForce RTX 4050 | 15.6" FHD | i7-13700H | 16GB/1TB SSD | 2Y
   Source:
-    Cold Storage
+    Shopee
   Link:
-    https://coldstorage.com.sg/en/p/Arla%20Organic%20Low%20Fat%20Milk%202sX1L/i/101580551.html?srsltid=AfmBOorcpLi-_ZUL0zeQCMjrJ-SjzGd8zLMO6sGNF8t_VIlIi7HQrnerunA
+    https://shopee.sg/product/51678844/23071057564?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkV1BNaHBLV2lHSzd2WEZjb2w0eUJua2REb3QxWkRYWWM0MzhWalpWQjMweEsxQ0IzNmY2Y0xwVHlRQVRlclhhd1hUUWo2N1lLVExmSUNjcW85cTJoSXMrNW1ZbDVldzN0dUNrdkhYZWxaMWg
   Price:
-    $10.80
+    $1,479.00
   Delivery:
-    $7.00 delivery
+    Free delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTP1yOOUDXyEsBhekEZthEPaP0GwBN3ab0lp2aK20PxaFwc9_6wHimeFRVqd_y2FoHbXrcj&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQo6sYnjcptoH_G7SghgsTwhlh4-Ou4H8CumKeitAKJ4Qu_eW0Kt7KJ5C0&usqp=CAE
   Rating:
     4.5
   Rating Count:
-    814
-  Offers:
-    2
-  Product Id:
-    3838025648566410040
+    1
   Position:
     20
       </searchResults>
