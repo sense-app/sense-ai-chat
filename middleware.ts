@@ -15,9 +15,10 @@ export const config = {
      */
     '/((?!_next/static|_next/image|favicon.ico|.*\\..*|public).*)',
     '/',
+    '/cover.png',
     '/:id',
     '/api/:path*',
     '/login',
-    '/register'
+    '/register',
   ],
 };
