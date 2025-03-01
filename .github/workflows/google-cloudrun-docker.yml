@@ -78,7 +78,7 @@ jobs:
             echo "SERVICE=shopper-ai-dev" >> $GITHUB_ENV
             echo "REGION=us-east4" >> $GITHUB_ENV
             echo "NODE_ENV=production" >> $GITHUB_ENV
-            echo "ENV_KEY=${{ secrets.DOTENV_PRIVATE_KEY }}" >> $GITHUB_ENV
+            echo "ENV_KEY=${{ secrets.DOTENV_PRIVATE_KEY_PRODUCTION }}" >> $GITHUB_ENV
           else
             echo "Unsupported branch"
             exit 1
