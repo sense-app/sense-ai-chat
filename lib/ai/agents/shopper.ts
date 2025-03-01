@@ -117,10 +117,10 @@ export const shop = (dataStream: DataStreamWriter) =>
     execute: async (params) => {
       const { thoughts, query, searchTerms } = params;
 
-      // const searchResults = await shoppingSearch(
-      //   searchTerms.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
-      // );
-      const searchResults = await shoppingSearch([`${searchTerms[0].searchTerm} ${searchTerms[0]?.filter ?? ''}`]);
+      const searchResults = await shoppingSearch(
+        searchTerms.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
+      );
+      // const searchResults = await shoppingSearch([`${searchTerms[0].searchTerm} ${searchTerms[0]?.filter ?? ''}`]);
       const shoppingItems = searchResults.results.map((result) => ({
         query,
         searchTerm: result.searchQuery,
@@ -131,9 +131,9 @@ export const shop = (dataStream: DataStreamWriter) =>
 
       // Combine all results into a single shopping result
       const combinedResults: ShoppingResults = {
-        summary: allShoppingResults.map((result) => result.summary).join('\n\n'),
-        productsGroup: allShoppingResults.flatMap((result) => result.productsGroup),
-        storeGroup: allShoppingResults.flatMap((result) => result.storeGroup),
+        summary: allShoppingResults.map((result) => result?.summary).join('\n\n'),
+        productsGroup: allShoppingResults.flatMap((result) => result?.productsGroup ?? []),
+        storeGroup: allShoppingResults.flatMap((result) => result?.storeGroup ?? []),
       };
 
       return combinedResults;
@@ -166,14 +166,10 @@ Your response should consist of a structured JSON output with two primary groupi
 - Grouped by Product: If the same product is available across multiple stores, group it by product, showing all purchase options from different stores. 
 This allows for easy comparison of prices, offers, and delivery details for the same product across different e-commerce platforms.
 
-Do not exceed 8000 tokens per output. Return partial results and then continu
-
 Each product should appear only once, either in the "store" or "product" grouping, not both.
 Be careful with JSON errors. Structure the response accurarely in JSON format. Handle URLs correctly and do not edit them.
 
-
-JSON Schema for output":
-
+The JSON schema should not exceed 8000 tokens. Ouput a valid JSON schema.
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {
@@ -209,19 +205,35 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_API_KEY as
 
 export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) => {
   const prompt = getShoppingPrompt(shopping);
-  const model = genAI.getGenerativeModel({
+  const modelConfig = {
     model: 'gemini-2.0-flash',
     systemInstruction: SHOPPER_SYSTEM_PROMT,
     generationConfig: {
       responseMimeType: 'application/json',
       responseSchema: shoppingResultsSchemaForGemini as Schema,
     },
-  });
+  };
 
-  const result = await model.generateContent(prompt);
-  const response: ShoppingResults = JSON.parse(result.response.text());
-  writeToFile(JSON.stringify(response), 'shopping-results');
-  return response;
+  let retryCount = 0;
+  const maxRetries = 2;
+
+  while (retryCount <= maxRetries) {
+    try {
+      const model = genAI.getGenerativeModel(modelConfig);
+      const result = await model.generateContent(prompt);
+      const response: ShoppingResults = JSON.parse(result.response.text());
+      writeToFile(JSON.stringify(response), 'shopping-results');
+      return response;
+    } catch (error) {
+      if (error instanceof SyntaxError && retryCount < maxRetries) {
+        console.error('JSON parsing error, retrying...', error);
+        retryCount++;
+        continue;
+      }
+      console.error('Error in shopper function:', error);
+      throw error;
+    }
+  }
 
   // const result = await generateObject({
   //   model: myProvider.languageModel('chat-model-large'),

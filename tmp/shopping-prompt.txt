@@ -5,384 +5,378 @@
     
 
       <productSearchTerm>
-        Samsung Galaxy A35 5G 
+        Realme 
       </productSearchTerm>
     
 
       <searchResults>
         #1:
   Title:
-    Samsung Galaxy A35 5G Singapore
+    Realme 13 Pro+ Realme 13 Pro Ultra Snapdragon 7s Gen 2 Realme 13 Pro Dimensity 7300 Realme 13 Pro Plus Realme 13
   Source:
-    mobilerelation.sg
+    Shopee
   Link:
-    https://mobilerelation.sg/product/samsung/samsung-galaxy-a35-5g-singapore/
+    https://shopee.sg/product/1081351954/25905123246?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYldNSUdrTnE5VFNLVm9Uc2RqMldTOVViSkFTa2RwT1Q5SklMYW5TdHFVRGlPM2E2d0I0ZU5rY1Fvd3BMQjdrVTNJLzNjTlhWSjd5NWw1eXhxeXZ4azk
   Price:
-    $248.00
+    $324.00
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTJqWTswgIgWHoN4T4z_oCb8hYo4gtHdaSB8qegTLhYh3dGFB_IT5j-aQJTCHjj4-6UK7L6Ag&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSbj038TnioT7sfLDSlYj9ipNjJbyh_El0PndewOD8uh8MJIT8vKihjlCGoMW7uB7rytokRaw&usqp=CAE
+  Rating:
+    5
+  Rating Count:
+    683
   Position:
     1
 
 #2:
   Title:
-    Samsung A35 5G Singapore - Pristine - 8/128GB - Awesome Navy
+    Realme 12 5G (8+8)/512GB
   Source:
-    Mister Mobile Singapore
+    KS Mobile Singapore
   Link:
-    https://www.mistermobile.com.sg/product/samsung-a35-5g-singapore/?attribute_pa_condition=pristine&attribute_pa_storage=8-128gb&attribute_pa_color=awesome-navy&srsltid=AfmBOoqCvALCLHIA-B1mJ3Z4L52YKYQZMHX5gR64BsulO4MIs_nVJV-p1co
+    https://www.ksmobile.com.sg/product/realme-12-5g-88-512gb/?attribute_color=Purple&srsltid=AfmBOorObsM_xsmJDJmwCpoI8ualIvMUru3arpdz2ZPvssNx2Ep5CKzZUhs
   Price:
-    $278.00 refurbished
+    $329.00
   Delivery:
-    Free delivery
+    $4.00 delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTBvovDIFzjpKZp6BVO4C1DZaYyz03viVAJ1vYWKLWwdSp6YLM9jLHFYewBr-r6nP5NQ9NDBA&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQQv4I7gNxZeIldkc_az0DMBcGtOY23ro5HSB7W0mleTcwiY_s_R60meL0hcfHL3GnHCGhW7Q&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    1
   Position:
     2
 
 #3:
   Title:
-    Samsung Galaxy A35 5G - Brand New Only
+    Realme 12 Pro+ Snapdragon 7s Gen 2 / Realme 12 Pro Snapdragon 6 Gen 1 / Realme 12x Dimensity 6100+ Realme 12 Pro Plus
   Source:
-    MobileRelation
+    Shopee
   Link:
-    https://www.mobilerelation.com.sg/price-estimate-category/price-estimate-new/samsung-galaxy-a35-5g-brand-new-only?srsltid=AfmBOoqDdofXz2ureD2WouUoitM22us2HrqaXU-TFD45fMut4_eF7nLkRhM
+    https://shopee.sg/product/1045450210/27054565188?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzWjgzTmRJWkg2cHJoZkpodkFuS3daWklNQ0VSbHFMQUtzL3BrT21vSGlhZ2p5L1R4aG1iNTJFejI4MG5OZkRXdGZ3TmhYUTN0dm9ZTW52WDNvMVd1ZVE
   Price:
-    $350.00
-  Delivery:
-    Free delivery
+    $225.00
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRn7VFgNd3VDWhpTGF454Mj7oZy96eoLJ0_Kobt4aupJDHURe0vnaU1-vxbIyMcXuoZsKO0&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ2P14gxQMWfPEd2xkTgklNkzZdmx5DyJsMo4rquhzWAOpmCeB12iKZSz-QXXqNa8V9tgFBSw&usqp=CAE
+  Rating:
+    5
+  Rating Count:
+    3
   Position:
     3
 
 #4:
   Title:
-    Samsung Galaxy A35 5G Dual SIM 8GB 128GB / 256GB Original Simfree
+    realme C63 16GB(8+8)+128GB| 45W SUPERVOOC Charge| 90Hz Eye Comfort Display| 50MP AI Camera| IP54 Water Resistance
   Source:
     Shopee
   Link:
-    https://shopee.sg/product/163791336/23089731650?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhma3gwWU1rUjNBTGFMYzc5djNLVzZCNEhERXdjNldDK0UzQ0p3V3U0cTNrd21WS0EvRUsxL0U3VUZ6S0Y4SWViU2V1ejFVczdrblhMMXlXWXV1U1lzTlg
+    https://shopee.sg/product/1122769835/24031658087?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYlZHQ2t4bkd5cEtDalNlT2ZuMDZ2bUdiKy83ai9zWnEwOVRuM3lrSHBuUlVlaE5BQWVjMERXNFhhM3B5V1BVNHdRVy90cDJwVHp6YzA4Q2hHOG5KbU8
   Price:
-    $378.23
+    $199.00
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRblo4kuiMKHQf0itYaKJi02BLD4cdb06x5MMLYx623yGF4YfoPAZPWOKyp&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQfJGjdcf9oygaoXSiaaVbs-Kh-h5xkwbEkDpKfCkaXJqNgYurNmmyullAaBDDgB2sNYd-zUQ&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    4
   Position:
     4
 
 #5:
   Title:
-    Samsung Galaxy A35 5G
+    Realme 12x 5G 8GB/256GB
   Source:
-    Carousell
+    KS Mobile Singapore
   Link:
-    https://www.carousell.sg/p/1353426006
+    https://www.ksmobile.com.sg/product/realme-12x-5g-8gb-256gb/?attribute_color=Green&srsltid=AfmBOopvL9s3AMR-5N2-iIsLWN89zzZYkZqTr93NZkNIgtaF7oaNxG5Ft_I
   Price:
-    $120.00
+    $249.00
   Delivery:
-    Free delivery
+    $4.00 delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRkjR98g20T6klqLuor5-lUKdZ1HdbWRwZYLtvHVf-m9zHdBdp9PWNxsBI1&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSKe0ZNICl-xypyZCiczd7CJm00nUhNAgi242-hIDEPk_PUWSJ_7-viURPSFEIiuIaqCfSl&usqp=CAE
+  Rating:
+    4.5
+  Rating Count:
+    786
   Position:
     5
 
 #6:
   Title:
-    Samsung Galaxy A35 5G NFC | (8GB/ 256GB) 1 Year Local Seller Warranty Ready Stock
-  Source:
-    Shopee
-  Link:
-    https://shopee.sg/product/646763965/26300771874?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbjJjUGZrcjc1LzJFSU1Bc3B6blFXVkU3Q0pLaEJaUXdkdWZNWjNnd0xjQnZSQis0bEtUSUtDSWRBU0NtbUkyWk40WkMrWUkxTnNUZGZuQzVqYTJOZlY
+    Realme GT7 Pro Snapdragon 8 Elite 6.78Inches 120Hz LTPO OLED Screen Phone/Realme Mobile Phone/6500mAh 120W Fast Charging/Dual SIM/Realme Gaming Phone/
   Price:
-    $366.00
+    $1,188.00
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlbUgbxjwr0Ctzq7k5hcDAiyMYBlAvNN5bsounMylyf4EFXdPDD-Wd4326ADqzLP7cT8aYMQ&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRRcCO1n_EvB6l7HB5ppgbqr_NCxHCshOZKdgmrcT8cjyDaoB3N9XzYabex2ThpH1Bu1vMcIQ&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    173
   Position:
     6
 
 #7:
   Title:
-    SAMSUNG GALAXY A35 5G ( 8/128 GB LOCAL & 8/256 GB EXPORT ) LOCAL SET ONE YEAR WARRANTY & EXPORT SET 6 MONTHS SELLER /
+    realme C61 18GB(6+12)+128GB| 48-Month Fluency| Drop Resistance| 90Hz Display| 5000mAh Battery
   Source:
     Shopee
   Link:
-    https://shopee.sg/product/711931439/24072196249?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbFlzTWhXTllsYTdLQWhSSTViTUV2QjRldG8rdWdQY1FiR3hFcG1pRmkvaVViOVdVdktTdHJaYnR6T1BvZzhBSGxSVlV0d2kzVlJzVE1hWlljeGl0WjE
+    https://shopee.sg/product/1122769835/29856235117?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYlZHQ2t4bkd5cEtDalNlT2ZuMDZ2bTQ4WUV4OXVwcFFUc2VZWEZDK2R4emM5dEZJTFFGdlBtNWhCcmpSN3lyR0MzSk1kL1V1Wjgvd2I3NUlPUXU1TEU
   Price:
-    $339.72
+    $162.84
+  Delivery:
+    Free delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTrGA4tEsEly-bXtBKRpKrc332PSaHI78sa1wJa_Gpw3NFd3iC1XJMQq1kG&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTdu8mxDHqE_tBl0bsh1Ug_rYGh8IJ_f7kuXqcXG5AYixDCNrE-EMPal-_uBf96zYpmqDiS&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    4
   Position:
     7
 
 #8:
   Title:
-    Samsung Galaxy A35 // 8/256 Gb (5G)//Local Set & Export Set// 6 Months Seller Warranty // Free Bie
-  Source:
-    Lazada Singapore
-  Link:
-    https://www.lazada.sg/products/samsung-galaxy-a35-8256-gb-5glocal-set-export-set-6-months-seller-warranty-free-bie-i3238134702-s22348705697.html?from_gmc=1&fl_tag=1
+    Realme 12 5G 8+8/512GB | Extendable Ram Upto 16GB | Brand New With 2 Years Official Warranty| Get Free Gift!!
   Price:
-    $398.22
-  Delivery:
-    Free delivery
+    $329.00
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ8eYyl1EFO6FtQogPt122AwYTueHAsvwOOCJsN4aDi-vx1td0xXyttz8mj&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTs7iTVP_Mw87hppVLlsqCiiPbuVP9Md_QImryfWEZNpYCpLi3zqk6Jo0q0tkVjBtCnfIxhPQ&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    1
   Position:
     8
 
 #9:
   Title:
-    Galaxy A35 5G
+    Realme 12 5G Woodland Green 512GB
   Source:
-    Amazon.sg - Seller
+    Carousell
   Link:
-    https://www.amazon.sg/Samsung-Galaxy-128GB-Storage-Awesome/dp/B09L5KWMCK?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATOL2R4EI42YY
+    https://www.carousell.sg/pdp/P190942?listing_id=1346834707
   Price:
-    $465.00
+    $365.00
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSNaMNgJsWAufUOD-JSnHR9tqGK99fL_ng6RXtMcWQeDGkNFjHISH7UjqoUu7vw9rW8J1l75g&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQg46G3gesh21L9zB6oWHpliUoKIb3lGaQZ6x_q7iENQHCfHmtlopmuBGY8WK00kVPQpjvo&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    1
   Position:
     9
 
 #10:
   Title:
-    Samsung Galaxy A35 5G 8GB/128GB I 1 year warranty Samsung Warranty
+    Realme 13 Pro + 5G (12+12)GB/512GB +Free Realme Buds T110
   Source:
-    Shopee
+    Etoren.com
   Link:
-    https://shopee.sg/product/298590965/26761278327?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbFp5S0VrdUZQS1pFTVpVQmpXVGRlU0d4dGRIV0NLcS95RWs5OGx3ek9UWU53QjNKcWcrZjdjakM1OHdxaVJaVXhjK05yVS9VZ1BHL2pNL1dZdkpvcTg
+    https://sg.etoren.com/products/realme-13-pro-plus-5g-dual-sim-512gb-gold-12gb-ram-global-version?utm_source=google&utm_medium=free%20shopping&utm_campaign=free%20shopping&utm_content=free%20google%20shopping%20clicks
   Price:
-    $468.00
+    $858.00
+  Delivery:
+    $16.00 delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQyaEo2GtVVNqInQt8FwkvOyIOuy3M9erKoCeYO3jHtXZgj8BffucqBN0-jny4AhE2RhHby&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSRJr0RVcErBYn84U9mPujeCD7MjgeMIdZAbIDLnOI41ot2pxdI3J9ngVJu&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    683
+  Offers:
+    2
+  Product Id:
+    9273374165853557228
   Position:
     10
 
 #11:
   Title:
-    Samsung Galaxy A35 5G SM-A356E Dual Sim 128GB Awesome Lilac (8GB RAM)
+    realme C51 (4GB RAM, 128GB, Carbon Black)
   Source:
-    Etoren.com
+    Menakart
   Link:
-    https://sg.etoren.com/products/samsung-galaxy-a35-5g-sm-a356e-dual-sim-128gb-awesome-lilac-8gb-ram?utm_source=google&utm_medium=free%20shopping&utm_campaign=free%20shopping&utm_content=free%20google%20shopping%20clicks
+    https://www.menakart.com/realme-c51-128gb-4gb-carbon-black.html?srsltid=AfmBOooyJPyJq8q5duAYkOqcv3Fp2_3L64uUGmxyPvqVm42D8slhPpT2QEg
   Price:
-    $386.00
+    $132.05
   Delivery:
-    $16.00 delivery
+    $6.60 delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRHEJkPbfszoN_73qGZufpLyDjH-rKXX1wd8J9K09BRfGJm1vcsknvJphLg&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTVb53I5Wvg5SdhOo5gtebM6b8SnykSoh-GsDwY_q-VzZzGhdjvvo_p-jxU_lguseFJPtQMhg&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    20
-  Offers:
-    2
-  Product Id:
-    3826876001495737019
+    3
   Position:
     11
 
 #12:
   Title:
-    Samsung Galaxy A35 5G (8/128GB)
-  Source:
-    WhyMobile
-  Link:
-    https://www.whymobile.com/productinfo/1296993/samsung-galaxy-a35-5g--8-128gb-
+    Realme C61 4G | 6+6 / 128GB Expandable Virtual Memory Up To 6GB | Air Gesture Support | Brand New With 2 Years Realme Warranty | Free Gifts Included
   Price:
-    $375.00
-  Delivery:
-    $5.00 delivery
+    $169.00
   Image Url:
-    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTIuNagNfdhxSHUbqkjx8zTRmLI8ZdziyKgjKJNL0aHbwSMVgLormHy4LRo&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTp3irUkQKyMnom_MdeukOlBsdVZLy_-b6KFRHMWRJE2wqGo_Afv-vG8ETolUN7Ce_Yn_5j&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    4
   Position:
     12
 
 #13:
   Title:
-    Samsung Galaxy A35 5G 128GB Iceblue, SM-A356BLBBEUB
+    Realme C63 4g 8gb/256gb 6.7 Blue
   Source:
-    Amazon.sg - Seller
+    Techinn.com
   Link:
-    https://www.amazon.sg/Samsung-Galaxy-128GB-Iceblue-SM-A356BLBBEUB/dp/B0CVQCY59V?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATOL2R4EI42YY
+    https://www.tradeinn.com/techinn/en/realme-c63-4g-8gb-256gb-6.7/141598823/p?utm_source=google_products&utm_medium=merchant&id_producte=145930333&country=sg&srsltid=AfmBOooLUdfuDQCgSdQ4cqHfZ_1DeycbzIp4Gb6edj0FlX5C7GDBBTSzvt0
   Price:
-    $465.00
+    $204.99
   Delivery:
-    Free delivery
+    $19.99 delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRie00wjK_P3HWEpDJ_CjdsnFwfffqvKHTNoW78QvFf3O68Q-ZpUZ7Ar6NMr4aWTGNfeRYBaw&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRz4SsnxNQ1jxKOJw_LjdfVujxgdCqDrFLNl6q-zRERu0misVEeeNcgyjkrpmgnE6YY0OvAxA&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    4
   Position:
     13
 
 #14:
   Title:
-    Samsung A35 5G (128GB/8GB RAM) *FREE ORIGINAL CLEAR CASE* - 1 Year Samsung Singapore Local Warranty
-  Source:
-    Shopee
-  Link:
-    https://shopee.sg/product/418023032/9444852505?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkV1BNaHBLV2lHSzd2WEZjb2w0eUJua0Ivb3JvRnExdVdsYWtHckhDWGEyRHRlVkdNb1pyL0ozNERub0RqSlE2eloxMlI5bG40U3hoM2VwY2dIakJPU1ZzMmZGc3BjTE9vRW8vZ0FXbVI0ams
+    Realme 12X 5G (8/256Gb) (8/128Gb) | Nfc | 6.67 Inches | Global Rom | Local Set 2 Years Realme Official Warranty | Get Free Gifts !!!
   Price:
-    $410.98
+    $269.00
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS1JFW5FBmb81Yft7kw1mEkLCYxVNm6KPHizMScGJEcolWHkLPV_6bvVNid7hqwuetEuXU0&usqp=CAE
+    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT3nFG_tDza4-hObX5ZKNT1deWpnClLpWdh4Rl_TdadvJtFHKtQbSHqTGCT&usqp=CAE
   Rating:
     4.5
   Rating Count:
-    21
+    786
   Position:
     14
 
 #15:
   Title:
-    Samsung Galaxy A35 6gb/128gb 6.6 Purple One Size / EU Plug 220V
+    Realme 14x 5G 256Gb/(8Gb+10Gb) (5 Free Gifts) Peridot Green - Lifestyle | electronics | mobiles-tablets | mobiles
   Source:
-    Techinn.com
+    ZALORA Singapore
   Link:
-    https://www.tradeinn.com/techinn/en/samsung-galaxy-a35-6gb-128gb-6.6/140983055/p?utm_source=google_products&utm_medium=merchant&id_producte=143651853&country=sg&srsltid=AfmBOop-ePqrYeOYw8VZBRhRdaN19emGZezQjPP0eIydwqadPm564c8bBrI
+    https://www.zalora.sg/p/realme-14x-5g-256gb-8gb-10gb-5-free-gifts-peridot-green-3886426?productQuery=realme-14x-5g-256gb-8gb-10gb-5-free-gifts-peridot-green-3886426&toApp=1
   Price:
-    $346.99
+    $295.00
   Delivery:
-    $19.99 delivery
+    Free delivery
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQKYgz2jTR2pJ_bCo4Un5z8kp4G55NLTzOEtu9I2JzI8JvFCKElKOlkbrmV_7bs7RwxXILU&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQoX6vXAh0MkPlXB93Zpkf0bdX7_PbpdD00rtvmCtjLT-ayPlP8Z9hrfxkdksrBvSa7b8zCPfs&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    698
   Position:
     15
 
 #16:
   Title:
-    Samsung Galaxy A35 5G SM-A356E Dual Sim 256GB Awesome Navy (8GB RAM) at Etoren
+    [New] realme C75 24GB(8+16)+256GB| IP69 Dust & Water Resistance| 6000mAh Battery| ArmorShell Glass| AI Smart Experience
   Source:
-    Lazada Singapore
+    Shopee
   Link:
-    https://www.lazada.sg/products/samsung-galaxy-a35-5g-8256gb-global-rom-with-google-play-store-super-amoled-50mp-main-camera-brand-new-get-discount-price-or-get-free-gifts-i3155250180-s21470600262.html?from_gmc=1&fl_tag=1
+    https://shopee.sg/product/1122769835/25439667205?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWUNoc0pYRkdPRGErZWJkWlQwUGkzYlZHQ2t4bkd5cEtDalNlT2ZuMDZ2bVpqS1NxcnVaNUFGNFRVREhvRkF2UkVKNEt4VGd2YjRIYUtHOXh4UGo0dFRmZFRwQUNVaVEwdXZ0RE5jYk5FVTk
   Price:
-    $370.50
+    $220.44
   Delivery:
     Free delivery
   Image Url:
-    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTtkUjiUUQahLlF8T3uFAAgkWN8wvL5nHuOGaso0Hv1O2w2iP0ad9ygYTo&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSoORKNChme1f0Yg1IYE97Q-fI2QP6Qy4TeFvesuZFeeN_DqzVIjGd-CWHVGblZQn43R62OTA&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    20
-  Offers:
-    4
-  Product Id:
-    10223817400756828894
+    2
   Position:
     16
 
 #17:
   Title:
-    Samsung a35 5g.. 256gb
+    Realme 10 (8GB Ram, 128gb, Clash White)
   Source:
-    Carousell
+    eBay - soundsolutions_worldwide
   Link:
-    https://www.carousell.sg/p/1354923228
+    https://www.ebay.com/itm/204456987876?chn=ps&mkevt=1&mkcid=28&var=505042252187&google_free_listing_action=view_item&srsltid=AfmBOopNw7aCR-wuMjozUweIqy34rRKG8OnLerOWnJHePhfRvCXz2bz8wHI
   Price:
-    $310.00 used
-  Delivery:
-    Free delivery
+    $414.70 + tax
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS9ezK4mmFw6FsvepzQ4u7t5jE6H-V9C3a7KuGmX52acxyNtEBKZMgKTn5k&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS_bSC8ulbGrYg7EbHyCl2esEpSm1otfMAcS1HdAmoiZmbreD2Vb7TmjHAoMZHgfkpjIDHi&usqp=CAE
+  Rating:
+    5
+  Rating Count:
+    3
   Position:
     17
 
 #18:
   Title:
-    Samsung Galaxy A35 5G (8GB+128GB) **1 Year Singapore Samsung Warranty**
+    Realme C53 Dual-SIM 256GB ROM + 8GB RAM 4G (Champion Gold)
   Source:
-    Shopee
+    Microless.com
   Link:
-    https://shopee.sg/product/154412546/23464198885?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0N5akVpcE5OamJEdjRRTHBOTzhmbXc4ek00b3hodVhtSUZoaEo1ekNQaUhFbUJyQnBkMVFVUlFIVnlhOHZmZ21nN2xVMEJRMDVDbDVFT1U0cFd1TTVLTVc2eFFwOG90MFh6SitGWmIvY0E
+    https://global.microless.com/product/realme-c53-dual-sim-256gb-rom-8gb-ram-4g-champion-gold/?currency=usd&srsltid=AfmBOor-ZfX_7Zv196gbyd4ZYFPvCNBVOZvFjeC65UWnXJ7tsox01xJYIEM
   Price:
-    $458.00
+    $205.37 + tax
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSdDB6q6JqbMX44kiDDlbJNzZ7DeVvjXaWlQRBKSY5GogzXzdhPx11oHRYoAMBOVKrSlKo8&usqp=CAE
+    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRYM65sYy12C6uIjxIZ4hBq3EaJY4ftFBrncntsSAw2SpkO6in2pVKW5-s&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    12
   Position:
     18
 
 #19:
   Title:
-    Samsung Galaxy A35 128GB Light Blue 5G Smartphone
-  Source:
-    Microless.com
-  Link:
-    https://global.microless.com/product/samsung-galaxy-a35-5g-6-6-super-amoled-display-phone-dual-sim-8gb-ram-128gb-storage-5g-network-5000-mah-battery-120hz-refresh-rate-uae-version-awesome-ice-blue-sm-a356ep/?currency=usd&srsltid=AfmBOormi1LLNmOSzWZ-Uim9knn-_HKDPkVZ5ZvYHLRjZBJIzPYGDtIvsLQ
+    Realme 13 Pro+ Smartphone/Realme 13 Pro+ 5G Mobile Phone/Realme Phone/Snapdragon 7S Gen 2/6.7 Inches 120Hz Oled Screen/5200Mah/Sony Lyt-701 Ois/Sony L
   Price:
-    $328.13 + tax
+    $599.00
   Image Url:
-    https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQd2paxxWhimg4e3o3itYiCs3y8Ipsx_GCmmj4uI_K_q-umQnsX4M90NB_X8rcOv_pLBxgM&usqp=CAE
+    https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQBbdrwEHrTEzc6PGrRRN3rubnJpMjiffSn6MaFZTxr4q6NYtbdYCx-nczCYgagvcxjWCxsjQ&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    683
   Position:
     19
 
 #20:
   Title:
-    Galaxy A35 5G Ice Blue 128GB
+    Realme 12 Pro+ 5G (12+12)/512GB
   Source:
-    Carousell
+    Etoren.com
   Link:
-    https://www.carousell.sg/pdp/P189423?listing_id=1342292747
+    https://sg.etoren.com/products/realme-12-pro-plus-5g-rmx3840-dual-sim-512gb-navigator-beige-12gb-ram-global-version?utm_source=google&utm_medium=free%20shopping&utm_campaign=free%20shopping&utm_content=free%20google%20shopping%20clicks
   Price:
-    $429.00
+    $597.00
   Delivery:
-    Free delivery
+    $16.00 delivery
   Image Url:
-    https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRGkY6VgMf1CVE6LPzwKr4SQLctooDvV0-N6-2UhI8TzlvCiNHA0_Fux6NuCak5sZ7ic2bO&usqp=CAE
+    https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTuHiV--UVlI8Ve438nBHfmUp0-Q5y6lblfqeSKwP3CVJrJjAqx1iRX8Pl1MrEAT_3hfdVX5A&usqp=CAE
   Rating:
-    4.5
+    5
   Rating Count:
-    21
+    3
+  Offers:
+    3
+  Product Id:
+    5507210996319159802
   Position:
     20
       </searchResults>
