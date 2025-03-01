@@ -5,7 +5,6 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag } from 'lucide-react';
-import Image from 'next/image';
 
 interface ProductStoreGridProps {
   productGroups: ProductGroup[];
