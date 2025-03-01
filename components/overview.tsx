@@ -17,11 +17,11 @@ export const Overview = () => {
           <ShoppingIcon size={48} />
         </p>
         <p>
-          Shop smarter with <span className="font-bold">Shopper AI</span> – Earn cashback on your purchases!
+          Shop smarter with <span className="font-bold">Shopper AI</span> and earn cashback!
         </p>
         <p>
-          Find the best products across stores with deep shopping research and enjoy personalized recommendations that
-          evolve with your preferences.
+          Find the best products across stores with deep shopping research and personalized recommendations that evolve
+          with your preferences.
         </p>
       </div>
     </motion.div>
