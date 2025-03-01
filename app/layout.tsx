@@ -16,10 +16,14 @@ export const metadata: Metadata = {
     siteName: 'Shopper AI',
     url: 'https://theshopper.cc',
     countryName: 'United States',
-    images: {
-      url: 'https://theshopper.cc/cover.png',
-      alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
-    },
+    images: [
+      {
+        url: 'https://theshopper.cc/cover.png',
+        width: 1200,
+        height: 630,
+        alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+      },
+    ],
   },
   twitter: {
     site: '@abdrahmanBTC',
