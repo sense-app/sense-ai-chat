@@ -6,7 +6,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://theshopper.cc'),
   title: 'Shopper AI - DeepSearch Shopping with cashback on purchases',
   description: 'Shop smarter with Shopper AI and earn cashback on your purchases',
   openGraph: {
@@ -31,10 +30,14 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shopper AI',
     description: 'Shop smarter with Shopper AI and earn cashback on your purchases',
-    images: {
-      url: 'https://theshopper.cc/cover.png',
-      alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
-    },
+    images: [
+      {
+        url: 'https://theshopper.cc/cover.png',
+        width: 1200,
+        height: 630,
+        alt: 'Shop smarter with Shopper AI and earn cashback on your purchases',
+      },
+    ],
   },
   robots: {
     index: true,
