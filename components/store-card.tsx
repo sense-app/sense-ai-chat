@@ -12,6 +12,10 @@ interface StoreCardProps {
 }
 
 export const StoreCard = ({ name, imageUrl, shopUrl, reason, className }: StoreCardProps) => {
+  // Check for required fields
+  if (!name || !imageUrl || !shopUrl) {
+    return null; // Skip rendering if any required field is missing
+  }
   return (
     <Card className={cn('h-full flex flex-col transition-all duration-300 hover:shadow-md', className)}>
       <CardHeader className="pb-2">

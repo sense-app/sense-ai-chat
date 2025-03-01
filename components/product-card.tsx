@@ -1,4 +1,3 @@
-
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -41,6 +40,10 @@ export const ProductCard = ({
   storeName,
   storeImageUrl,
 }: ProductCardProps) => {
+  // Check for required fields
+  if (!name || !imageUrl || !price || !category || !productURL || !currencyCode) {
+    return null; // Skip rendering if any required field is missing
+  }
   const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
 
   return (

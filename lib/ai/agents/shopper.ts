@@ -3,6 +3,7 @@ import { serpSearch, type SerpShoppingResult } from '@/lib/services/serp';
 import { type DataStreamWriter, tool } from 'ai';
 import { GoogleGenerativeAI, type Schema } from '@google/generative-ai';
 import { shoppingResultsSchemaForGemini } from './shopping-results-schema';
+import { jsonrepair } from 'jsonrepair';
 
 import { z } from 'zod';
 
@@ -110,15 +111,17 @@ export const shop = (dataStream: DataStreamWriter) =>
       query: z.string().describe('What does the user want?'),
       searchTerms: z
         .array(productSearchSchema)
+
         .describe(
-          'List of product search terms - name/kind/type/categories. Each search term has to be explicit and clear',
+          'List up to max 3 product search terms - name/kind/type/categories. Each search term has to be explicit and clear',
         ),
     }),
     execute: async (params) => {
       const { thoughts, query, searchTerms } = params;
 
+      const limitedSearchTerms = searchTerms.slice(0, 3);
       const searchResults = await shoppingSearch(
-        searchTerms.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
+        limitedSearchTerms.map((product) => `${product.searchTerm} ${product?.filter ?? ''}`),
       );
       // const searchResults = await shoppingSearch([`${searchTerms[0].searchTerm} ${searchTerms[0]?.filter ?? ''}`]);
       const shoppingItems = searchResults.results.map((result) => ({
@@ -169,7 +172,8 @@ This allows for easy comparison of prices, offers, and delivery details for the 
 Each product should appear only once, either in the "store" or "product" grouping, not both.
 Be careful with JSON errors. Structure the response accurarely in JSON format. Handle URLs correctly and do not edit them.
 
-The JSON schema should not exceed 8000 tokens. Ouput a valid JSON schema.
+The JSON schema should not exceed 8000 tokens. Stop adding new items to the JSON object if it will exceed more than 8000 token.
+ Ouput a valid JSON schema. 
 `;
 
 const getShoppingPrompt = (shopping: Shopping) => {
@@ -221,7 +225,7 @@ export const shopper = async (dataStream: DataStreamWriter, shopping: Shopping) 
     try {
       const model = genAI.getGenerativeModel(modelConfig);
       const result = await model.generateContent(prompt);
-      const response: ShoppingResults = JSON.parse(result.response.text());
+      const response: ShoppingResults = JSON.parse(jsonrepair(result.response.text()));
       writeToFile(JSON.stringify(response), 'shopping-results');
       return response;
     } catch (error) {
